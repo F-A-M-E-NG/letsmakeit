@@ -121,13 +121,13 @@ class Header extends Component {
           <Container fluid>
             <Row>
               <Col className="col-xs-6" sm={12} md={3} lg={3}>
-                <div className="logo-area">
+                <div className="logo-area" style={{ display:'flex', justifyContent:'center'}}>
                   <Link to={Config.defaultPath}>
-                    <img src={logo} alt="logo" />
+                    <img src={logo} alt="logo" style={{maxHeight:'10vh', justifyContent:'center'}} />
                   </Link>
                 </div>
               </Col>
-              <Col lg={9} md={9} sm={12} className="col-xs-6">
+              <Col lg={9} md={10} sm={12} className="col-xs-6">
                 <div className="menu-area hidden-xs">
                   <nav className="wd_single_index_menu btc_main_menu">
                     {navigation}

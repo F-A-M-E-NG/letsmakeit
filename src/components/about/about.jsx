@@ -7,7 +7,7 @@ import aboutimg from "../../assets/images/about/1.png";
 class About extends Component {
 	render() {
 		let page = (
-			<Row>
+			<Row style={{ paddingTop: "10vh" }}>
 				<Col lg={6} md={6} sm={12} className="col-xs-12">
 					<div className="about-content">
 						<h2 className="f-40 fw-400">About The Project</h2>
@@ -29,11 +29,11 @@ class About extends Component {
 							convenient currency.
 						</p>
 						<div className="buttons">
-							<Link to="#" className="btn1">
-								WHITEPAPER
+							<Link to="/invest" className="btn1">
+								Explore More
 							</Link>
-							<Link to="#" className="btn3">
-								Buy Tokens Now!
+							<Link to="/register" className="btn3">
+								Get Started!
 							</Link>
 						</div>
 					</div>

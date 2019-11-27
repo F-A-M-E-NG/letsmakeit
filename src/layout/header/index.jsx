@@ -146,7 +146,7 @@ class Header extends Component {
                     </ul>
                   </div>
                   <div className="login-btn">
-                    <Link to="#" className="btn1">
+                    <Link to="/login" className="btn1">
                       <i className="fa fa-user"></i>
                       <span>Login</span>
                     </Link>

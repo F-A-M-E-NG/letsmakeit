@@ -75,21 +75,21 @@ class MainSlider extends Component {
 		const data = [
 			{
 				title:
-					"Innovation Solutions tailored to meet your financial objectives",
+					"Innovative Solutions tailored to meet your financial objectives ",
 				btn1: "Get Started!",
-				btn2: "Explore Projects"
+				btn2: "Explore Products"
 			},
 			{
 				title:
-					"Innovation Solutions tailored to meet your financial objectives",
+					"Innovative Solutions tailored to meet your financial objectives ",
 				btn1: "Get Started!",
-				btn2: "Explore Projects"
+				btn2: "Explore Products"
 			},
 			{
 				title:
-					"Innovation Solutions tailored to meet your financial objectives",
+					"Innovative Solutions tailored to meet your financial objectives ",
 				btn1: "Get Started!",
-				btn2: "Explore Projects"
+				btn2: "Explore Products"
 			}
 		];
 		const Items = data.map((obj, i) => (
@@ -125,6 +125,9 @@ class MainSlider extends Component {
 										</Link>
 									</li>
 								</ul>
+								<h2>
+									{obj.title} {}
+								</h2>
 								<div className="buttons">
 									<Link to="#" className="btn1">
 										{obj.btn1}
@@ -158,7 +161,7 @@ class MainSlider extends Component {
 					}}
 				></div>
 				<div className="carousel">
-					<Slider autoplay duration={3000}>
+					<Slider autoplay duration={10000}>
 						{Items}
 					</Slider>
 				</div>

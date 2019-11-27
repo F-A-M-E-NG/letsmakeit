@@ -6,27 +6,21 @@ import Steps from "../components/steps/steps";
 import Roadmap from "../components/roadMap/roadmap";
 import Tokens from "../components/token/tokens";
 import PressMedia from "../components/pressmedia/pressmedia";
-import Subscribe from "../components/subscribe/subscribe";
+import Subscribe from "../components/sub/subscribe";
 import MainSlider from "../components/mainSlider/mainSlider";
 import Currency from "../components/currency/currency";
 import Teams from "../components/team/team";
 import Blogs from "../components/blog/blog";
 
-class HomePage extends Component {
+class InvestmentPage extends Component {
 	render() {
 		return (
 			<Fragment>
-				<MainSlider />
-
-				<Projects />
-				<Tokens />
-				<Teams fill="#f6f6ff" />
-				<Blogs />
-				<PressMedia />
+				<Features />
 				<Subscribe />
 			</Fragment>
 		);
 	}
 }
 
-export default HomePage;
+export default InvestmentPage;

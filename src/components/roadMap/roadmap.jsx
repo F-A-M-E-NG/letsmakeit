@@ -29,24 +29,84 @@ class Roadmap extends Component {
   }
   render() {
     let titleAni = (
-      <h2>Development of Bit Money Platform<br />(Road Map)</h2>
+      <div><h1>Savings</h1>
+      <p>Our Savings Products</p></div>
+      
     )
     let contents = (
       <ul>
         <li>
-          <span className="years"><span className="con">2016</span></span>
+          <span className="years"><span className="con">e-Savings</span></span>
           <div className="serials">
             <span className="cre"></span>
             <Col sm={6} className="col-xs-12 left-con">
               <div className="box-con">
                 <div className="dbox">
-                  <div className="dleft">
-                    <div className="imgs"><img src={video2} alt="video" /></div>
-                  </div>
                   <div className="dright">
                     <div className="content">
-                      <h3>Idea</h3>
-                      <p>(September - October)</p>
+                      <h2>e-Savings</h2>
+                      <p>A convenient, secure and supporting savings product that enables you to increase your cash base and creating extra income. It is a daily fixed amount contribution with withdrawals only allowed at the end of the month of the contribution if need be.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Col>
+            <Col sm={6} className="col-xs-12 right-con">
+              <div className="box-con">
+                <div className="dbox">
+                  <div className="dleft">
+                    <div className="content">
+                      <h3>Market Research</h3>
+                      <p>(October - December)</p>
+                    </div>
+                  </div>
+                  <div className="dright">
+                    <div className="imgs"><img src={video3} alt="video" /></div>
+                  </div>
+                </div>
+              </div>
+            </Col>
+          </div>
+        </li>
+        
+        <li>
+          <span className="years"><span className="con">e-Savings</span></span>
+          <div className="serials">
+            <span className="cre"></span>
+            <Col sm={6} className="col-xs-12 left-con">
+              <div className="box-con">
+                <div className="dbox">
+                <div className="dleft">
+                    <div className="imgs"><img src={video3} alt="video" /></div>
+                  </div>
+                </div>
+              </div>
+            </Col>
+            <Col sm={6} className="col-xs-12 right-con">
+              <div className="box-con">
+                <div className="dbox">
+                  <div className="dleft">
+                    <div className="content">
+                    <h2>e-Savings</h2>
+                      <p>A convenient, secure and supporting savings product that enables you to increase your cash base and creating extra income. It is a daily fixed amount contribution with withdrawals only allowed at the end of the month of the contribution if need be.</p>
+                   </div>
+                  </div>
+                </div>
+              </div>
+            </Col>
+          </div>
+        </li>
+        <li>
+          <span className="years"><span className="con">e-Savings</span></span>
+          <div className="serials">
+            <span className="cre"></span>
+            <Col sm={6} className="col-xs-12 left-con">
+              <div className="box-con">
+                <div className="dbox">
+                  <div className="dright">
+                    <div className="content">
+                      <h2>e-Savings</h2>
+                      <p>A convenient, secure and supporting savings product that enables you to increase your cash base and creating extra income. It is a daily fixed amount contribution with withdrawals only allowed at the end of the month of the contribution if need be.</p>
                     </div>
                   </div>
                 </div>
@@ -70,21 +130,15 @@ class Roadmap extends Component {
           </div>
         </li>
         <li>
-          <span className="years"><span className="con">2017</span></span>
+          <span className="years"><span className="con">e-Savings</span></span>
           <div className="serials">
             <span className="cre"></span>
             <Col sm={6} className="col-xs-12 left-con">
               <div className="box-con">
                 <div className="dbox">
-                  <div className="dleft">
+                <div className="dleft">
                     <div className="imgs"><img src={video3} alt="video" /></div>
                   </div>
-                  <div className="dright">
-                    <div className="content">
-                      <p>(1Q 2017)</p>
-                      <h3>Formation of foundersteam Business plan</h3>
-                    </div>
-                  </div>
                 </div>
               </div>
             </Col>
@@ -93,65 +147,27 @@ class Roadmap extends Component {
                 <div className="dbox">
                   <div className="dleft">
                     <div className="content">
-                      <p>(2Q 2017)</p>
-                      <h3>Start of Platform<br /> Development</h3>
-                    </div>
-                  </div>
-                  <div className="dright">
-                    <div className="imgs"><img src={video4} alt="video" /></div>
-                  </div>
-                </div>
-              </div>
-            </Col>
-          </div>
-          <div className="serials">
-            <span className="cre"></span>
-            <Col sm={6} className="col-xs-12 left-con">
-              <div className="box-con">
-                <div className="dbox">
-                  <div className="dleft">
-                    <div className="imgs"><img src={video5} alt="video" /></div>
-                  </div>
-                  <div className="dright">
-                    <div className="content">
-                      <p>(3Q 2017)</p>
-                      <h3>WhitePaper<br /> Landing page</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Col>
-            <Col sm={6} className="col-xs-12 right-con">
-              <div className="box-con">
-                <div className="dbox">
-                  <div className="dleft">
-                    <div className="content">
-                      <p>(4Q 2017)</p>
-                      <h3>Pre-Sale<br />Launch Platform<br />in beta test mode</h3>
-                    </div>
-                  </div>
-                  <div className="dright">
-                    <div className="imgs"><img src={video6} alt="video" /></div>
+                    <h2>e-Savings</h2>
+                      <p>A convenient, secure and supporting savings product that enables you to increase your cash base and creating extra income. It is a daily fixed amount contribution with withdrawals only allowed at the end of the month of the contribution if need be.</p>
+                   </div>
                   </div>
                 </div>
               </div>
             </Col>
           </div>
         </li>
+        
         <li>
-          <span className="years"><span className="con">2018</span></span>
+          <span className="years"><span className="con">e-Savings</span></span>
           <div className="serials">
             <span className="cre"></span>
             <Col sm={6} className="col-xs-12 left-con">
               <div className="box-con">
                 <div className="dbox">
-                  <div className="dleft">
-                    <div className="imgs"><img src={video7} alt="video" /></div>
-                  </div>
                   <div className="dright">
                     <div className="content">
-                      <p>(1Q 2018)</p>
-                      <h3>ICO Launch<br />Identification<br />Systemsand work<br />with API Partners</h3>
+                      <h2>e-Savings</h2>
+                      <p>A convenient, secure and supporting savings product that enables you to increase your cash base and creating extra income. It is a daily fixed amount contribution with withdrawals only allowed at the end of the month of the contribution if need be.</p>
                     </div>
                   </div>
                 </div>
@@ -162,37 +178,19 @@ class Roadmap extends Component {
                 <div className="dbox">
                   <div className="dleft">
                     <div className="content">
-                      <p>(2Q 2018)</p>
-                      <h3>Launch the<br />Platform in<br />Full mode</h3>
+                      <h3>Market Research</h3>
+                      <p>(October - December)</p>
                     </div>
                   </div>
                   <div className="dright">
-                    <div className="imgs"><img src={video8} alt="video" /></div>
-                  </div>
-                </div>
-              </div>
-            </Col>
-          </div>
-          <div className="serials">
-            <span className="cre"></span>
-            <Col sm={12} className="col-xs-12 center-con">
-              <div className="box-con">
-                <div className="dbox">
-                  <div className="dleft">
-                    <div className="imgs"><img src={video9} alt="video" /></div>
-                  </div>
-                  <div className="dright">
-                    <div className="content">
-                      <p>(4Q 2018)</p>
-                      <h3>Establishing<br />Representative<br />Office</h3>
-                    </div>
+                    <div className="imgs"><img src={video3} alt="video" /></div>
                   </div>
                 </div>
               </div>
             </Col>
           </div>
         </li>
-      </ul>
+       </ul>
     )
     if (this.props.animate) {
       titleAni = (

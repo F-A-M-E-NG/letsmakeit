@@ -15,7 +15,9 @@ class Features extends Component {
         <Row>
           <Col lg={12} md={12} sm={12} className="col-xs-12">
             <div className="section-heading2">
-              <h2>Our Features</h2>
+              <h2>INVESTMENTS</h2>
+              <span style={{width:"10px", height:"5px", background:"red"}}></span>
+              <h2>Our Investment Products</h2>
             </div>
           </Col>
         </Row>
@@ -26,8 +28,12 @@ class Features extends Component {
                 <li>
                   <Col className="pd-0 hidden-xs" sm={6}>
                     <div className="contents-l mr-b30">
-                      <h2>Lending</h2>
-                      <p>Unique platform for lending and investment with a safety fund <br />and cooperation with world-wide arbitration.</p>
+                      <h2>Bond Fund</h2>
+                      <p>The Brass & Books Bond fund is a managed investment scheme 
+                        invested primarily in debt instruments to provide intervention 
+                        working capital for small and medium enterprises to meet liquidity
+                         and on-going business demands.
+                        </p>
                       <Link to="#" className="btn1">read more</Link>
                     </div>
                   </Col>
@@ -40,16 +46,22 @@ class Features extends Component {
                     <div className="contents-l mr-b30">
                       <h2>Lending</h2>
                       <p>Unique platform for lending and investment with a safety fund <br /> and cooperation with world-wide arbitration.</p>
-                      <Link to="#" className="btn1">read more</Link>
+                      <Link to="#" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                 </li>
                 <li className="rl">
                   <Col className="pd-0 floatright mr-b30 hidden-xs" sm={6}>
                     <div className="contents-r">
-                      <h2>Exchange Money</h2>
-                      <p>Exchange between all popular currencies with a couple of clicks. <br />Instant send from one currency to another.</p>
-                      <Link to="#" className="btn1">read more</Link>
+                      <h2>Growth Fund</h2>
+                      <p>This fund provides financing, structure and mentorship for small 
+                        and medium enterprises. We structure unique, individualised financing
+                         solutions using shareholders’ loans, equity, royalties and term loans – or any 
+                         combination of these and provides value-added expert assistance whilst ensuring
+                          the funds of the investor is safe and yielding sustainable cashflow.
+                      </p>
+
+                      <Link to="#" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                   <Col className="pd-0" sm={6}>
@@ -61,16 +73,24 @@ class Features extends Component {
                     <div className="contents-r">
                       <h2>Exchange Money</h2>
                       <p>Exchange between all popular currencies with a couple of clicks.<br />Instant send from one currency to another.</p>
-                      <Link to="#" className="btn1">read more</Link>
+                      <Link to="#" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                 </li>
                 <li>
                   <Col className="pd-0 hidden-xs" sm={6}>
                     <div className="contents-l mr-b30">
-                      <h2>Investment</h2>
-                      <p>Improved system of borrower's verification. Providing <br />verification services for other services.</p>
-                      <Link to="#" className="btn1">read more</Link>
+                      <h2>Premium Fund</h2>
+                      <p>
+                        The Brass & Books Premium Fund is a mid-term Investment vehicle 
+                        for the discerning investor, providing a viable source of financing
+                         for lower middle market companies in Africa.
+                          Brass & Books Financial Services is actively raising a N1B fund that 
+                          seeks to deploy N5m – 50m of growth capital investments in small and 
+                          medium sized enterprises via the use of mezzanine debt and 
+                          quasi-equity instruments to firms operating across West Africa.
+                      </p>
+                      <Link to="#" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                   <Col className="pd-0" sm={6}>
@@ -80,9 +100,16 @@ class Features extends Component {
                   </Col>
                   <Col className="pd-0 visible-xs" sm={6}>
                     <div className="contents-l mr-b30">
-                      <h2>Investment</h2>
-                      <p>Improved system of borrower's verification. Providing <br />verification services for other services.</p>
-                      <Link to="#" className="btn1">read more</Link>
+                      <h2>Premium Fund</h2>
+                      <p>The Brass & Books Premium Fund is a mid-term Investment vehicle 
+                        for the discerning investor, providing a viable source of financing
+                         for lower middle market companies in Africa.
+                          Brass & Books Financial Services is actively raising a N1B fund that 
+                          seeks to deploy N5m – 50m of growth capital investments in small and 
+                          medium sized enterprises via the use of mezzanine debt and 
+                          quasi-equity instruments to firms operating across West Africa.
+                      </p>
+                      <Link to="#" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                 </li>
@@ -91,7 +118,7 @@ class Features extends Component {
                     <div className="contents-r">
                       <h2>Online Wallet</h2>
                       <p>Keep your money, exchange your money, invest your money, pay <br />services and make purchases.</p>
-                      <Link to="#" className="btn1">read more</Link>
+                      <Link to="#" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                   <Col className="pd-0" sm={6}>
@@ -103,7 +130,7 @@ class Features extends Component {
                     <div className="contents-r">
                       <h2>Online Wallet</h2>
                       <p>Keep your money, exchange your money, invest your money, pay  <br />services and make purchases.</p>
-                      <Link to="#" className="btn1">read more</Link>
+                      <Link to="#" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                 </li>

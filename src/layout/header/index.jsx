@@ -59,47 +59,52 @@ class Header extends Component {
             800
           );
       });
-      $(window).scroll(function() {
-        var windscroll = $(window).scrollTop();
-        var target = $('.wd_single_index_menu ul li');
-        if (windscroll >= 0) {
-          $('.wd_scroll').each(function(i) {
-            if ($(this).position().top <= windscroll + 90) {
-              target.removeClass('active');
-              target.eq(i).addClass('active');
-            }
-          });
-        } else {
-          target.removeClass('active');
-          $('.wd_single_index_menu ul li:first').addClass('active');
-        }
-      });
+      // $(window).scroll(function() {
+      //   var windscroll = $(window).scrollTop();
+      //   var target = $('.wd_single_index_menu ul li');
+      //   if (windscroll >= 0) {
+      //     $('.wd_scroll').each(function(i) {
+      //       if ($(this).position().top <= windscroll + 90) {
+      //         target.removeClass('active');
+      //         target.eq(i).addClass('active');
+      //       }
+      //     });
+      //   } else {
+      //     target.removeClass('active');
+      //     $('.wd_single_index_menu ul li:first').addClass('active');
+      //   }
+      // });
     });
     let navigation = (
       <ul>
         <li>
-          <Link className="nav-link" to="/save">
+          <Link className="nav-link" to="/">
             Home
           </Link>
         </li>
         <li>
-          <Link className="nav-link" to="/products">
+          <Link className="nav-link" to="/save">
             Save
           </Link>
         </li>
         <li>
-          <Link className="nav-link" to="/">
+          <Link className="nav-link" to="/invest">
             Invest
           </Link>
         </li>
         <li>
-          <Link className="nav-link" to="/team">
+          <Link className="nav-link" to="/loan">
             Loan
           </Link>
         </li>
         <li>
           <Link className="nav-link" to="/about">
             About Us
+          </Link>
+        </li>
+        <li>
+          <Link className="nav-link" to="/register">
+            Register
           </Link>
         </li>
       </ul>

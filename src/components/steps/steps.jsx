@@ -12,7 +12,7 @@ class Steps extends Component {
             <Row>
               <Col lg={11} md={11} sm={12} className="col-xs-12">
                 <div className="steps-heading">
-                  <h2>Few Steps For a Loan</h2>
+                  <h2>Loans and Advances</h2>
                   <div className="right-con">
                     <span>Scroll Down</span>
                     <Link to="#steps"><i className="fa fa-angle-down"></i></Link>
@@ -30,50 +30,40 @@ class Steps extends Component {
                   <ul>
                     <li className="l-con">
                       <div className="cont">
-                        <h2>01. Registration On The Platform</h2>
-                        <p>Nam in lectus eget nisi aliquam ultrices. Aliquam at efficitur  <br />nulla. Cras sodales eu nibh vel scelerisque. </p>
+                        <h2>Salary and Personal Loans</h2>
+                        <p>They are loans specially designed for the government and private sector employees who have regular or stable incomes. The deductions for repayments are taken at source from the employee’s salary.
+                        </p>
+                        <button className="btn1">Get Started!</button>
                       </div>
                       <span><i className="fa fa-users"></i></span>
                     </li>
                     <li className="r-con">
                       <div className="cont">
-                        <h2>02. Passing Verification</h2>
-                        <p>Nam in lectus eget nisi aliquam ultrices. Aliquam at efficitur
-                                            <br />nulla. Cras sodales eu nibh vel scelerisque. </p>
+                        <h2>Group Loans</h2>
+                        <p>They are loans that are available to groups, associations, corporate organizations, and individual-walk-ins. The group or associations would usually consist of 5 to 10 individual members that are granted specific sums as loans without collateral. Available to both regular and walk-in clients
+                           </p>
+                           <button className="btn1">Get Started!</button>
                       </div>
                       <span><i className="fa fa-check-square-o"></i></span>
                     </li>
                     <li className="l-con">
                       <div className="cont">
-                        <h2>03. Creating An Application For a Loan</h2>
-                        <p>Nam in lectus eget nisi aliquam ultrices. Aliquam at efficitur
-                                            <br />nulla. Cras sodales eu nibh vel scelerisque. </p>
+                        <h2>Small Business Loans</h2>
+                        <p>BBMPCS, as a foremost Credit Union provides intervention working capital funds for small and medium enterprises in different sectors of the economy. These loans give businesses the opportunity to expand their business and generate more income </p>
+                        <button className="btn1">Get Started!</button>
                       </div>
                       <span><i className="fa fa-edit "></i></span>
                       <div className="mid-icons"></div>
                     </li>
                     <li className="r-con">
                       <div className="cont">
-                        <h2>04. Financing a Loan</h2>
-                        <p>Nam in lectus eget nisi aliquam ultrices. Aliquam at efficitur
-                                            <br />nulla. Cras sodales eu nibh vel scelerisque. </p>
+                        <h2>Structured Financing</h2>
+                        <p>Not all business models can fit into a regular loan structure for their financing needs. Our flexible structured financing products are customised to suit the needs of business at different stages in diverse industries. </p>
+                        <button className="btn1">Get Started!</button>
                       </div>
                       <span><i className="fa fa-university"></i></span>
                     </li>
-                    <li className="l-con">
-                      <div className="cont">
-                        <h2>05. Activating a Loan</h2>
-                        <p>Nam in lectus eget nisi aliquam ultrices. Aliquam at efficitur <br />nulla. Cras sodales eu nibh vel scelerisque. </p>
-                      </div>
-                      <span><i className="fa fa-bell"></i></span>
-                    </li>
-                    <li className="r-con">
-                      <div className="cont">
-                        <h2>06. Receiving Funds</h2>
-                        <p>Nam in lectus eget nisi aliquam ultrices. Aliquam at efficitur <br />nulla. Cras sodales eu nibh vel scelerisque. </p>
-                      </div>
-                      <span><i className="fa fa-paw"></i></span>
-                    </li>
+                    
                   </ul>
                 </div>
               </Col>

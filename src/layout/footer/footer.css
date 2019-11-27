@@ -1,0 +1,37 @@
+.foo-bot {
+	background: rgb(33, 30, 65);
+	max-height: 40vh;
+}
+
+.foo-bot h6 {
+	color: rgb(216, 216, 216);
+	font-size: 15px;
+	padding-top: 10%;
+}
+
+.tag-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.footer-bottom-text {
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	margin-top: 5%;
+	color: #afafaf;
+	padding: 10px;
+}
+
+.footer-bottom-text span {
+	margin-top: 5%;
+}
+
+.line {
+	border-right: 1px solid rgb(255, 255, 255);
+	height: 30px;
+	width: 9px;
+	margin-left: 5%;
+}
+
+.number {
+	margin-left: 5%;
+}

@@ -10,90 +10,47 @@ class Footer extends Component {
 	}
 	render() {
 		return (
-			<div className="wd_scroll_wrap">
-				<footer className="foo-bot">
-					<div className="footer-bottom">
-						<Container>
+			<div className="foo-bot">
+				<div className="p-5">
+					<div className="mt-3 p-3">
+						<Container className="p-5 mt-5">
 							<Row>
-								<div>
-									<Col lg={3} md={3} sm={12} className="col-xs-12">
-										<div className="copyright">
-											<p>
-												© {this.year - 1} - {this.year}{" "}
-												<Link to="#">
-													<span>Bit Money</span>
-												</Link>
-											</p>
-										</div>
-									</Col>
-									<Col lg={6} md={6} sm={12} className="col-xs-12">
-										<div className="foo-link">
-											<ul>
-												<li>
-													<Link to="#">WhitePaper</Link>
-												</li>
-												<li>
-													<Link to="#">Terms of Service</Link>
-												</li>
-												<li>
-													<Link to="#">Privacy Policy</Link>
-												</li>
-											</ul>
-										</div>
-									</Col>
-									<Col lg={3} md={3} sm={12} className="col-xs-12">
-										<div className="">
-											<p>
-												© {this.year - 1} - {this.year}{" "}
-												<Link to="#">
-													<span>Bit Money</span>
-												</Link>
-											</p>
-										</div>
-									</Col>
-								</div>
+								<Col md={3}></Col>
 
-								<div>
-									<Col lg={3} md={3} sm={12} className="col-xs-12">
-										<div className="copyright">
-											<p>
-												© {this.year - 1} - {this.year}{" "}
-												<Link to="#">
-													<span>Bit Money</span>
-												</Link>
-											</p>
-										</div>
-									</Col>
-									<Col lg={6} md={6} sm={12} className="col-xs-12">
-										<div className="foo-link">
-											<ul>
-												<li>
-													<Link to="#">WhitePaper</Link>
-												</li>
-												<li>
-													<Link to="#">Terms of Service</Link>
-												</li>
-												<li>
-													<Link to="#">Privacy Policy</Link>
-												</li>
-											</ul>
-										</div>
-									</Col>
-									<Col lg={3} md={3} sm={12} className="col-xs-12">
-										<div className="">
-											<p>
-												© {this.year - 1} - {this.year}{" "}
-												<Link to="#">
-													<span>Bit Money</span>
-												</Link>
-											</p>
-										</div>
-									</Col>
-								</div>
+								<Col md={6}>
+									<h6 className="mt-5">
+										No 62, Erepa Road, Yenizuegene, Yenagoa, Bayelsa State,
+										Nigeria
+									</h6>
+									<div class="tag-row">
+										<span>hello@bbmpcs.ng</span>
+										<div className="line" />
+										<span className="number">+2349030487810</span>
+									</div>
+								</Col>
+
+								<Col md={3}></Col>
 							</Row>
 						</Container>
+						<div className="footer-bottom-text">
+							<Container>
+								<Row>
+									<Col md={10}>
+										<span>© 2019 BBMPCS</span>
+									</Col>
+									<Col>
+										<span>
+											Developed by{" "}
+											<a class="para" href="http://safescrow.com.ng/">
+												SafeScrow
+											</a>
+										</span>
+									</Col>
+								</Row>
+							</Container>
+						</div>
 					</div>
-				</footer>
+				</div>
 			</div>
 		);
 	}

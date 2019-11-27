@@ -13,6 +13,7 @@ import Teams from "./components/team/team";
 import Blogs from "./components/blog/blog";
 import Homepage from "./view/HomePage";
 import HomePage from "./view/HomePage";
+// import "./layout/footer/footer.css";
 
 // const HomePage = lazy(() => import('./view/HomePage'))
 // const About = lazy(() => import('./components/about/about'))

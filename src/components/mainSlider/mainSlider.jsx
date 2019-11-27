@@ -125,9 +125,6 @@ class MainSlider extends Component {
 										</Link>
 									</li>
 								</ul>
-								<h2>
-									{obj.title} {i + 1}
-								</h2>
 								<div className="buttons">
 									<Link to="#" className="btn1">
 										{obj.btn1}

@@ -1,0 +1,7 @@
+#back {
+ background: url("../../assets/images/save/bg-img-10.png") center / cover fixed, no-repeat;
+ color:red;
+ background-position: center;
+ position: relative;
+ 
+}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
+import "./footer.css";
 
 class Footer extends Component {
 	constructor(props) {
@@ -13,7 +14,7 @@ class Footer extends Component {
 			<div className="foo-bot">
 				<div className="p-5">
 					<div className="mt-3 p-3">
-						<Container className="p-5 mt-5">
+						<Container className="p-5 mt-5" style={{ paddingTop: "" }}>
 							<Row>
 								<Col md={3}></Col>
 
@@ -34,7 +35,13 @@ class Footer extends Component {
 						</Container>
 						<div className="footer-bottom-text">
 							<Container>
-								<Row>
+								<Row
+									style={{
+										display: "flex",
+										alignItems: "center",
+										minHeight: "10vh"
+									}}
+								>
 									<Col md={10}>
 										<span>© 2019 BBMPCS</span>
 									</Col>

@@ -24,8 +24,8 @@ import HomePage from "./view/HomePage";
 
 const RouteList = [
 	{ exact: true, path: "/", component: HomePage },
-	{ exact: true, path: "/save", component: Features },
-	{ exact: true, path: "/invest", component: Projects },
+	{ exact: true, path: "/invest", component: Features },
+	{ exact: true, path: "/save", component: Projects },
 	{ exact: true, path: "/loan", component: Steps },
 	{ exact: true, path: "/about", component: Teams },
 	{ exact: true, path: "/register", component: Blogs }

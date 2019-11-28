@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import About from "../components/about/about";
 import Features from "../components/features/features";
-import Projects from "../components/projects/projects";
+import Projects2 from "../components/projects/projects2";
 import Steps from "../components/steps/steps";
 import Roadmap from "../components/roadMap/roadmap";
 import Tokens from "../components/token/tokens";
@@ -18,12 +18,12 @@ class HomePage extends Component {
 			<Fragment>
 				<MainSlider />
 
-				<Projects />
-				<Tokens />
+				<Projects2 />
+				{/* <Tokens /> */}
 				<Teams fill="#f6f6ff" />
-				<Blogs />
-				<PressMedia />
-				<Subscribe />
+				{/* <Blogs /> */}
+				{/* <PressMedia /> */}
+				{/* <Subscribe /> */}
 			</Fragment>
 		);
 	}

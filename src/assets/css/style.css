@@ -3639,7 +3639,7 @@ footer .footer-top .con ul li a:hover {
 }
 @media only screen and (max-width: 768px) {
   .projects {
-    padding: 75px 0 37px;
+    padding: 35px 0 37px;
   }
 }
 .projects .project-list {
@@ -3707,7 +3707,7 @@ footer .footer-top .con ul li a:hover {
 }
 .projects .project-list .content span {
   display: block;
-  height: 95px;
+  height: 255px;
   margin: 0 0 20px;
 }
 .projects .project-list .content h3 {

@@ -15,65 +15,63 @@ class Teams extends Component {
 	render() {
 		const coreTeam = [
 			{
-				meamber: "Ajay Suryavanshi",
-				position: "Co-Founder & CEO",
-				image: team1,
+				meamber: "Analytics & reporting",
 				text:
-					"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. "
+					"Algolia’s analytics dashboard helps product teams better understand what their users are looking for most, as well as where they are hitting dead-ends most often. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismo."
 			},
-			{
-				meamber: "Jeniffer Doe",
-				position: "Co-Founder & CEO",
-				image: team2,
-				text:
-					"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum. "
-			},
-			{
-				meamber: "Ariful Islam",
-				position: "Co-Founder & CEO",
-				image: team3,
-				text:
-					"Here are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words."
-			},
-			{
-				meamber: "Maria Willium",
-				position: "Co-Founder & CEO",
-				image: team4,
-				text:
-					"The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. There are many variations of passages."
-			}
+			// {
+			// 	meamber: "Jeniffer Doe",
+			// 	position: "Co-Founder & CEO",
+			// 	image: team2,
+			// 	text:
+			// 		"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum. "
+			// },
+			// {
+			// 	meamber: "Ariful Islam",
+			// 	position: "Co-Founder & CEO",
+			// 	image: team3,
+			// 	text:
+			// 		"Here are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words."
+			// },
+			// {
+			// 	meamber: "Maria Willium",
+			// 	position: "Co-Founder & CEO",
+			// 	image: team4,
+			// 	text:
+			// 		"The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. There are many variations of passages."
+			// }
 		];
 
-		const advisorsTeam = [
-			{
-				meamber: "Mason Liam",
-				position: "Co-Founder & CEO",
-				image: team5,
-				text:
-					"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less"
-			},
-			{
-				meamber: "Jammy Doe",
-				position: "Co-Founder & CEO",
-				image: team6,
-				text:
-					"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less"
-			},
-			{
-				meamber: "Daniel Matthew",
-				position: "Co-Founder & CEO",
-				image: team7,
-				text:
-					"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less"
-			},
-			{
-				meamber: "Henry Jack",
-				position: "Co-Founder & CEO",
-				image: team8,
-				text:
-					"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less"
-			}
-		];
+		// const advisorsTeam = [
+		// 	{
+		// 		meamber: "Mason Liam",
+		// 		position: "Co-Founder & CEO",
+		// 		image: team5,
+		// 		text:
+		// 			"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less"
+		// 	},
+		// 	{
+		// 		meamber: "Jammy Doe",
+		// 		position: "Co-Founder & CEO",
+		// 		image: team6,
+		// 		text:
+		// 			"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less"
+		// 	},
+		// 	{
+		// 		meamber: "Daniel Matthew",
+		// 		position: "Co-Founder & CEO",
+		// 		image: team7,
+		// 		text:
+		// 			"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less"
+		// 	},
+		// 	{
+		// 		meamber: "Henry Jack",
+		// 		position: "Co-Founder & CEO",
+		// 		image: team8,
+		// 		text:
+		// 			"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less"
+		// 	}
+		// ];
 
 		const Items = ({ meamber, position, image, text, dur }) => {
 			if (this.props.animate) {
@@ -83,32 +81,6 @@ class Teams extends Component {
 							<div className="team-list">
 								<div className="conte">
 									<div className="dbox">
-										<div className="dleft">
-											<img src={image} alt="team member" />
-										</div>
-										<div className="dright">
-											<div className="content">
-												<h3>{meamber}</h3>
-												<span>({position})</span>
-												<ul>
-													<li>
-														<Link to="#">
-															<i className="fa fa-facebook"></i>
-														</Link>
-													</li>
-													<li>
-														<Link to="#">
-															<i className="fa fa-twitter"></i>
-														</Link>
-													</li>
-													<li>
-														<Link to="#">
-															<i className="fa fa-linkedin"></i>
-														</Link>
-													</li>
-												</ul>
-											</div>
-										</div>
 									</div>
 									<div className="con">
 										<p>{text}</p>
@@ -124,30 +96,9 @@ class Teams extends Component {
 						<div className="team-list">
 							<div className="conte">
 								<div className="dbox">
-									<div className="dleft">
-										<img src={image} alt="team member" />
-									</div>
 									<div className="dright">
 										<div className="content">
 											<h3>{meamber}</h3>
-											<span>({position})</span>
-											<ul>
-												<li>
-													<Link to="#">
-														<i className="fa fa-facebook"></i>
-													</Link>
-												</li>
-												<li>
-													<Link to="#">
-														<i className="fa fa-twitter"></i>
-													</Link>
-												</li>
-												<li>
-													<Link to="#">
-														<i className="fa fa-linkedin"></i>
-													</Link>
-												</li>
-											</ul>
 										</div>
 									</div>
 								</div>
@@ -194,7 +145,7 @@ class Teams extends Component {
 						</Container>
 					</div>
 				</section>
-				<section className="team2-area pd-t100 pd-b50">
+				{/* <section className="team2-area pd-t100 pd-b50">
 					<div className="particles-team">
 						<Container>
 							<Row>
@@ -224,7 +175,7 @@ class Teams extends Component {
 							</Row>
 						</Container>
 					</div>
-				</section>
+				</section> */}
 			</React.Fragment>
 		);
 	}

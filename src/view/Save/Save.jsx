@@ -11,6 +11,9 @@ class Save extends Component {
       <Fragment>
         <div className="wd_scroll_wrap">
               <MainSlider/>
+            <br></br>
+            <br></br>
+            <br></br>
             <div class="header-title" id="back">
                   <div class="container">
                         <div class="title-base" >

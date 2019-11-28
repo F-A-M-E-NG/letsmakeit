@@ -3786,7 +3786,7 @@ footer .footer-top .con ul li a:hover {
 }
 .tokens-area .tokens .token-body {
   background: #fff;
-  height: 464px;
+  height: auto;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
   padding: 50px 55px;
   display: inline-block;
@@ -3801,7 +3801,7 @@ footer .footer-top .con ul li a:hover {
 }
 .tokens-area .tokens .token-body .left-btn {
   display: inline-block;
-  height: 60px;
+  height: auto;
   line-height: 54px;
   padding: 0 45px;
   border-radius: 50px;
@@ -3813,7 +3813,7 @@ footer .footer-top .con ul li a:hover {
 }
 .tokens-area .tokens .token-body .right-btn {
   display: inline-block;
-  height: 60px;
+  height: auto;
   line-height: 54px;
   padding: 0 45px;
   border-radius: 50px;
@@ -3821,37 +3821,16 @@ footer .footer-top .con ul li a:hover {
   font-weight: 900;
   color: #fff;
   background: rgba(57, 100, 208, 1);
-  background: -moz-linear-gradient(
-    left,
-    rgba(57, 100, 208, 1) 0%,
-    rgba(45, 193, 201, 1) 100%
-  );
-  background: -webkit-gradient(
-    left top,
-    right top,
-    color-stop(0%, rgba(57, 100, 208, 1)),
-    color-stop(100%, rgba(45, 193, 201, 1))
-  );
-  background: -webkit-linear-gradient(
-    left,
-    rgba(57, 100, 208, 1) 0%,
-    rgba(45, 193, 201, 1) 100%
-  );
-  background: -o-linear-gradient(
-    left,
-    rgba(57, 100, 208, 1) 0%,
-    rgba(45, 193, 201, 1) 100%
-  );
-  background: -ms-linear-gradient(
-    left,
-    rgba(57, 100, 208, 1) 0%,
-    rgba(45, 193, 201, 1) 100%
-  );
-  background: linear-gradient(
-    to right,
-    rgba(57, 100, 208, 1) 0%,
-    rgba(45, 193, 201, 1) 100%
-  );
+  background: -moz-linear-gradient(    left,    rgba(57, 100, 208, 1) 0%,    rgba(45, 193, 201, 1) 100%  );
+  background: -webkit-gradient(    left top,    right top,    color-stop(0%, rgba(57, 100, 208, 1)),    color-stop(100%, rgba(45, 193, 201, 1))  );
+  background: -webkit-linear-gradient(    left,    rgba(57, 100, 208, 1) 0%,    rgba(45, 193, 201, 1) 100%  );
+  background: -o-linear-gradient(    left,    rgba(57, 100, 208, 1) 0%,    rgba(45, 193, 201, 1) 100%  );
+  background: -ms-linear-gradient(    left,    rgba(57, 100, 208, 1) 0%,    rgba(45, 193, 201, 1) 100%  );
+  background: linear-gradient(    to right,    rgba(57, 100, 208, 1) 0%,    rgba(45, 193, 201, 1) 100%  );
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
 }
 .tokens-area .tokens .token-body .right-btn:hover {
   background: rgba(45, 193, 201, 1);

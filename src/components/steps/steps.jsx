@@ -47,16 +47,9 @@ class Steps extends Component {
 													stable incomes. The deductions for repayments are
 													taken at source from the employee’s salary.
 												</p>
-<<<<<<< HEAD
-												<div className="right-con">
-													<span>Scroll Down</span>
-													<Link to="#steps">
-														<button className="">Get Started!</button>
-													</Link>
-												</div>
-=======
-												<Link to="/register" className="btn2">Get Started!</Link>
->>>>>>> 22317f2d01f429ad42e99bd851989ed8e6909ba5
+												<Link to="/register" className="btn2">
+													Get Started!
+												</Link>
 											</div>
 
 											<span>
@@ -75,7 +68,9 @@ class Steps extends Component {
 													granted specific sums as loans without collateral.
 													Available to both regular and walk-in clients
 												</p>
-												<Link to="/register" className="btn1">Get Started!</Link>
+												<Link to="/register" className="btn1">
+													Get Started!
+												</Link>
 											</div>
 											<span>
 												<i className="fa fa-check-square-o"></i>
@@ -91,7 +86,9 @@ class Steps extends Component {
 													economy. These loans give businesses the opportunity
 													to expand their business and generate more income{" "}
 												</p>
-												<Link to="/register" className="btn1">Get Started!</Link>
+												<Link to="/register" className="btn1">
+													Get Started!
+												</Link>
 											</div>
 											<span>
 												<i className="fa fa-edit "></i>
@@ -108,7 +105,9 @@ class Steps extends Component {
 													the needs of business at different stages in diverse
 													industries.{" "}
 												</p>
-												<Link to="/register" className="btn1">Get Started!</Link>
+												<Link to="/register" className="btn1">
+													Get Started!
+												</Link>
 											</div>
 											<span>
 												<i className="fa fa-university"></i>

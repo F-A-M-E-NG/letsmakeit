@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import {Link} from 'react-router-dom';
 import ReactWOW from 'react-wow';
 import icon6 from '../../assets/images/business-shop.png';
 import icon7 from '../../assets/images/investing.png';
@@ -11,21 +12,24 @@ class Projects extends Component {
       {
         image: icon6,
         title: ["Savings", "Products"],
+        url:"/savings",
         para: "Savings products that fit your short to long goals with next to none interest rates"
       },
       {
         image: icon7,
         title: ["investment", "Products"],
+        url:"/invest",
         para: "Short to Long term investment products that matches your risk appetite"
       },
       {
         image: icon8,
         title: ["Loan", "Products"],
+        url:"/loan",
         para: "Loans for individuals and groups; Working Capital financing for small to mid level businesses"
       }
     ]
 
-    const Items = ({ image, title, para, dur, animate }) => {
+    const Items = ({ image, title, para, dur, animate, url }) => {
       if (animate) {
         return (
           <Col lg={4} md={4} sm={6} className="col-xs-12">
@@ -35,7 +39,7 @@ class Projects extends Component {
                   <span className="icons"><img src={image} alt="project" /></span>
                   <h3>{title[0]} <br />{title[1]}</h3>
                     <p>{para}</p>
-                    <button style={{padding: 10, background: 'linear-gradient( to right, rgba(57, 100, 208, 1) 0%, rgba(45, 193, 201, 1) 100% )'}}>view All</button>
+                    <button style={{padding: 10, background: 'linear-gradient( to right, rgba(57, 100, 208, 1) 0%, rgba(45, 193, 201, 1) 100% )'}}><Link to={url} className="btn1">view All</Link></button>
                 </div>
               </div>
             </ReactWOW>
@@ -49,7 +53,7 @@ class Projects extends Component {
                 <span className="icons"><img src={image} alt="project" /></span>
                 <h3>{title[0]} <br />{title[1]}</h3>
                 <p>{para}</p>
-                <button className='buttons' style={{padding: 8, background: 'linear-gradient( to right, rgba(57, 100, 208, 1) 0%, rgba(45, 193, 201, 1) 100% )', color: 'white'}}>view All</button>
+                <button className='buttons' style={{padding: 8, background: 'linear-gradient( to right, rgba(57, 100, 208, 1) 0%, rgba(45, 193, 201, 1) 100% )', color: 'white'}}><Link to={url} className="btn1">view All</Link></button>
               </div>
             </div>
           </Col>
@@ -73,7 +77,7 @@ class Projects extends Component {
             <Row>
               {
                 data.map((obj, i) => (
-                  <Items key={i} dur={(i + 1) * 0.3} image={obj.image} animate={this.props.animate} title={obj.title} para={obj.para} />
+                  <Items key={i} dur={(i + 1) * 0.3} image={obj.image} animate={this.props.animate} title={obj.title} para={obj.para} url={obj.url} />
                 ))
               }
             </Row>

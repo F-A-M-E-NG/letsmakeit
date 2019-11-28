@@ -44,12 +44,19 @@ class Steps extends Component {
 													stable incomes. The deductions for repayments are
 													taken at source from the employee’s salary.
 												</p>
-												<button className="btn1">Get Started!</button>
+												<div className="right-con">
+													<span>Scroll Down</span>
+													<Link to="#steps">
+														<button className="">Get Started!</button>
+													</Link>
+												</div>
 											</div>
+
 											<span>
 												<i className="fa fa-users"></i>
 											</span>
 										</li>
+										<button className="">Get Started!</button>
 										<li className="r-con">
 											<div className="cont">
 												<h2>Group Loans</h2>

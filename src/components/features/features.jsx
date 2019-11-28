@@ -6,6 +6,10 @@ import features1 from '../../assets/images/features/1.png';
 import features2 from '../../assets/images/features/2.png';
 import features3 from '../../assets/images/features/3.png';
 import features4 from '../../assets/images/features/4.png';
+import invest1 from '../../assets/images/invest1.jpg';
+import invest2 from '../../assets/images/invest2.jpg';
+import invest3 from '../../assets/images/invest3.jpg';
+import invest4 from '../../assets/images/invest4.jpg';
 
 
 class Features extends Component {
@@ -31,12 +35,12 @@ class Features extends Component {
                       <h2>Bond Fund</h2>
                       <p>The Brass & Books Bond fund is a managed investment scheme invested primarily in debt instruments to provide intervention working capital for small and medium enterprises to meet liquidityand on-going business demands.
                         </p>
-                      <Link to="#" className="btn1">Get Started</Link>
+                      <Link to="/register" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                   <Col className="pd-0" sm={6}>
                     <div className="imgs-l">
-                      <figure><img src={features1} alt="" /></figure>
+                      <figure><img src={invest4} alt="" /></figure>
                     </div>
                   </Col>
                   <Col className="pd-0 visible-xs" sm={6}>
@@ -59,7 +63,7 @@ class Features extends Component {
                   </Col>
                   <Col className="pd-0" sm={6}>
                     <div className="imgs-r">
-                      <figure><img src={features2} alt="" /></figure>
+                      <figure><img src={invest2} alt="" /></figure>
                     </div>
                   </Col>
                   <Col className="pd-0 floatright mr-b30 visible-xs" sm={6}>
@@ -88,7 +92,7 @@ class Features extends Component {
                   </Col>
                   <Col className="pd-0" sm={6}>
                     <div className="imgs-l">
-                      <figure><img src={features3} alt="" /></figure>
+                      <figure><img src={invest3} alt="" /></figure>
                     </div>
                   </Col>
                   <Col className="pd-0 visible-xs" sm={6}>

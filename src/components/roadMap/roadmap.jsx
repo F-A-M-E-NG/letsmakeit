@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import ReactWOW from 'react-wow';
 import ModalVideo from 'react-modal-video'
-import poster from '../../assets/images/video/1.png';
 import video2 from '../../assets/images/video/2.png';
 import video3 from '../../assets/images/video/3.png';
 import video4 from '../../assets/images/video/4.png';
@@ -13,6 +12,13 @@ import video8 from '../../assets/images/video/8.png';
 import video9 from '../../assets/images/video/9.png';
 import 'react-modal-video/scss/modal-video.scss'
 import 'video.js/dist/video-js.min.css';
+import save1 from '../../assets/images/square-1.jpg'
+import save2 from '../../assets/images/square-2.jpg'
+import save3 from '../../assets/images/square-3.jpg'
+import save4 from '../../assets/images/square-4.jpg'
+import save5 from '../../assets/images/square-5.jpg'
+
+import poster from '../../assets/images/poster.jpg'
 
 
 class Roadmap extends Component {
@@ -36,7 +42,7 @@ class Roadmap extends Component {
     let contents = (
       <ul>
         <li>
-          <span className="years"><span className="con">e-Savings</span></span>
+          <span className="years"><span className="con">e-S</span></span>
           <div className="serials">
             <span className="cre"></span>
             <Col sm={6} className="col-xs-12 left-con">
@@ -54,14 +60,8 @@ class Roadmap extends Component {
             <Col sm={6} className="col-xs-12 right-con">
               <div className="box-con">
                 <div className="dbox">
-                  <div className="dleft">
-                    <div className="content">
-                      <h3>Market Research</h3>
-                      <p>(October - December)</p>
-                    </div>
-                  </div>
-                  <div className="dright">
-                    <div className="imgs"><img src={video3} alt="video" /></div>
+                 
+                  <div className="dright"><img src={save1} alt="video" />
                   </div>
                 </div>
               </div>
@@ -70,14 +70,13 @@ class Roadmap extends Component {
         </li>
         
         <li>
-          <span className="years"><span className="con">e-Savings</span></span>
+          <span className="years"><span className="con">DMI</span></span>
           <div className="serials">
             <span className="cre"></span>
             <Col sm={6} className="col-xs-12 left-con">
               <div className="box-con">
                 <div className="dbox">
-                <div className="dleft">
-                    <div className="imgs"><img src={video3} alt="video" /></div>
+                <div className="dleft"><img src={save2} alt="video" />
                   </div>
                 </div>
               </div>
@@ -87,9 +86,8 @@ class Roadmap extends Component {
                 <div className="dbox">
                   <div className="dleft">
                     <div className="content">
-                    <h2>e-Savings</h2>
-                      <p>A convenient, secure and supporting savings product that enables you to increase your cash base and creating extra income. It is a daily fixed amount contribution with withdrawals only allowed at the end of the month of the contribution if need be.</p>
-                   </div>
+                    <h2>Daily Micro Investments(DMI)</h2>
+                      <p>A holder of this account saves for a period of twelve(12) months without withdrawals and earns competitive interest of 8% and then he/she can have access to loan facility worth twice of his investment from Brass and Books MPC ltd.</p></div>
                   </div>
                 </div>
               </div>
@@ -97,7 +95,7 @@ class Roadmap extends Component {
           </div>
         </li>
         <li>
-          <span className="years"><span className="con">e-Savings</span></span>
+          <span className="years"><span className="con">TF</span></span>
           <div className="serials">
             <span className="cre"></span>
             <Col sm={6} className="col-xs-12 left-con">
@@ -105,9 +103,8 @@ class Roadmap extends Component {
                 <div className="dbox">
                   <div className="dright">
                     <div className="content">
-                      <h2>e-Savings</h2>
-                      <p>A convenient, secure and supporting savings product that enables you to increase your cash base and creating extra income. It is a daily fixed amount contribution with withdrawals only allowed at the end of the month of the contribution if need be.</p>
-                    </div>
+                      <h2>Term Funds</h2>
+                <p>This product offers a convenient, flexible and secure saving option for the account holder that has bulk money they want to keep aside for a period usually more than a month at a fairly priced interest rate</p> </div>
                   </div>
                 </div>
               </div>
@@ -115,14 +112,8 @@ class Roadmap extends Component {
             <Col sm={6} className="col-xs-12 right-con">
               <div className="box-con">
                 <div className="dbox">
-                  <div className="dleft">
-                    <div className="content">
-                      <h3>Market Research</h3>
-                      <p>(October - December)</p>
-                    </div>
-                  </div>
-                  <div className="dright">
-                    <div className="imgs"><img src={video3} alt="video" /></div>
+                  
+                  <div className="dright"><img src={save3} alt="video" />
                   </div>
                 </div>
               </div>
@@ -130,14 +121,13 @@ class Roadmap extends Component {
           </div>
         </li>
         <li>
-          <span className="years"><span className="con">e-Savings</span></span>
+          <span className="years"><span className="con">SS</span></span>
           <div className="serials">
             <span className="cre"></span>
             <Col sm={6} className="col-xs-12 left-con">
               <div className="box-con">
                 <div className="dbox">
-                <div className="dleft">
-                    <div className="imgs"><img src={video3} alt="video" /></div>
+                <div className="dleft"><img src={save4} alt="video" />
                   </div>
                 </div>
               </div>
@@ -147,9 +137,8 @@ class Roadmap extends Component {
                 <div className="dbox">
                   <div className="dleft">
                     <div className="content">
-                    <h2>e-Savings</h2>
-                      <p>A convenient, secure and supporting savings product that enables you to increase your cash base and creating extra income. It is a daily fixed amount contribution with withdrawals only allowed at the end of the month of the contribution if need be.</p>
-                   </div>
+                    <h2>Smart Saving</h2>
+                      <p>The Smart Savings Program is a premium savings scheme that offers investors an attractive alternative to bank deposits and savings accounts as well as the flexibility to achieve their investment needs and objectives through a single investment vehicle.</p></div>
                   </div>
                 </div>
               </div>
@@ -158,7 +147,7 @@ class Roadmap extends Component {
         </li>
         
         <li>
-          <span className="years"><span className="con">e-Savings</span></span>
+          <span className="years"><span className="con">i-C</span></span>
           <div className="serials">
             <span className="cre"></span>
             <Col sm={6} className="col-xs-12 left-con">
@@ -166,9 +155,9 @@ class Roadmap extends Component {
                 <div className="dbox">
                   <div className="dright">
                     <div className="content">
-                      <h2>e-Savings</h2>
-                      <p>A convenient, secure and supporting savings product that enables you to increase your cash base and creating extra income. It is a daily fixed amount contribution with withdrawals only allowed at the end of the month of the contribution if need be.</p>
-                    </div>
+                      <h2>iClub</h2>
+                      <p>The Brass and Books iClub is an exclusive community of serious private investors who pool together resources to invest in alternative investments, diversify risks and enjoy great returns and profits as we pool together ideas and thus become better investors</p>
+                       </div>
                   </div>
                 </div>
               </div>
@@ -176,14 +165,9 @@ class Roadmap extends Component {
             <Col sm={6} className="col-xs-12 right-con">
               <div className="box-con">
                 <div className="dbox">
-                  <div className="dleft">
-                    <div className="content">
-                      <h3>Market Research</h3>
-                      <p>(October - December)</p>
-                    </div>
-                  </div>
+                 
                   <div className="dright">
-                    <div className="imgs"><img src={video3} alt="video" /></div>
+                    <img src={save5} alt="video" />
                   </div>
                 </div>
               </div>
@@ -381,7 +365,7 @@ class Roadmap extends Component {
       )
     }
     return (
-      <div id="road_map" className="wd_scroll_wrap wd_scroll">
+        <div id="road_map" className="wd_scroll_wrap wd_scroll">
         <ModalVideo channel='youtube' isOpen={this.state.isOpen} videoId='s4g1XFU8Gto' onClose={() => this.setState({ isOpen: false })} />
         <section className="video-area section">
           <Container>
@@ -392,10 +376,7 @@ class Roadmap extends Component {
                   <div className="videos-box">
                     <div className="video-js">
                       <div className="vjs-poster" style={{ background: `url(${poster})` }}></div>
-                      <button className="vjs-big-play-button" onClick={this.openModal}>
-                        <span className="vjs-icon-placeholder"></span>
-                        <span className="vjs-control-text">Play Video</span>
-                      </button>
+                      
                     </div>
                   </div>
                 </div>
@@ -415,7 +396,7 @@ class Roadmap extends Component {
               </Row>
             </Container>
           </section>
-         
+          
         </div>
       </div>
     );

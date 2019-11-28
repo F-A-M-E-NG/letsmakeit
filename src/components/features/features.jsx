@@ -31,7 +31,7 @@ class Features extends Component {
                       <h2>Bond Fund</h2>
                       <p>The Brass & Books Bond fund is a managed investment scheme invested primarily in debt instruments to provide intervention working capital for small and medium enterprises to meet liquidityand on-going business demands.
                         </p>
-                      <Link to="#" className="btn1">Get Started</Link>
+                      <Link to="/register" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                   <Col className="pd-0" sm={6}>
@@ -43,7 +43,7 @@ class Features extends Component {
                     <div className="contents-l mr-b30">
                       <h2>Lending</h2>
                       <p>Unique platform for lending and investment with a safety fund <br /> and cooperation with world-wide arbitration.</p>
-                      <Link to="#" className="btn1">Get Started</Link>
+                      <Link to="/register" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                 </li>
@@ -54,7 +54,7 @@ class Features extends Component {
                       <p>This fund provides financing, structure and mentorship for small and medium enterprises. We structure unique, individualised financing solutions using shareholders’ loans, equity, royalties and term loans – or any combination of these and provides value-added expert assistance whilst ensuring the funds of the investor is safe and yielding sustainable cashflow.
                       </p>
 
-                      <Link to="#" className="btn1">Get Started</Link>
+                      <Link to="/register" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                   <Col className="pd-0" sm={6}>
@@ -66,7 +66,7 @@ class Features extends Component {
                     <div className="contents-r">
                       <h2>Exchange Money</h2>
                       <p>Exchange between all popular currencies with a couple of clicks.<br />Instant send from one currency to another.</p>
-                      <Link to="#" className="btn1">Get Started</Link>
+                      <Link to="/register" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                 </li>
@@ -83,7 +83,7 @@ class Features extends Component {
                           medium sized enterprises via the use of mezzanine debt and 
                           quasi-equity instruments to firms operating across West Africa.
                       </p>
-                      <Link to="#" className="btn1">Get Started</Link>
+                      <Link to="/register" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                   <Col className="pd-0" sm={6}>
@@ -102,7 +102,7 @@ class Features extends Component {
                           medium sized enterprises via the use of mezzanine debt and 
                           quasi-equity instruments to firms operating across West Africa.
                       </p>
-                      <Link to="#" className="btn1">Get Started</Link>
+                      <Link to="/register" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                 </li>

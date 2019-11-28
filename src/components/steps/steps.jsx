@@ -10,12 +10,15 @@ class Steps extends Component {
 				<section className="steps-area section">
 					<Container>
 						<Row>
+							<br></br>
+							<br></br>
+							<br></br>
 							<Col lg={11} md={11} sm={12} className="col-xs-12">
 								<div className="steps-heading">
 									<h2>Loans and Advances</h2>
 									<div className="right-con">
 										<span>Scroll Down</span>
-										<Link to="#steps">
+										<Link to="/loan">
 											<i className="fa fa-angle-down"></i>
 										</Link>
 									</div>
@@ -44,7 +47,7 @@ class Steps extends Component {
 													stable incomes. The deductions for repayments are
 													taken at source from the employee’s salary.
 												</p>
-												<button className="btn1">Get Started!</button>
+												<Link to="/register" className="btn2">Get Started!</Link>
 											</div>
 											<span>
 												<i className="fa fa-users"></i>
@@ -61,7 +64,7 @@ class Steps extends Component {
 													granted specific sums as loans without collateral.
 													Available to both regular and walk-in clients
 												</p>
-												<button className="btn1">Get Started!</button>
+												<Link to="/register" className="btn1">Get Started!</Link>
 											</div>
 											<span>
 												<i className="fa fa-check-square-o"></i>
@@ -77,7 +80,7 @@ class Steps extends Component {
 													economy. These loans give businesses the opportunity
 													to expand their business and generate more income{" "}
 												</p>
-												<button className="btn1">Get Started!</button>
+												<Link to="/register" className="btn1">Get Started!</Link>
 											</div>
 											<span>
 												<i className="fa fa-edit "></i>
@@ -94,7 +97,7 @@ class Steps extends Component {
 													the needs of business at different stages in diverse
 													industries.{" "}
 												</p>
-												<button className="btn1">Get Started!</button>
+												<Link to="/register" className="btn1">Get Started!</Link>
 											</div>
 											<span>
 												<i className="fa fa-university"></i>

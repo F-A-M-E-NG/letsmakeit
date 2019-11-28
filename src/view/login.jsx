@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
-import ReactWOW from 'react-wow';
+
 
 class Tokens extends Component {
   render() {
@@ -11,10 +11,10 @@ class Tokens extends Component {
             <br></br>
         <Col lg={12} md={12} sm={12} className="col-xs-12 mt-5">
           <div className="section-heading2">
-            <h2>Rounds of Sale of Tokens</h2>
+            <h2>LOGIN PAGE</h2>
           </div>
         </Col>
-        <Col lg={10} md={12} sm={12} className="col-xs-12 col-lg-offset-1">
+        <Col lg={10} md={12} sm={12} className="col-xs-12 col-lg-offset-4">
           <Col lg={6} md={6} sm={6} className="col-xs-12">
             <div className="tokens">
               <div className="token-body">

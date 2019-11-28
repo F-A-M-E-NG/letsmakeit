@@ -10,10 +10,10 @@ class Tokens extends Component {
             <br></br>
         <Col lg={12} md={12} sm={12} className="col-xs-12">
           <div className="section-heading2">
-            <h2>Register Page</h2>
+            <h2>REGISTER PAGE</h2>
           </div>
         </Col>
-        <Col lg={10} md={12} sm={12} className="col-xs-12 col-lg-offset-1">
+        <Col lg={10} md={12} sm={12} className="col-xs-12 col-lg-offset-4">
           <Col lg={6} md={6} sm={6} className="col-xs-12">
             <div className="tokens">
               <div className="token-body">
@@ -44,7 +44,7 @@ class Tokens extends Component {
                   Register
               </Button>
             </form>
-            <p className="text-center">Already have an account? <a href="/login" className="para">Login</a></p>
+            <p className="text-center">Already have an account? <Link to="/login" className="para">Login</Link></p>
             <p className="text-center">By registering, you agree to our <a href="#" className="para" target="_blank"
                 rel="noopener noreferrer">Terms and Conditions</a></p>
         

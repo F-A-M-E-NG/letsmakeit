@@ -17,6 +17,9 @@ class Features extends Component {
     let con = (
       <Container>
         <Row>
+          <br></br>
+          <br></br>
+          <br></br>
           <Col lg={12} md={12} sm={12} className="col-xs-12">
             <div className="section-heading2">
               <h3>INVESTMENTS</h3>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Button } from 'reactstrap';
 
 
 class Tokens extends Component {
@@ -29,6 +29,9 @@ class Tokens extends Component {
                               <input type="password" name="password" id="password" className="form-control"
                               placeholder="Password"/>
                         </div>
+                        <Button  type="submit" className="btn3 mt-3" variant="dark">   
+                           Login
+                        </Button>
                   </form>
                   <p className="text-center"><Link to="/password-reset" className="para">Forgot password?</Link></p>
                   <p className="text-center">Don't Have an account? <Link to="/register" className="para">Register</Link></p>

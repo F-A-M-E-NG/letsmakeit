@@ -17,7 +17,6 @@ class AboutPage extends Component {
 		return (
 			<Fragment>
 				<About />
-				<Subscribe />
 			</Fragment>
 		);
 	}

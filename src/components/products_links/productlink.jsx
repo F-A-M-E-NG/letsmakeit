@@ -15,10 +15,10 @@ class Steps extends Component {
 							<br></br>
 							<Col lg={11} md={11} sm={12} className="col-xs-12">
 								<div className="steps-heading">
-									<h2>Loans and Advances</h2>
+									<h2>Our Products</h2>
 									<div className="right-con">
 										<span>Scroll Down</span>
-										<Link to="/loan">
+										<Link to="/">
 											<i className="fa fa-angle-down"></i>
 										</Link>
 									</div>
@@ -40,26 +40,24 @@ class Steps extends Component {
 									<ul>
 										<li className="l-con">
 											<div className="cont">
-												<h2>Salary and Personal Loans</h2>
+												<h2>Save</h2>
 												<p>
 													They are loans specially designed for the government
 													and private sector employees who have regular or
 													stable incomes. The deductions for repayments are
 													taken at source from the employee’s salary.
 												</p>
-												<Link to="/register" className="btn2">
-													Get Started!
-												</Link>
+												
 											</div>
 
 											<span>
-												<i className="fa fa-users"></i>
+												<i className="fa fa-university" aria-hidden="true"></i> 
 											</span>
 										</li>
 										
 										<li className="r-con">
 											<div className="cont">
-												<h2>Group Loans</h2>
+												<h2>Borrow</h2>
 												<p>
 													They are loans that are available to groups,
 													associations, corporate organizations, and
@@ -68,17 +66,14 @@ class Steps extends Component {
 													granted specific sums as loans without collateral.
 													Available to both regular and walk-in clients
 												</p>
-												<Link to="/register" className="btn1">
-													Get Started!
-												</Link>
 											</div>
 											<span>
-												<i className="fa fa-check-square-o"></i>
+												<i className="fa fa-usd" aria-hidden="true"></i>
 											</span>
 										</li>
 										<li className="l-con">
 											<div className="cont">
-												<h2>Small Business Loans</h2>
+												<h2>Invest</h2>
 												<p>
 													BBMPCS, as a foremost Credit Union provides
 													intervention working capital funds for small and
@@ -86,33 +81,15 @@ class Steps extends Component {
 													economy. These loans give businesses the opportunity
 													to expand their business and generate more income{" "}
 												</p>
-												<Link to="/register" className="btn1">
-													Get Started!
-												</Link>
+												
 											</div>
 											<span>
-												<i className="fa fa-edit "></i>
+                                                                        <i className="fa fa-bar-chart" aria-hidden="true"></i>
+												
 											</span>
 											<div className="mid-icons"></div>
 										</li>
-										<li className="r-con">
-											<div className="cont">
-												<h2>Structured Financing</h2>
-												<p>
-													Not all business models can fit into a regular loan
-													structure for their financing needs. Our flexible
-													structured financing products are customised to suit
-													the needs of business at different stages in diverse
-													industries.{" "}
-												</p>
-												<Link to="/register" className="btn1">
-													Get Started!
-												</Link>
-											</div>
-											<span>
-												<i className="fa fa-university"></i>
-											</span>
-										</li>
+					
 									</ul>
 								</div>
 							</Col>

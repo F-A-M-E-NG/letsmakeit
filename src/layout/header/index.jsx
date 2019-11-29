@@ -78,32 +78,27 @@ class Header extends Component {
     let navigation = (
       <ul>
         <li>
-          <Link className="nav-link" to="/">
+          <Link className="nav-link" activeClassName="active" to="/">
             Home
           </Link>
         </li>
         <li>
-          <Link className="nav-link" to="/save">
+          <Link className="nav-link" activeClassName="active" to="/save">
             Save
           </Link>
         </li>
         <li>
-          <Link className="nav-link" to="/invest">
+          <Link className="nav-link" activeClassName="active" to="/invest">
             Invest
           </Link>
         </li>
         <li>
-          <Link className="nav-link" to="/loan">
+          <Link className="nav-link" activeClassName="active" to="/loan">
             Loan
           </Link>
         </li>
         <li>
-          <Link className="nav-link" to="/about">
-            About Us
-          </Link>
-        </li>
-        <li>
-          <Link className="nav-link" to="/register">
+          <Link className="nav-link" activeClassName="active" to="/register">
             Register
           </Link>
         </li>
@@ -132,7 +127,7 @@ class Header extends Component {
                   <nav className="wd_single_index_menu btc_main_menu">
                     {navigation}
                   </nav>
-                  <div className="language">
+                  {/* <div className="language">
                     <span className="lng-in">
                       <img src={flag} alt="" />
                     </span>
@@ -144,7 +139,7 @@ class Header extends Component {
                         <img src={flag} alt="" />
                       </li>
                     </ul>
-                  </div>
+                  </div> */}
                   <div className="login-btn">
                     <Link to="/login" className="btn1">
                       <i className="fa fa-user"></i>
@@ -224,6 +219,18 @@ class Header extends Component {
                     </div>
                     <div id="cssmenu" className="wd_single_index_menu">
                       {navigation}
+                      <div className="login-btn">
+                    <Link to="/login" className="btn1">
+                      <i className="fa fa-user"></i>
+                      <span>Login</span>
+                    </Link>
+                  </div>
+                   <div className="login-btn">
+                    <Link to="/login" className="btn btn-warn">
+                      <i className="fa fa-user"></i>
+                      <span>Register</span>
+                    </Link>
+                  </div>
                     </div>
                   </div>
                 </div>

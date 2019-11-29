@@ -75,21 +75,15 @@ class MainSlider extends Component {
 		const data = [
 			{
 				title:
-					"Innovative Solutions tailored to meet your financial objectives ",
-				btn1: "Get Started!",
-				btn2: "Explore Products"
+					"Brass and books multipurpose co-operative society ",
+				btn1: "Invest",
+				btn2: "Loans"
 			},
 			{
 				title:
-					"Innovative Solutions tailored to meet your financial objectives ",
-				btn1: "Get Started!",
-				btn2: "Explore Products"
-			},
-			{
-				title:
-					"Innovative Solutions tailored to meet your financial objectives ",
-				btn1: "Get Started!",
-				btn2: "Explore Products"
+					"Making you wealthy every day!",
+				btn1: "Invest",
+				btn2: "Loans"
 			}
 		];
 		const Items = data.map((obj, i) => (
@@ -98,41 +92,14 @@ class MainSlider extends Component {
 					<Row>
 						<Col lg={6} md={6} sm={12} className="col-xs-12">
 							<div className="slider-content">
-								<ul>
-									<li className="slider_social_icon1">
-										<Link to="#">
-											<i className="fa fa-facebook"></i>
-										</Link>
-									</li>
-									<li className="slider_social_icon2">
-										<Link to="#">
-											<i className="fa fa-twitter"></i>
-										</Link>
-									</li>
-									<li className="slider_social_icon3">
-										<Link to="#">
-											<i className="fa fa-send-o"></i>
-										</Link>
-									</li>
-									<li className="slider_social_icon4">
-										<Link to="#">
-											<i className="fa fa-bitcoin"></i>
-										</Link>
-									</li>
-									<li className="slider_social_icon5">
-										<Link to="#">
-											<i className="fa fa-envelope"></i>
-										</Link>
-									</li>
-								</ul>
 								<h2>
 									{obj.title} {}
 								</h2>
 								<div className="buttons">
-									<Link to="#" className="btn1">
+									<Link to="/invest" className="btn1">
 										{obj.btn1}
 									</Link>
-									<Link to="#" className="btn2">
+									<Link to="/loan" className="btn2">
 										{obj.btn2}
 									</Link>
 								</div>
@@ -161,7 +128,7 @@ class MainSlider extends Component {
 					}}
 				></div>
 				<div className="carousel">
-					<Slider autoplay duration={10000}>
+					<Slider autoplay duration={5000}>
 						{Items}
 					</Slider>
 				</div>

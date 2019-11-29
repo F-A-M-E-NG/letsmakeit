@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import ReactWOW from 'react-wow';
+import { Link } from 'react-router-dom'
 import coin1 from '../../assets/images/icons/1.png';
 import coin2 from '../../assets/images/icons/2.png';
 import coin3 from '../../assets/images/icons/3.png';
@@ -11,33 +12,30 @@ class Currency extends Component {
   render() {
     const data = [
       {
-        coinName: 'Bitcoin',
-        price: '4.160651',
-        coin: 'BTC',
-        image: coin1
+        coinName: 'e-Savings',
+        price: 'learn more',
+        image: coin1,
+        url:''
       },
       {
-        coinName: 'Ethereum',
-        price: '3.245000',
-        coin: 'ETH',
+        coinName: 'i-Club',
+        price: 'Learn more',
         image: coin2
       },
       {
-        coinName: 'Dollar (USD)',
-        price: '58634.000',
-        coin: 'USD',
+        coinName: 'DMI',
+        price: 'Learn more',
         image: coin3
       },
       {
-        coinName: 'Total USD',
-        price: '111969.062',
-        coin: 'USD',
+        coinName: 'Bund Fund',
+        price: 'Learn more',
         image: coin4
       },
       {
-        coinName: 'Token Sale',
-        price: '346636.775',
-        coin: '',
+        coinName: 'Growth Fund',
+        price: 'Learn more',
+        
         image: coin5
       }
     ]
@@ -50,7 +48,7 @@ class Currency extends Component {
               <div className="content">
                 <div className="con">
                   <h2><img src={image} alt="" /><span>{coinName}</span></h2>
-                  <button className="btn3">{price} {coin}</button>
+                  <Link to="" className="btn3">{price}</Link>
                 </div>
               </div>
             </div>

@@ -20,7 +20,7 @@ const RouteList = [
 	{ exact: true, path: "/invest", component: InvestmentPage },
 	{ exact: true, path: "/save", component: SavePage },
 	{ exact: true, path: "/loan", component: LoanPage },
-	{ exact: true, path: "/about", component: AboutPage },
+	{ exact: true, path: "/loan/dmi", component: AboutPage },
 	{ exact: true, path: "/register", component: RegisterPage },
 	{ exact: true, path: "/login", component: LoginPage }
 ];

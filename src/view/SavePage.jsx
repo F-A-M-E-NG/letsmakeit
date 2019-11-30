@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
-import Roadmap from "../components/roadMap/roadmap";
 
+import Savings from "../components/features/save";
 import Subscribe from "../components/sub/subscribe";
 
 
@@ -8,7 +8,7 @@ class SavePage extends Component {
 	render() {
 		return (
 			<Fragment>
-				<Roadmap />
+				<Savings />
 				<Subscribe />
 			</Fragment>
 		);

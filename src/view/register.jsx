@@ -8,13 +8,9 @@ class Tokens extends Component {
       <Row>
             <br></br>
             <br></br>
-        <Col lg={12} md={12} sm={12} className="col-xs-12">
-          <div className="section-heading2">
-            <h2>REGISTER PAGE</h2>
-          </div>
-        </Col>
+
         <Col lg={10} md={12} sm={12} className="col-xs-12 col-lg-offset-4">
-          <Col lg={6} md={6} sm={6} className="col-xs-12">
+          <Col lg={6} md={6} sm={6} className="col-xs-10">
             <div className="tokens">
               <div className="token-body">
               <div className="token-name">REGISTER</div>
@@ -40,7 +36,7 @@ class Tokens extends Component {
                 <input type="password" name="password" id="password" className="form-control form-value"
                   placeholder="Password" />
               </div>
-              <Button  type="submit" className="btn3 mt-3" variant="dark">   
+              <Button  type="submit" className="btn1 mt-3" variant="dark">   
                   Register
               </Button>
             </form>

@@ -9,12 +9,7 @@ class Tokens extends Component {
       <Row>
             <br></br>
             <br></br>
-        <Col lg={12} md={12} sm={12} className="col-xs-12 mt-5">
-          <div className="section-heading2">
-            <h2>LOGIN PAGE</h2>
-          </div>
-        </Col>
-        <Col lg={10} md={12} sm={12} className="col-xs-12 col-lg-offset-4">
+        <Col lg={12} md={12} sm={12} className="col-xs-12 col-lg-offset-4">
           <Col lg={6} md={6} sm={6} className="col-xs-12">
             <div className="tokens">
               <div className="token-body">

@@ -12,7 +12,7 @@ import invest3 from '../../assets/images/invest3.jpg';
 import invest4 from '../../assets/images/invest4.jpg';
 
 
-class Features extends Component {
+class Savings extends Component {
   render() {
     let con = (
       <Container>
@@ -22,9 +22,9 @@ class Features extends Component {
           <br></br>
           <Col lg={12} md={12} sm={12} className="col-xs-12">
             <div className="section-heading2">
-              <h3>INVESTMENTS</h3>
+              <h3>LOANS</h3>
               <span style={{width:"10px", height:"5px", background:"red"}}></span>
-              <h5>Our Investment Products</h5>
+              <h5>Our Loan Products</h5>
             </div>
           </Col>
         </Row>
@@ -35,11 +35,12 @@ class Features extends Component {
                 <li>
                   <Col className="pd-0 hidden-xs" sm={6}>
                     <div className="contents-l mr-b30">
-                      <h2>Bond Fund</h2>
-                      <p>The Brass & Books Bond fund is a managed investment scheme invested 
-                        primarily in debt instruments to provide intervention working capital 
-                        for small and medium enterprises to meet liquidityand on-going business
-                         demands.
+                     <h2>Salary and Personal Loans</h2>
+                        <p>
+                              They are loans specially designed for the government
+                              and private sector employees who have regular or
+                              stable incomes. The deductions for repayments are
+                              taken at source from the employee’s salary.
                         </p>
                       <Link to="/register" className="btn1">Get Started</Link>
                     </div>
@@ -51,11 +52,12 @@ class Features extends Component {
                   </Col>
                   <Col className="pd-0 visible-xs" sm={6}>
                     <div className="contents-l mr-b30">
-                     <h2>Bond Fund</h2>
-                      <p>The Brass & Books Bond fund is a managed investment scheme invested 
-                        primarily in debt instruments to provide intervention working capital 
-                        for small and medium enterprises to meet liquidityand on-going business
-                         demands.
+                     <h2>Salary and Personal Loans</h2>
+                        <p>
+                              They are loans specially designed for the government
+                              and private sector employees who have regular or
+                              stable incomes. The deductions for repayments are
+                              taken at source from the employee’s salary.
                         </p>
                       <Link to="/register" className="btn1">Get Started</Link>
                     </div>
@@ -64,14 +66,12 @@ class Features extends Component {
                 <li className="rl">
                   <Col className="pd-0 floatright mr-b30 hidden-xs" sm={6}>
                     <div className="contents-r">
-                      <h2>Growth Fund</h2>
-                      <p>This fund provides financing, structure and mentorship for small
-                         and medium enterprises. We structure unique, individualised 
-                         financing solutions using shareholders’ loans, equity, royalties 
-                         and term loans – or any combination of these and provides value-added
-                          expert assistance whilst ensuring the funds of the investor is safe 
-                          and yielding sustainable cashflow.
-                      </p>
+                      <h2>Group Loans</h2>
+                     <p>They are loans that are available to groups, associations, 
+                           corporate organizations, and individual-walk-ins. The group or 
+                           associations would usually consist of 5 to 10 individual members 
+                           that are granted specific sums as loans without collateral. Available 
+                           to both regular and walk-in clients.</p>
 
                       <Link to="/register" className="btn1">Get Started</Link>
                     </div>
@@ -83,14 +83,13 @@ class Features extends Component {
                   </Col>
                   <Col className="pd-0 floatright mr-b30 visible-xs" sm={6}>
                     <div className="contents-r">
-                      <h2>Growth Fund</h2>
-                      <p>This fund provides financing, structure and mentorship for small
-                         and medium enterprises. We structure unique, individualised 
-                         financing solutions using shareholders’ loans, equity, royalties 
-                         and term loans – or any combination of these and provides value-added
-                          expert assistance whilst ensuring the funds of the investor is safe 
-                          and yielding sustainable cashflow.
-                      </p>
+                      <h2>Group Loans</h2>
+                     <p>They are loans that are available to groups, associations, 
+                           corporate organizations, and individual-walk-ins. The group or 
+                           associations would usually consist of 5 to 10 individual members 
+                           that are granted specific sums as loans without collateral. Available 
+                           to both regular and walk-in clients.</p>
+
                       <Link to="/register" className="btn1">Get Started</Link>
                     </div>
                   </Col>
@@ -98,16 +97,11 @@ class Features extends Component {
                 <li>
                   <Col className="pd-0 hidden-xs" sm={6}>
                     <div className="contents-l mr-b30">
-                      <h2>Premium Fund</h2>
-                      <p>
-                        The Brass & Books Premium Fund is a mid-term Investment vehicle 
-                        for the discerning investor, providing a viable source of financing
-                         for lower middle market companies in Africa.
-                          Brass & Books Financial Services is actively raising a N1B fund that 
-                          seeks to deploy N5m – 50m of growth capital investments in small and 
-                          medium sized enterprises via the use of mezzanine debt and 
-                          quasi-equity instruments to firms operating across West Africa.
-                      </p>
+                       <h2>Small Business Loans</h2>
+                <p>BBMPCS, as a foremost Credit Union provides intervention working 
+                      capital funds for small and medium enterprises in different sectors of the 
+                      economy. These loans give businesses the opportunity to expand their business 
+                      and generate more income.</p>
                       <Link to="/register" className="btn1">Get Started</Link>
                     </div>
                   </Col>
@@ -118,15 +112,39 @@ class Features extends Component {
                   </Col>
                   <Col className="pd-0 visible-xs" sm={6}>
                     <div className="contents-l mr-b30">
-                      <h2>Premium Fund</h2>
-                      <p>The Brass & Books Premium Fund is a mid-term Investment vehicle 
-                        for the discerning investor, providing a viable source of financing
-                         for lower middle market companies in Africa.
-                          Brass & Books Financial Services is actively raising a N1B fund that 
-                          seeks to deploy N5m – 50m of growth capital investments in small and 
-                          medium sized enterprises via the use of mezzanine debt and 
-                          quasi-equity instruments to firms operating across West Africa.
-                      </p>
+                       <h2>Small Business Loans</h2>
+                <p>BBMPCS, as a foremost Credit Union provides intervention working 
+                      capital funds for small and medium enterprises in different sectors of the 
+                      economy. These loans give businesses the opportunity to expand their business 
+                      and generate more income.</p>
+                      <Link to="/register" className="btn1">Get Started</Link>
+                    </div>
+                  </Col>
+                </li>
+               <li className="rl">
+                  <Col className="pd-0 floatright mr-b30 hidden-xs" sm={6}>
+                    <div className="contents-r">
+                      <h2>Structured Financing</h2>
+                      <p>Not all business models can fit into a regular loan 
+                        structure for their financing needs. Our flexible structured 
+                        financing products are customised to suit the needs of business 
+                        at different stages in diverse industries.</p>
+
+                      <Link to="/register" className="btn1">Get Started</Link>
+                    </div>
+                  </Col>
+                  <Col className="pd-0" sm={6}>
+                    <div className="imgs-r">
+                      <figure><img src={invest2} alt="" /></figure>
+                    </div>
+                  </Col>
+                  <Col className="pd-0 floatright mr-b30 visible-xs" sm={6}>
+                    <div className="contents-r">
+                          <h2>Structured Financing</h2>
+                      <p>Not all business models can fit into a regular loan 
+                        structure for their financing needs. Our flexible structured 
+                        financing products are customised to suit the needs of business 
+                        at different stages in diverse industries.</p>
                       <Link to="/register" className="btn1">Get Started</Link>
                     </div>
                   </Col>
@@ -279,4 +297,4 @@ class Features extends Component {
   }
 }
 
-export default Features;
+export default Savings;

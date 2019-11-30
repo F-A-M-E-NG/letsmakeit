@@ -12,7 +12,7 @@ import invest3 from '../../assets/images/invest3.jpg';
 import invest4 from '../../assets/images/invest4.jpg';
 
 
-class Features extends Component {
+class Savings extends Component {
   render() {
     let con = (
       <Container>
@@ -22,9 +22,9 @@ class Features extends Component {
           <br></br>
           <Col lg={12} md={12} sm={12} className="col-xs-12">
             <div className="section-heading2">
-              <h3>INVESTMENTS</h3>
+              <h3>SAVINGS</h3>
               <span style={{width:"10px", height:"5px", background:"red"}}></span>
-              <h5>Our Investment Products</h5>
+              <h5>Our Saving Products</h5>
             </div>
           </Col>
         </Row>
@@ -35,11 +35,11 @@ class Features extends Component {
                 <li>
                   <Col className="pd-0 hidden-xs" sm={6}>
                     <div className="contents-l mr-b30">
-                      <h2>Bond Fund</h2>
-                      <p>The Brass & Books Bond fund is a managed investment scheme invested 
-                        primarily in debt instruments to provide intervention working capital 
-                        for small and medium enterprises to meet liquidityand on-going business
-                         demands.
+                      <h2>e-Savings</h2>
+                      <p>A convenient, secure and supporting savings product that
+                             enables you to increase your cash base and creating extra income.
+                              It is a daily fixed amount contribution with withdrawals only allowed 
+                              at the end of the month of the contribution if need be.
                         </p>
                       <Link to="/register" className="btn1">Get Started</Link>
                     </div>
@@ -51,11 +51,12 @@ class Features extends Component {
                   </Col>
                   <Col className="pd-0 visible-xs" sm={6}>
                     <div className="contents-l mr-b30">
-                     <h2>Bond Fund</h2>
-                      <p>The Brass & Books Bond fund is a managed investment scheme invested 
-                        primarily in debt instruments to provide intervention working capital 
-                        for small and medium enterprises to meet liquidityand on-going business
-                         demands.
+                     <h2>e-Savings</h2>
+                       <p>A convenient, secure and supporting savings product that
+                              enables you to increase your cash base and creating
+                               extra income. It is a daily fixed amount contribution
+                                with withdrawals only allowed at the end of the month
+                                 of the contribution if need be.
                         </p>
                       <Link to="/register" className="btn1">Get Started</Link>
                     </div>
@@ -64,14 +65,11 @@ class Features extends Component {
                 <li className="rl">
                   <Col className="pd-0 floatright mr-b30 hidden-xs" sm={6}>
                     <div className="contents-r">
-                      <h2>Growth Fund</h2>
-                      <p>This fund provides financing, structure and mentorship for small
-                         and medium enterprises. We structure unique, individualised 
-                         financing solutions using shareholders’ loans, equity, royalties 
-                         and term loans – or any combination of these and provides value-added
-                          expert assistance whilst ensuring the funds of the investor is safe 
-                          and yielding sustainable cashflow.
-                      </p>
+                      <h2>Daily Micro Investments(DMI)</h2>
+                     <p>A holder of this account saves for a period of twelve(12) months 
+                           without withdrawals and earns competitive interest of 8% and 
+                           then he/she can have access to loan facility worth twice of 
+                           his investment from Brass and Books MPC ltd.</p>
 
                       <Link to="/register" className="btn1">Get Started</Link>
                     </div>
@@ -83,14 +81,13 @@ class Features extends Component {
                   </Col>
                   <Col className="pd-0 floatright mr-b30 visible-xs" sm={6}>
                     <div className="contents-r">
-                      <h2>Growth Fund</h2>
-                      <p>This fund provides financing, structure and mentorship for small
-                         and medium enterprises. We structure unique, individualised 
-                         financing solutions using shareholders’ loans, equity, royalties 
-                         and term loans – or any combination of these and provides value-added
-                          expert assistance whilst ensuring the funds of the investor is safe 
-                          and yielding sustainable cashflow.
-                      </p>
+                       <h2>Daily Micro Investments(DMI)</h2>
+                     <p>A holder of this account saves for a period of twelve(12) months without
+                            withdrawals and earns competitive interest of 8% and then he/she can 
+                            have access to loan facility worth twice of his investment from Brass
+                             and Books MPC ltd.
+                     </p>
+
                       <Link to="/register" className="btn1">Get Started</Link>
                     </div>
                   </Col>
@@ -98,16 +95,10 @@ class Features extends Component {
                 <li>
                   <Col className="pd-0 hidden-xs" sm={6}>
                     <div className="contents-l mr-b30">
-                      <h2>Premium Fund</h2>
-                      <p>
-                        The Brass & Books Premium Fund is a mid-term Investment vehicle 
-                        for the discerning investor, providing a viable source of financing
-                         for lower middle market companies in Africa.
-                          Brass & Books Financial Services is actively raising a N1B fund that 
-                          seeks to deploy N5m – 50m of growth capital investments in small and 
-                          medium sized enterprises via the use of mezzanine debt and 
-                          quasi-equity instruments to firms operating across West Africa.
-                      </p>
+                       <h2>Term Funds</h2>
+                <p>This product offers a convenient, flexible and secure saving option for 
+                      the account holder that has bulk money they want to keep aside for a 
+                      period usually more than a month at a fairly priced interest rate</p>
                       <Link to="/register" className="btn1">Get Started</Link>
                     </div>
                   </Col>
@@ -118,15 +109,68 @@ class Features extends Component {
                   </Col>
                   <Col className="pd-0 visible-xs" sm={6}>
                     <div className="contents-l mr-b30">
-                      <h2>Premium Fund</h2>
-                      <p>The Brass & Books Premium Fund is a mid-term Investment vehicle 
-                        for the discerning investor, providing a viable source of financing
-                         for lower middle market companies in Africa.
-                          Brass & Books Financial Services is actively raising a N1B fund that 
-                          seeks to deploy N5m – 50m of growth capital investments in small and 
-                          medium sized enterprises via the use of mezzanine debt and 
-                          quasi-equity instruments to firms operating across West Africa.
-                      </p>
+                       <h2>Term Funds</h2>
+                <p>This product offers a convenient, flexible and secure saving option for 
+                      the account holder that has bulk money they want to keep aside for a 
+                      period usually more than a month at a fairly priced interest rate</p>
+                      <Link to="/register" className="btn1">Get Started</Link>
+                    </div>
+                  </Col>
+                </li>
+               <li className="rl">
+                  <Col className="pd-0 floatright mr-b30 hidden-xs" sm={6}>
+                    <div className="contents-r">
+                      <h2>Smart Saving</h2>
+                      <p>The Smart Savings Program is a premium savings scheme that 
+                            offers investors an attractive alternative to bank deposits
+                             and savings accounts as well as the flexibility to achieve 
+                             their investment needs and 
+                            objectives through a single investment vehicle.</p>
+
+                      <Link to="/register" className="btn1">Get Started</Link>
+                    </div>
+                  </Col>
+                  <Col className="pd-0" sm={6}>
+                    <div className="imgs-r">
+                      <figure><img src={invest2} alt="" /></figure>
+                    </div>
+                  </Col>
+                  <Col className="pd-0 floatright mr-b30 visible-xs" sm={6}>
+                    <div className="contents-r">
+                         <h2>Smart Saving</h2>
+                      <p>The Smart Savings Program is a premium savings scheme that 
+                            offers investors an attractive alternative to bank deposits
+                             and savings accounts as well as the flexibility to achieve 
+                             their investment needs and 
+                            objectives through a single investment vehicle.</p>
+
+                      <Link to="/register" className="btn1">Get Started</Link>
+                    </div>
+                  </Col>
+                </li>
+                <li>
+                  <Col className="pd-0 hidden-xs" sm={6}>
+                    <div className="contents-l mr-b30">
+                      <h2>iClub</h2>
+                      <p>The Brass and Books iClub is an exclusive community of serious private
+                             investors who pool together resources to invest in alternative 
+                             investments, diversify risks and enjoy great returns and profits 
+                             as we pool together ideas and thus become better investors</p>
+                      <Link to="/register" className="btn1">Get Started</Link>
+                    </div>
+                  </Col>
+                  <Col className="pd-0" sm={6}>
+                    <div className="imgs-l">
+                      <figure><img src={invest4} alt="" /></figure>
+                    </div>
+                  </Col>
+                  <Col className="pd-0 visible-xs" sm={6}>
+                    <div className="contents-l mr-b30">
+                      <h2>iClub</h2>
+                      <p>The Brass and Books iClub is an exclusive community of serious private
+                             investors who pool together resources to invest in alternative 
+                             investments, diversify risks and enjoy great returns and profits
+                              as we pool together ideas and thus become better investors</p>
                       <Link to="/register" className="btn1">Get Started</Link>
                     </div>
                   </Col>
@@ -279,4 +323,4 @@ class Features extends Component {
   }
 }
 
-export default Features;
+export default Savings;

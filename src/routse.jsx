@@ -12,8 +12,9 @@ import AboutPage from "./view/AboutPage";
 // const About = lazy(() => import('./components/about/about'))
 // const Products = lazy(() => import('./components/roadMap/roadmap'))
 // const ProductDetails = lazy(() => import('./components/projects/projects'))
-// const Team = lazy(() => import('./components/currency/currency'))
-// const Save = lazy(() => import('./view/Save/Save'))
+const Dashboard = lazy(() => import('./components/dashboard/dashboard'))
+const ProfilePage= lazy(() => import('./view/profile'))
+const Createplan= lazy(() => import('./components/createplan/createplan'))
 
 const RouteList = [
 	{ exact: true, path: "/", component: HomePage },
@@ -22,7 +23,10 @@ const RouteList = [
 	{ exact: true, path: "/loan", component: LoanPage },
 	{ exact: true, path: "/loan/dmi", component: AboutPage },
 	{ exact: true, path: "/register", component: RegisterPage },
-	{ exact: true, path: "/login", component: LoginPage }
+	{ exact: true, path: "/login", component: LoginPage },
+	{ exact: true, path: "/user/dashboard", component: Dashboard },
+	{ exact: true, path: "/user/profile", component: ProfilePage },
+	{ exact: true, path: "/createplan", component: Createplan }
 ];
 
 export default RouteList;

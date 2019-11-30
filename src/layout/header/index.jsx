@@ -98,6 +98,11 @@ class Header extends Component {
           </Link>
         </li>
         <li>
+          <Link className="nav-link" activeClassName="active" to="/user/dashboard">
+           Usersame
+          </Link>
+        </li>
+        <li>
           <Link className="nav-link" activeClassName="active" to="/register">
             Register
           </Link>

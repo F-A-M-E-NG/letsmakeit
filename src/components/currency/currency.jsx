@@ -28,7 +28,7 @@ class Currency extends Component {
         image: coin3
       },
       {
-        coinName: 'Bund Fund',
+        coinName: 'Bond Fund',
         price: 'Learn more',
         image: coin4
       },

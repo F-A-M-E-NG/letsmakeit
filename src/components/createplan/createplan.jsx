@@ -6,6 +6,10 @@ class Createpan extends Component {
       render() { 
             return ( 
 <div class="section-empty">
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
     <div class="container content">
       <hr class="space m"/>
       <Row>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
 import Slider from "react-animated-slider";
+import logo from '../../assets/images/logo/logo.png';
 import * as THREE from "three";
 import Countdown from "../countdown/countdown";
 
@@ -111,10 +112,7 @@ class MainSlider extends Component {
 							sm={12}
 							className="col-xs-12 hidden-xs hidden-sm"
 						>
-							<Countdown
-								timeTillDate="12 30 2019, 6:00 am"
-								timeFormat="MM DD YYYY, h:mm a"
-							/>
+							<img style={{height:"300px"}} src={logo} alt="Logo"/>
 						</Col>
 					</Row>
 				</Container>

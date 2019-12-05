@@ -1,21 +1,30 @@
 import React, { Component } from 'react';
-import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Col, Row, Button, Form, FormGroup, Label, Input, Container, Card, CardBody, CardText, CardTitle} from 'reactstrap';
 class Profile extends Component {
       state = {  }
       render() { 
             return (
- <div class="section-empty">
-    <div class="container content">
-      <div class="d-flex">
+              <Container>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+ <div className="section-empty">
+    <div className="container content">
+      <div className="d-flex">
         <h2>My Profile</h2>
       </div>
       <hr className="space m" />
       <div className="alert" id="profile-alert"></div>
       <hr className="space m"/>
       <div className="advs-box advs-box-multiple shadow-1"/>
-        <div className="advs-box-content">
+        <Card body>
+            <CardBody>
+
+        <div className="tokens">
           <h4>Basic Profile</h4>
-          <Form className="form-box form-ajax" id="basic-form">
+          <Form className="form-box form-ajax token-body" id="basic-form">
           <Row>  
               <Col md={6}>
               <FormGroup>
@@ -44,9 +53,12 @@ class Profile extends Component {
                   </FormGroup>
                 </Col> 
               </Row>
-            <Button color="primary" size="md">Update Profile</Button>
+            <Button className="btn1" size="md">Update Profile</Button>
           </Form>
         </div>
+            </CardBody>
+      </Card>
+        
 
         <hr className="space" />
       <div className="advs-box advs-box-multiple shadow-1">
@@ -75,15 +87,19 @@ class Profile extends Component {
               </FormGroup>
               </Col>
             </Row>
-            <Button color="primary" size="md">Update Contact Information</Button>
+            <Button className="btn1" size="md">Update Contact Information</Button>
           </Form>
         </div>
          <hr className="space"/>
       <div className="advs-box advs-box-multiple shadow-1">
         <div className="advs-box-content">
-          <div className="d-flex">
+          <div style={{
+            display:"flex",
+            flexWrap:"wrap",
+            justifyContent:"space-between"
+          }}>
             <h4>Bank Details</h4>
-             <Button color="primary" size="md">Add New</Button>
+             <Button className="btn1 top-right" size="md">Add New</Button>
           </div>
           <Form className="form-box form-ajax" id="bank-form">
             <Row>
@@ -113,7 +129,7 @@ class Profile extends Component {
                   </FormGroup>
               </Col>
             </Row>
-            <Button color="primary" size="md">Save Bank Account</Button>
+            <Button className="btn1" size="md">Save Bank Account</Button>
             <Button color="danger" size="md">Cancel</Button>
           </Form>
         </div>
@@ -121,6 +137,9 @@ class Profile extends Component {
       </div>
       </div>
       </div> 
+      <br></br>
+      <br></br>
+              </Container>
               );
       }
 }

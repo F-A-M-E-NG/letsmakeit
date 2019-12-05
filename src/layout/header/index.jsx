@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import React, { Component, useState } from 'react';
+import { Container, Row, Col
+   } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo/logo.png';
-import flag from '../../assets/images/icons/12.png';
 import Config from '../../configure';
+import Drop from '../../dropdownbutton/button';
+import './style.css'
 import $ from 'jquery';
 
 class Header extends Component {
@@ -11,9 +13,11 @@ class Header extends Component {
     super(props);
     this.state = {
       navMenuMobile: false,
-      redirect: false
+      redirect: false,
     };
+
   }
+    
   toggleNavMenu = () => {
     this.setState({ navMenuMobile: !this.state.navMenuMobile });
   };
@@ -38,27 +42,28 @@ class Header extends Component {
     this.mount = false;
   }
   render() {
-    $(document).ready(() => {
-      $('.wd_single_index_menu ul li a[href^="#"]').bind('click', function(
-        event
-      ) {
-        event.preventDefault();
-        event.stopPropagation();
-        var $anchor = $(this);
-        if ($(window).width() > 991) {
-          var headerH = '60';
-        } else {
-          headerH = '56';
-        }
-        $('html, body')
-          .stop()
-          .animate(
-            {
-              scrollTop: $($anchor.attr('href')).offset().top - headerH + 'px'
-            },
-            800
-          );
-      });
+    // $(document).ready(() => {
+    //   $('.wd_single_index_menu ul li a[href^="#"]').bind('click', function(
+    //     event
+    //   ) {
+    //     event.preventDefault();
+    //     event.stopPropagation();
+    //     var $anchor = $(this);
+    //     if ($(window).width() > 991) {
+    //       var headerH = '60';
+    //     } else {
+    //       headerH = '56';
+    //     }
+    //     $('html, body')
+    //       .stop()
+    //       .animate(
+    //         {
+    //           scrollTop: $($anchor.attr('href')).offset().top - headerH + 'px'
+    //         },
+    //         800
+    //       );
+    //   }
+      // );
       // $(window).scroll(function() {
       //   var windscroll = $(window).scrollTop();
       //   var target = $('.wd_single_index_menu ul li');
@@ -74,7 +79,7 @@ class Header extends Component {
       //     $('.wd_single_index_menu ul li:first').addClass('active');
       //   }
       // });
-    });
+    // });
     let navigation = (
       <ul>
         <li>
@@ -98,14 +103,12 @@ class Header extends Component {
           </Link>
         </li>
         <li>
-          <Link className="nav-link" activeClassName="active" to="/user/dashboard">
-           Usersame
-          </Link>
+            <Drop />
         </li>
         <li>
-          <Link className="nav-link" activeClassName="active" to="/register">
-            Register
-          </Link>
+            <Link to="/register" >
+                Register
+            </Link>
         </li>
       </ul>
     );
@@ -132,19 +135,7 @@ class Header extends Component {
                   <nav className="wd_single_index_menu btc_main_menu">
                     {navigation}
                   </nav>
-                  {/* <div className="language">
-                    <span className="lng-in">
-                      <img src={flag} alt="" />
-                    </span>
-                    <ul className="lng-out">
-                      <li>
-                        <img src={flag} alt="" />
-                      </li>
-                      <li>
-                        <img src={flag} alt="" />
-                      </li>
-                    </ul>
-                  </div> */}
+                 
                   <div className="login-btn">
                     <Link to="/login" className="btn1">
                       <i className="fa fa-user"></i>
@@ -217,23 +208,17 @@ class Header extends Component {
                     }}
                   >
                     <h1>
-                      <Link to={Config.defaultPath}>Bit Money</Link>
+                      <Link to={Config.defaultPath}>BBCMPS</Link>
                     </h1>
                     <div onClick={this.toggleNavMenu} id="toggle_close">
                       &times;
                     </div>
                     <div id="cssmenu" className="wd_single_index_menu">
                       {navigation}
-                      <div className="login-btn">
-                    <Link to="/login" className="btn1">
+                      <div className="login-btn mr-t10">
+                    <Link to="/login" className="btn1 pt70">
                       <i className="fa fa-user"></i>
                       <span>Login</span>
-                    </Link>
-                  </div>
-                   <div className="login-btn">
-                    <Link to="/login" className="btn btn-warn">
-                      <i className="fa fa-user"></i>
-                      <span>Register</span>
                     </Link>
                   </div>
                     </div>

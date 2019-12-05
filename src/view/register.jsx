@@ -8,14 +8,21 @@ class Tokens extends Component {
       <Row>
             <br></br>
             <br></br>
+      <div style={{
+        display:"flex",
+        flexWrap:"wrap",
+        justifyContent:"center",
+        alignItems:"center"
+      }}>
 
-        <Col lg={10} md={12} sm={12} className="col-xs-12 col-lg-offset-4">
-          <Col lg={6} md={6} sm={6} className="col-xs-10">
+      
+        <Col>
+          <Col lg={12} md={12} sm={12} >
             <div className="tokens">
               <div className="token-body">
               <div className="token-name">REGISTER</div>
                   
-            <form id="register-form" class="form-box form-ajax">
+            <form id="register-form" className="form-box form-ajax">
               <div className="form-group">
                 <label for="firstName">First Name</label>
                 <input type="text" name="firstName" id="firstName" className="form-control form-value"
@@ -49,6 +56,7 @@ class Tokens extends Component {
           
             </Col>
         </Col>
+        </div>
       </Row>
     )
     

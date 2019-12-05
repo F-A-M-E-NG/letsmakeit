@@ -16,6 +16,7 @@ const Dashboard = lazy(() => import('./components/dashboard/dashboard'))
 const ProfilePage= lazy(() => import('./view/profile'))
 const Createplan= lazy(() => import('./components/createplan/createplan'))
 
+
 const RouteList = [
 	{ exact: true, path: "/", component: HomePage },
 	{ exact: true, path: "/invest", component: InvestmentPage },
@@ -26,7 +27,8 @@ const RouteList = [
 	{ exact: true, path: "/login", component: LoginPage },
 	{ exact: true, path: "/user/dashboard", component: Dashboard },
 	{ exact: true, path: "/user/profile", component: ProfilePage },
-	{ exact: true, path: "/createplan", component: Createplan }
+	{ exact: true, path: "/createplan", component: Createplan },
+	
 ];
 
 export default RouteList;

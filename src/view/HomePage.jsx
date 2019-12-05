@@ -4,8 +4,8 @@ import Steps from "../components/products_links/productlink";
 import Subscribe from "../components/subscribe/subscribe";
 import MainSlider from "../components/mainSlider/mainSlider";
 import Currency from "../components/currency/currency";
-import Dropdownbtn from "../dropdownbutton/button";
 import Contact from "../view/contact";
+
 
 
 class HomePage extends Component {
@@ -19,7 +19,6 @@ class HomePage extends Component {
 			<About fill="#f6f6ff" />
 			<Steps fill="#f6f6ff"/>
 			<div className="wd_scroll_wrap">
-			<Dropdownbtn />
 			<Subscribe fill="#f6f6ff" />
 			</div>
 			<div className="wd_scroll_wrap">

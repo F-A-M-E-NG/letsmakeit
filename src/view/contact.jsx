@@ -8,11 +8,16 @@ class Tokens extends Component {
       <Row>
             <br></br>
             <br></br>
-        <Col lg={12} md={12} sm={12} className="col-12">
+             <div style={{
+                display:"flex",
+                flexWrap:"wrap",
+                justifyContent:"center",
+                alignItems:"center"
+              }}>
 
-        </Col>
-        <Col lg={12} md={12} sm={12} className="col-xs-12 col-lg-offset-4">
-          <Col lg={12} md={8} sm={8} className="col-xs-12">
+
+        <Col>
+          <Col lg={12} md={12} sm={12}>
             <div className="tokens">
               <div className="token-body">
               <div className="token-name">CONTACT US</div>
@@ -48,6 +53,8 @@ class Tokens extends Component {
           
             </Col>
         </Col>
+              </div>
+       
       </Row>
     )
     

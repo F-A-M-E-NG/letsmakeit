@@ -10,7 +10,7 @@ class Subscribe extends Component {
 				<Row>
 					<Col lg={12} md={12} sm={12} className="col-xs-12">
 						<div className="search_btm">
-							<div className="search_main">
+							<div className="search_main mr-b10">
 								<form onSubmit={e => e.preventDefault()}>
 									<input type="text" placeholder="enter your email address" />
 									<button type="submit">subscribe</button>

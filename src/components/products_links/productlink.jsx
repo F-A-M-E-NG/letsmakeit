@@ -51,7 +51,9 @@ class Steps extends Component {
 											</div>
 
 											<span>
-												<i className="fa fa-university" aria-hidden="true"></i> 
+												<Link to="/save">
+													<i className="fa fa-university" aria-hidden="true"></i> 
+												</Link>
 											</span>
 										</li>
 										
@@ -68,12 +70,18 @@ class Steps extends Component {
 												</p>
 											</div>
 											<span>
+												<Link to="/loan">
 												<i className="fa fa-usd" aria-hidden="true"></i>
+												</Link>
 											</span>
 										</li>
 										<li className="l-con">
 											<div className="cont">
-												<h2>Invest</h2>
+													
+													<h2>
+													Invest
+													</h2>
+												
 												<p>
 													BBMPCS, as a foremost Credit Union provides
 													intervention working capital funds for small and
@@ -84,8 +92,9 @@ class Steps extends Component {
 												
 											</div>
 											<span>
+												<Link to="/invest">
                                                                         <i className="fa fa-bar-chart" aria-hidden="true"></i>
-												
+												</Link>
 											</span>
 											<div className="mid-icons"></div>
 										</li>

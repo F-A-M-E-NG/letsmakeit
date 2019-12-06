@@ -5,6 +5,7 @@ import ReactWOW from "react-wow";
 
 class Steps extends Component {
 	render() {
+		
 		let contents = (
 			<React.Fragment>
 				<section className="steps-area section">

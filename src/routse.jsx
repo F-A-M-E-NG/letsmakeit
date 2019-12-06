@@ -15,6 +15,7 @@ import AboutPage from "./view/AboutPage";
 const Dashboard = lazy(() => import('./components/dashboard/dashboard'))
 const ProfilePage= lazy(() => import('./view/profile'))
 const Createplan= lazy(() => import('./components/createplan/createplan'))
+const Plan= lazy(() => import('./components/plan/plan'))
 
 
 const RouteList = [
@@ -28,6 +29,7 @@ const RouteList = [
 	{ exact: true, path: "/user/dashboard", component: Dashboard },
 	{ exact: true, path: "/user/profile", component: ProfilePage },
 	{ exact: true, path: "/createplan", component: Createplan },
+	{ exact: true, path: "/plan", component: Plan },
 	
 ];
 

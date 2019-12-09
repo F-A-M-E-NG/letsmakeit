@@ -1,8 +1,8 @@
 
 import React, { Component } from "react";
-import Plan from "../plan/plan";
-import { Container, Row, Col } from "reactstrap";
-import ReactWOW from "react-wow";
+// import Plan from "../plan/plan";
+import { Container } from "reactstrap";
+// import ReactWOW from "react-wow";
 import Creacteaccount from './createaccount'
 
 class Dashboard extends Component {

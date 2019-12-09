@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
-import { Col, Row, Button, Form, FormGroup, Label, Input, Container, Card, CardBody, CardText, CardTitle} from 'reactstrap';
+import { Col, Row, Button, Form, FormGroup, Label, Input, Container, Card, CardBody} from 'reactstrap';
 class Profile extends Component {
-      state = {  }
+      state = { 
+        isOpen:false
+       }
+       handleOpenform =() => {
+        this.setState({isOpen:true})
+       }
+       handleCloseform =() => {
+        this.setState({isOpen:false})
+       }
       render() { 
+        const {isOpen } = this.state;
             return (
               <Container>
         <br></br>
@@ -99,9 +108,9 @@ class Profile extends Component {
             justifyContent:"space-between"
           }}>
             <h4>Bank Details</h4>
-             <Button className="btn1 top-right" size="md">Add New</Button>
+             <Button onClick={this.handleOpenform} disabled={isOpen} className="btn1 top-right" size="md">Add New</Button>
           </div>
-          <Form className="form-box form-ajax" id="bank-form">
+          {isOpen && <Form className="form-box form-ajax" id="bank-form">
             <Row>
               <Col md={6}>
                 <FormGroup>
@@ -130,8 +139,8 @@ class Profile extends Component {
               </Col>
             </Row>
             <Button className="btn1" size="md">Save Bank Account</Button>
-            <Button color="danger" size="md">Cancel</Button>
-          </Form>
+            <Button onClick={this.handleCloseform} color="danger" size="md">Cancel</Button>
+          </Form>}
         </div>
       </div>
       </div>

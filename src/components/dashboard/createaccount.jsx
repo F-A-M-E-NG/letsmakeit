@@ -11,8 +11,8 @@ const Createaccount = (props) => {
   return (
       <div>
     <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
-      <DropdownToggle color="primary" caret>
-        Create Account
+      <DropdownToggle className="btn1" nav caret>
+        Create Account <i className="fa fa-caret"></i>
       </DropdownToggle>
       <DropdownMenu className="dropdownitem">
         <DropdownItem divider />

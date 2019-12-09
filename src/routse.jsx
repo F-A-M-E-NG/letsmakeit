@@ -1,4 +1,4 @@
-import React, { lazy } from "react";
+import { lazy } from "react";
 import HomePage from "./view/HomePage";
 import SavePage from "./view/SavePage";
 import LoanPage from "./view/LoanPage";

@@ -6,7 +6,6 @@ import features1 from '../../assets/images/features/1.png';
 import features2 from '../../assets/images/features/2.png';
 import features3 from '../../assets/images/features/3.png';
 import features4 from '../../assets/images/features/4.png';
-import invest1 from '../../assets/images/invest1.jpg';
 import invest2 from '../../assets/images/invest2.jpg';
 import invest3 from '../../assets/images/invest3.jpg';
 import invest4 from '../../assets/images/invest4.jpg';

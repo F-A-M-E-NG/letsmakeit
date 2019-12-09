@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
-import { Link } from "react-router-dom";
-import ReactWOW from "react-wow";
+// import { Link } from "react-router-dom";
+// import ReactWOW from "react-wow";
 
 class Subscribe extends Component {
 	render() {

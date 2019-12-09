@@ -48,7 +48,7 @@ class Tokens extends DynamicForm {
         this.setState({error:err.response.data.data[0].msg, msg:null, isLoading:false})
         }else {
 
-        this.setState({error:"Something went wrong,please try again later..."})
+        this.setState({error:"Something went wrong,please try again later...", isLoading:false, msg:null,})
         }
         })
   };
@@ -74,7 +74,7 @@ class Tokens extends DynamicForm {
               <div className="token-body">
                  {this.state.msg && 
                 <div className="alert alert-success">
-                  {this.state.msg +","+" " + "please verify your email by entering the OTP sent"}
+                  {`${this.state.msg } please verify your email by entering the OTP sent`}
                 </div>}
                 <div className="token-name">Confirm OTP</div>
                   <form onSubmit={this.handleSubmit} id="register-form" className="form-box form-ajax">
@@ -145,7 +145,7 @@ class Tokens extends DynamicForm {
                   <p className="text-center">Already have an account? <Link style={{color:"blue"}} to="/login" className="para">Login</Link></p>
                   <p className="text-center">By registering, you agree to our <a style={{color:"blue"}} href="https://google.com" className="para" 
                       target="_blank"
-                      noopener noreferrer>Terms and Conditions</a></p>
+                      rel="noopener noreferrer" >Terms and Conditions</a></p>
                   </div>   
                   </div>
             </Col>

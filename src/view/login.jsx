@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 import { Container, Row, Col, Button } from 'reactstrap';
 
 
-class Tokens extends DynamicForm {
+class Login extends DynamicForm {
 
   state={
     data:{email:"", password:""},
@@ -76,7 +76,7 @@ class Tokens extends DynamicForm {
                       {isLoading && "Logging in..."}
                     </Button>
                   </form>
-                  <p className="text-center"><Link  style={{color:"blue"}} to="/password-reset" className="para">Forgot password?</Link></p>
+                  <p className="text-center mr-t15"><Link  style={{color:"blue"}} to="/password-reset">Forgot password?</Link></p>
                   <p className="text-center">Don't Have an account? <Link  style={{color:"blue"}} to="/register" className="para">Register</Link></p>
            
             </div>
@@ -100,4 +100,4 @@ class Tokens extends DynamicForm {
   }
 }
 
-export default Tokens;
+export default Login;

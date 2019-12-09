@@ -1,15 +1,7 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
-import { Link } from "react-router-dom";
 import ReactWOW from "react-wow";
-import team1 from "../../assets/images/team/1.png";
-import team2 from "../../assets/images/team/2.png";
-import team3 from "../../assets/images/team/3.png";
-import team4 from "../../assets/images/team/4.png";
-import team5 from "../../assets/images/team/5.png";
-import team6 from "../../assets/images/team/6.png";
-import team7 from "../../assets/images/team/7.png";
-import team8 from "../../assets/images/team/8.png";
+
 
 class Teams extends Component {
 	render() {
@@ -19,59 +11,10 @@ class Teams extends Component {
 				text:
 					"Algolia’s analytics dashboard helps product teams better understand what their users are looking for most, as well as where they are hitting dead-ends most often. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismo."
 			},
-			// {
-			// 	meamber: "Jeniffer Doe",
-			// 	position: "Co-Founder & CEO",
-			// 	image: team2,
-			// 	text:
-			// 		"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum. "
-			// },
-			// {
-			// 	meamber: "Ariful Islam",
-			// 	position: "Co-Founder & CEO",
-			// 	image: team3,
-			// 	text:
-			// 		"Here are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words."
-			// },
-			// {
-			// 	meamber: "Maria Willium",
-			// 	position: "Co-Founder & CEO",
-			// 	image: team4,
-			// 	text:
-			// 		"The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. There are many variations of passages."
-			// }
+			
 		];
 
-		// const advisorsTeam = [
-		// 	{
-		// 		meamber: "Mason Liam",
-		// 		position: "Co-Founder & CEO",
-		// 		image: team5,
-		// 		text:
-		// 			"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less"
-		// 	},
-		// 	{
-		// 		meamber: "Jammy Doe",
-		// 		position: "Co-Founder & CEO",
-		// 		image: team6,
-		// 		text:
-		// 			"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less"
-		// 	},
-		// 	{
-		// 		meamber: "Daniel Matthew",
-		// 		position: "Co-Founder & CEO",
-		// 		image: team7,
-		// 		text:
-		// 			"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less"
-		// 	},
-		// 	{
-		// 		meamber: "Henry Jack",
-		// 		position: "Co-Founder & CEO",
-		// 		image: team8,
-		// 		text:
-		// 			"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less"
-		// 	}
-		// ];
+		
 
 		const Items = ({ meamber, position, image, text, dur }) => {
 			if (this.props.animate) {
@@ -145,37 +88,6 @@ class Teams extends Component {
 						</Container>
 					</div>
 				</section>
-				{/* <section className="team2-area pd-t100 pd-b50">
-					<div className="particles-team">
-						<Container>
-							<Row>
-								<Col lg={12} md={12} sm={12} className="col-xs-12">
-									<div className="section-heading2">
-										{this.props.animate ? (
-											<ReactWOW animation={this.props.animate} duration="1s">
-												<h2>Our Advisors</h2>
-											</ReactWOW>
-										) : (
-											<h2>Our Advisors</h2>
-										)}
-									</div>
-								</Col>
-							</Row>
-							<Row>
-								{advisorsTeam.map((obj, i) => (
-									<Items
-										key={i}
-										dur={(i + 1) * 0.3}
-										meamber={obj.meamber}
-										position={obj.position}
-										image={obj.image}
-										text={obj.text}
-									/>
-								))}
-							</Row>
-						</Container>
-					</div>
-				</section> */}
 			</React.Fragment>
 		);
 	}

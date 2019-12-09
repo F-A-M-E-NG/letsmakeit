@@ -5,37 +5,37 @@ class Createpan extends Component {
       state = {  }
       render() { 
             return ( 
-<div class="section-empty">
+<div className="section-empty">
   <br></br>
   <br></br>
   <br></br>
   <br></br>
-    <div class="container content">
-      <hr class="space m"/>
+    <div className="container content">
+      <hr className="space m"/>
       <Row>
-        <div class="col-md-6 col-center boxed-inverse shadow-1">
-          <div class="alert" id="account-alert"></div>
+        <div className="col-md-6 col-center boxed-inverse shadow-1">
+          <div className="alert" id="account-alert"></div>
           <div id="create-section">
             <h2>Create Account</h2>
-            <Form class="form-box form-ajax" id="create-form">
+            <Form className="form-box form-ajax" id="create-form">
               <FormGroup>
                 <Label for="accountType">Account Type</Label>
                 <Input type="text" name="accountType" id="accountType" disabled />
               </FormGroup>
-              <Button color="primary" size="lg" type="submit">
+              <Button className="btn1" size="lg" type="submit">
                 Create Account
              </Button>
             </Form>
           </div>
-          <div id="fund-section">
-            <h2>Fund Account</h2>
-            <Form class="form-box form-ajax" id="fund-form">
+          <div id="fund-section" >
+            <h2 className="mr-t25">Fund Account</h2>
+            <Form className="form-box form-ajax" id="fund-form">
               <FormGroup>
                 <Label for="accountType">Amount</Label>
                 <Input type="number" name="amount" id="amount" placeholder="Amount"
                   required />
               </FormGroup>
-              <Input type="submit" value="Fund Account" id="fund-button"/>
+              <Input type="submit" className="btn1" value="Fund Account" id="fund-button"/>
               <center><Link to="/user/dashboard"><small>SKIP</small></Link></center>
             </Form>
           </div>

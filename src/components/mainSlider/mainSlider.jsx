@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Slider from "react-animated-slider";
 import logo from '../../assets/images/logo/logo.png';
 import * as THREE from "three";
-import Countdown from "../countdown/countdown";
 
 const OrbitControls = require("three-orbitcontrols");
 

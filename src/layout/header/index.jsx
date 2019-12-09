@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import { Container, Row, Col
    } from 'reactstrap';
 import { Link } from 'react-router-dom';
@@ -6,7 +6,7 @@ import logo from '../../assets/images/logo/logo.png';
 import Config from '../../configure';
 import Drop from '../../dropdownbutton/button';
 import './style.css'
-import $ from 'jquery';
+// import $ from 'jquery';
 
 class Header extends Component {
   constructor(props) {
@@ -208,7 +208,7 @@ class Header extends Component {
                     }}
                   >
                     <h1>
-                      <Link to={Config.defaultPath}>BBCMPS</Link>
+                      <Link to={Config.defaultPath}>BBMPCS</Link>
                     </h1>
                     <div onClick={this.toggleNavMenu} id="toggle_close">
                       &times;
@@ -216,7 +216,7 @@ class Header extends Component {
                     <div id="cssmenu" className="wd_single_index_menu">
                       {navigation}
                       <div className="login-btn mr-t10">
-                    <Link to="/login" className="btn1 pt70">
+                    <Link to="/login" className="btn1 mr-l15 pt70">
                       <i className="fa fa-user"></i>
                       <span>Login</span>
                     </Link>

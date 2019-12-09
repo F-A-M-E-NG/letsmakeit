@@ -1,0 +1,37 @@
+Create Account Endpoint
+type: POST
+url: /account
+body: accountType
+headers: Authorization: 'Bearer {token}'
+
+
+Transaction for New Unverified Account
+type: POST
+url: /transaction
+body: {
+      transactionType: [credit, debit],
+      amount,
+      accountNumber: '2020202020', //default
+      reference: {paystack reference}
+      channel: 'Paystack'
+}
+Authorization: 'Bearer {token}'
+
+List All Accounts by User
+type: GET
+url: account/u/:userid
+Authorization: 'Bearer {token}'
+
+Get a single Account
+type: GET
+url: /account/n/:accountNumber
+Authorization: 'Bearer {token}'
+
+Get all transactions for an account
+type: GET
+url: /transaction/a/:accountNumber
+Authorization: 'Bearer {token}'
+
+Get single transaction details
+type: GET
+url: /transaction/:transactionId

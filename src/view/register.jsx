@@ -13,6 +13,7 @@ class Tokens extends DynamicForm {
       email:"",
       password:""
     },
+    otpData:{email:"", otp:""},
     errors:{},
     isLoading:false,
     success: false
@@ -52,9 +53,13 @@ class Tokens extends DynamicForm {
         }
         })
   };
-
+confirmOTP = () =>{
+const { otpData } = {...this.state}
+  otpData.email = this.state.data.email ? this.state.data.email :""
+  this.setState({otpData})
+}
   render() {
-    
+    console.log(this.state.otpData)
     const {isLoading, success, data} = this.state;
 
     let otp = (
@@ -77,8 +82,8 @@ class Tokens extends DynamicForm {
                   {`${this.state.msg } please verify your email by entering the OTP sent`}
                 </div>}
                 <div className="token-name">Confirm OTP</div>
-                  <form onSubmit={this.handleSubmit} id="register-form" className="form-box form-ajax">
-                    <div className="form-group">
+                  <form onSubmit={this.confirmOtp} id="register-form" className="form-box form-ajax">
+                    <div className="form-group" hidden>
                       <label for="otp-code">Email</label>
                       <input type="email" name="email" id="email" className="form-control form-value" value={data.email} disabled required />
                     </div>

@@ -7,6 +7,7 @@ import Input from "./input";
 
 class Form extends Component {
   state = {
+    otpData:{},
     data: {},
     errors: {},
     lga:[],
@@ -37,6 +38,14 @@ class Form extends Component {
     if (errors) return;
 
     this.doSubmit();
+  };
+  confirmOtp = e => {
+    e.preventDefault();
+    const errors = this.validate();
+    this.setState({ errors: errors || {} });
+    if (errors) return;
+
+    this.confirmOTP();
   };
   
 

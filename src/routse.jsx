@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import HomePage from "./view/HomePage";
+import Logout from "./components/logout/logout";
 import SavePage from "./view/SavePage";
 import LoanPage from "./view/LoanPage";
 import LoginPage from "./view/LoginPage";
@@ -12,10 +13,10 @@ import AboutPage from "./view/AboutPage";
 // const About = lazy(() => import('./components/about/about'))
 // const Products = lazy(() => import('./components/roadMap/roadmap'))
 // const ProductDetails = lazy(() => import('./components/projects/projects'))
-const Dashboard = lazy(() => import('./components/dashboard/dashboard'))
-const ProfilePage= lazy(() => import('./view/profile'))
-const Createplan= lazy(() => import('./components/createplan/createplan'))
-const Plan= lazy(() => import('./components/plan/plan'))
+import Dashboard from './components/dashboard/dashboard';
+import ProfilePage from './view/profile';
+import Createplan from './components/createplan/createplan';
+import Plan from'./components/plan/plan';
 
 
 const RouteList = [
@@ -30,6 +31,7 @@ const RouteList = [
 	{ exact: true, path: "/user/profile", component: ProfilePage },
 	{ exact: true, path: "/createplan", component: Createplan },
 	{ exact: true, path: "/plan", component: Plan },
+	{ exact: true, path: "/logout", component: Logout },
 	
 ];
 

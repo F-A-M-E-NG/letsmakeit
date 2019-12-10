@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import auth from '../../services/authService';
 import { Col, Row, Button, Form, FormGroup, Label, Input, Container, Card, CardBody} from 'reactstrap';
 class Profile extends Component {
       state = { 
-        isOpen:false
+        isOpen:false,
+        user:{}
        }
        handleOpenform =() => {
         this.setState({isOpen:true})
@@ -10,7 +13,16 @@ class Profile extends Component {
        handleCloseform =() => {
         this.setState({isOpen:false})
        }
-      render() { 
+
+
+
+       componentDidMount() {
+         const user = auth.getCurrentUser()
+         this.setState({ user })
+       }
+      render() {
+         const {user} = this.state
+         if (!auth.getCurrentUser()) return <Redirect to="/login"/>;
         const {isOpen } = this.state;
             return (
               <Container>
@@ -38,13 +50,13 @@ class Profile extends Component {
               <Col md={6}>
               <FormGroup>
                 <Label for="firstName">First Name</Label>
-                <Input type="text" name="firstName" id="firstName" placeholder="First Name" />
+                <Input type="text" name="firstName" id="firstName" placeholder="First Name" value={user.firstName} />
               </FormGroup>
               </Col>
                 <Col md={6}>
                 <FormGroup>
                   <Label for="lastNmae">Last Name</Label>
-                  <Input type="text" name="lastName" id="lastName" placeholder="Last Name" />
+                  <Input type="text" name="lastName" id="lastName" placeholder="Last Name" value={user.lastName} />
                 </FormGroup>
               </Col> 
             </Row>
@@ -52,13 +64,13 @@ class Profile extends Component {
                 <Col md={6}>
                 <FormGroup>
                   <Label for="email">Email</Label>
-                  <Input type="email" name="email" id="email" placeholder="Email" />
+                  <Input type="email" name="email" id="email" placeholder="Email" value={user.email} />
                 </FormGroup>
                 </Col>
                   <Col md={6}>
                   <FormGroup>
                     <Label for="phoneNumber">Phone Number</Label>
-                    <Input type="tel" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" />
+                    <Input type="tel" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" value={user.phoneNumber ? user.phoneNumber:""} />
                   </FormGroup>
                 </Col> 
               </Row>

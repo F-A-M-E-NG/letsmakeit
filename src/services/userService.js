@@ -1,6 +1,6 @@
 import http  from './httpService';
 import { apiUrl } from '../config.json';
-const apiEndpoint = `${apiUrl}/users`;
+const apiEndpoint = `${apiUrl}/auth/register`;
 
 function getUserUrl(id){
  return `${apiEndpoint}/${id}` 
@@ -12,8 +12,6 @@ return http.post(apiEndpoint, {
       password:user.password,
       firstname:user.firstname,
       lastname:user.lastname,
-      phone:user.phone,
-      user_cat:user.user_cat,
 })
 }
 

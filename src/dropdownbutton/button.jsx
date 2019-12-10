@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 import { Dropdown, DropdownItem, DropdownToggle, DropdownMenu } from 'reactstrap';
 import './button.css';
-const Example = (props) => {
+const Userdropdown = ({user}) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggle = () => setDropdownOpen(!dropdownOpen);
@@ -14,7 +14,7 @@ const Example = (props) => {
         
         <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
           <DropdownToggle nav caret>
-            Asoft
+           {user.lastName} {user.firstName}
           </DropdownToggle>
           <DropdownMenu>
             <DropdownItem divider />
@@ -34,7 +34,6 @@ const Example = (props) => {
               <Link className="text-dark"  to="/logout">
                   Logout
               </Link>
-              
               </DropdownItem>
           </DropdownMenu>
         </Dropdown>
@@ -43,4 +42,4 @@ const Example = (props) => {
   );
 }
 
-export default Example;
+export default Userdropdown;

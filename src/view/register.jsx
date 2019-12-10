@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios'
+import { Redirect } from 'react-router-dom';
+import auth from '../services/authService';
 import Joi from 'joi-browser'
 import {Link} from 'react-router-dom';
 import DynamicForm from '../common/form';
@@ -59,6 +61,7 @@ const { otpData } = {...this.state}
   this.setState({otpData})
 }
   render() {
+    if(auth.getCurrentUser()) return <Redirect to="/user/dashboard" />
     console.log(this.state.otpData)
     const {isLoading, success, data} = this.state;
 

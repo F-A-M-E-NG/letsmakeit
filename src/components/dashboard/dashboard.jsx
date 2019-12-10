@@ -1,5 +1,7 @@
 
 import React, { Component } from "react";
+import {Redirect } from 'react-router-dom';
+import auth from '../../services/authService';
 // import Plan from "../plan/plan";
 import { Container } from "reactstrap";
 // import ReactWOW from "react-wow";
@@ -7,11 +9,12 @@ import Creacteaccount from './createaccount'
 
 class Dashboard extends Component {
 	render() {
+		 if (!auth.getCurrentUser()) return <Redirect to="/login"/>;
 		let page = (
 			<div style={{ paddingTop: "10vh",
 					 paddingBottom: "20vh"
 			               }}>
-				
+				 
 					<div style={{
 						paddingTop: "10vh",
 						paddingBottom: "20vh",
@@ -30,11 +33,10 @@ class Dashboard extends Component {
 		);
 		
 		return (
-			<div id="about" className="wd_scroll_wrap wd_scroll">
+			
 				<div className="about-area pd-t100 pd-b100">
 					<Container>{page}</Container>
 				</div>
-			</div>
 		);
 	}
 }

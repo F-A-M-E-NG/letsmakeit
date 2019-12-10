@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo/logo.png';
 import Config from '../../configure';
 import Drop from '../../dropdownbutton/button';
+import auth from "../../services/authService";
 import './style.css'
-// import $ from 'jquery';
 
 class Header extends Component {
   constructor(props) {
@@ -14,6 +14,7 @@ class Header extends Component {
     this.state = {
       navMenuMobile: false,
       redirect: false,
+      user:{},
     };
 
   }
@@ -32,6 +33,10 @@ class Header extends Component {
     const el = document.querySelector('.gc_main_menu_wrapper');
     this.setState({ top: el.offsetTop + 700, height: el.offsetHeight });
     window.addEventListener('scroll', this.handleScroll);
+    const user = auth.getCurrentUser();
+    this.setState({ user });
+    console.log(user)
+
   }
   componentDidUpdate() {
     this.state.scroll > this.state.top
@@ -42,44 +47,7 @@ class Header extends Component {
     this.mount = false;
   }
   render() {
-    // $(document).ready(() => {
-    //   $('.wd_single_index_menu ul li a[href^="#"]').bind('click', function(
-    //     event
-    //   ) {
-    //     event.preventDefault();
-    //     event.stopPropagation();
-    //     var $anchor = $(this);
-    //     if ($(window).width() > 991) {
-    //       var headerH = '60';
-    //     } else {
-    //       headerH = '56';
-    //     }
-    //     $('html, body')
-    //       .stop()
-    //       .animate(
-    //         {
-    //           scrollTop: $($anchor.attr('href')).offset().top - headerH + 'px'
-    //         },
-    //         800
-    //       );
-    //   }
-      // );
-      // $(window).scroll(function() {
-      //   var windscroll = $(window).scrollTop();
-      //   var target = $('.wd_single_index_menu ul li');
-      //   if (windscroll >= 0) {
-      //     $('.wd_scroll').each(function(i) {
-      //       if ($(this).position().top <= windscroll + 90) {
-      //         target.removeClass('active');
-      //         target.eq(i).addClass('active');
-      //       }
-      //     });
-      //   } else {
-      //     target.removeClass('active');
-      //     $('.wd_single_index_menu ul li:first').addClass('active');
-      //   }
-      // });
-    // });
+    const {user} = this.state
     let navigation = (
       <ul>
         <li>
@@ -102,14 +70,14 @@ class Header extends Component {
             Loan
           </Link>
         </li>
-        <li>
-            <Drop />
-        </li>
-        <li>
+        {user && <li>
+            <Drop user={user}/>
+        </li>}
+        {!user && <li>
             <Link to="/register" >
                 Register
             </Link>
-        </li>
+        </li>}
       </ul>
     );
     return (
@@ -135,13 +103,13 @@ class Header extends Component {
                   <nav className="wd_single_index_menu btc_main_menu">
                     {navigation}
                   </nav>
-                 
+                 {!user &&
                   <div className="login-btn">
                     <Link to="/login" className="btn1">
                       <i className="fa fa-user"></i>
                       <span>Login</span>
                     </Link>
-                  </div>
+                  </div>}
                 </div>
                 <div className="rp_mobail_menu_main_wrapper visible-xs">
                   <div className="row">
@@ -215,12 +183,12 @@ class Header extends Component {
                     </div>
                     <div id="cssmenu" className="wd_single_index_menu">
                       {navigation}
-                      <div className="login-btn mr-t10">
+                     {!user && <div className="login-btn mr-t10">
                     <Link to="/login" className="btn1 mr-l15 pt70">
                       <i className="fa fa-user"></i>
                       <span>Login</span>
                     </Link>
-                  </div>
+                  </div>}
                     </div>
                   </div>
                 </div>

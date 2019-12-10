@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios'
+import { Redirect } from 'react-router-dom';
 import Joi from 'joi-browser'
 import DynamicForm from '../common/form'
+import auth from '../services/authService';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, Button } from 'reactstrap';
 
@@ -35,42 +37,57 @@ const {otpData} = {...this.state}
 }
   doSubmit = async () => {
     this.setState({ isLoading: true })
-    axios.post("https://bbmpcs.herokuapp.com/api/auth/login", this.state.data)
-      .then(success => {
-        // console.log(success) 
-          this.setState({ msg: success.data.message, error: null, isLoading: false })
-          window.location = "/user/dashboard"
-        
-      })
-      .catch(err => {
-        // console.log(err.response.data)
-          if (err.response.data.message === "Account is not confirmed. Please confirm your account.") {
-              // console.log("true for what we are doing")
-            this.setState({ msg: err.response.data.message, error: null, loginSuccess: true, isLoading: false })
+    try {
+            const { data } = this.state;
+           await auth.login(data.email, data.password);
+            this.setState({ isLoading: false, msg:"Login success", error:null })
+            window.location = "/user/dashboard";
           }
-          // console.log(err.response.data.message)
-        this.setState({ error: err.response.data.message, msg: null, isLoading: false })
-      })
+        catch(ex){
+            console.log(ex.response.data.message)
+            if (ex.response.data.message === "Account is not confirmed. Please confirm your account.") {
+            this.setState({ msg:null, error: ex.response.data.message, loginSuccess: true, isLoading: false })
+          }else{
+
+            this.setState({ msg:null, error: ex.response.data.message, loginSuccess: false, isLoading: false })
+          }
+        }
+
+
+
+
+
+    // axios.post("https://bbmpcs.herokuapp.com/api/auth/login", this.state.data)
+    //   .then(success => {
+    //     // console.log(success) 
+    //       this.setState({ msg: success.data.message, error: null, isLoading: false })
+    //       window.location = "/user/dashboard"
+    //   })
+    //   .catch(err => {
+    //     // console.log(err.response.data)
+    //       if (err.response.data.message === "Account is not confirmed. Please confirm your account.") {
+    //           // console.log("true for what we are doing")
+    //         this.setState({ msg: err.response.data.message, error: null, loginSuccess: true, isLoading: false })
+    //       }
+    //       // console.log(err.response.data.message)
+    //     this.setState({ error: err.response.data.message, msg: null, isLoading: false })
+    //   })
   };
   confirmOTP = () => {
     this.setState({ isLoading: true })
     axios.post("https://bbmpcs.herokuapp.com/api/auth/verify-otp", this.state.otpData )
       .then(success => 
-            this.setState({ msg: success.data.message, error: null, isLoading: false, loginSuccess: false }))
+            this.setState({ msgs: success.data.message, error: null, isLoading: false, loginSuccess: false }))
       .catch(err=>{
          this.setState({ error: err.response.data.message,  loginSuccess: true, isLoading: false })
         console.log(err.response.data)
       })
   }
 
-  componentDidMount() {
-  //  const {otpData} =this.state
-  //  otpData.email = this.state.data.email
-  //  this.setState({otpData})
-    // console.log(this.state.data)
-  }
+
   render() {
     const { isLoading, data, loginSuccess, otpData } = this.state;
+     if (auth.getCurrentUser()) return <Redirect to="/user/dashboard"/>;
     console.log(otpData)
     let otp = (
       <Row>
@@ -93,7 +110,7 @@ const {otpData} = {...this.state}
                     </div>}
                   {this.state.msg &&
                     <div className="alert alert-success">
-                      {`${this.state.msg} please verify your email by entering the OTP sent`}
+                      {`${this.state.msgs}`}
                     </div>}
                   <div className="token-name">Confirm OTP</div>
                   <form onSubmit={this.confirmOtp} id="register-form" className="form-box form-ajax">

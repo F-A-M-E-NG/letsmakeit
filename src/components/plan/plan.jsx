@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import auth from '../../services/authService';
 import { Container } from 'reactstrap'
 class Plan extends Component {
       state = { 
 
        }
       render() { 
-
+        if (!auth.getCurrentUser()) return <Redirect to="/login"/>;
         let contents=(
           <div>
             <br></br>

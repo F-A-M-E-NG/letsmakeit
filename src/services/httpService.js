@@ -1,6 +1,6 @@
 import axios from "axios";
 import logger from "./logService";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 
 
 axios.interceptors.response.use(null, error => {
@@ -11,14 +11,15 @@ axios.interceptors.response.use(null, error => {
 
   if (!expectedError) {
     logger.log(error);
-    toast.error("An unexpected error occurrred.");
+    // toast.error("Please ensure you are offline.");
+    console.error("Please ensure you are offline.");
   }
 
   return Promise.reject(error);
 });
 
-function setJwt(jwt){
-axios.defaults.headers.common["x-auth-token"] = jwt;
+function setJwt(usertoken){
+axios.defaults.headers.common["Authorization"] =`Bearer ${usertoken}`;
 
 }
 export default {

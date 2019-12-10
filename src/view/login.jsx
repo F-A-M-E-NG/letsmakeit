@@ -12,7 +12,6 @@ class Login extends DynamicForm {
     data: { email: "", password: "" },
     errors: {},
      otpData:{email:"", otp:""},
-     optnumber:"",
     isLoading: false,
     loginSuccess: false
   }
@@ -26,15 +25,12 @@ class Login extends DynamicForm {
       .min(5)
       .label("Password")
   };
-populateUsermail =()=>{
-  const {otpData} = {...this.state}
-  otpData.otp = this.state.optnumber ? this.state.optnumber= this.state.optnumber:""
-  this.setState({otpData})
-}
+
 handleotpChange = (event) => {
 const {otpData} = {...this.state}
-  otpData.otp = this.state.optnumber ? otpData.otp = this.state.optnumber:""
- this.setState({optnumber: event.target.value, otpData});
+  otpData.otp = event.target.value
+  otpData.email = this.state.data.email
+ this.setState({otpData});
   
 }
   doSubmit = async () => {
@@ -49,25 +45,33 @@ const {otpData} = {...this.state}
       .catch(err => {
         // console.log(err.response.data)
           if (err.response.data.message === "Account is not confirmed. Please confirm your account.") {
-              console.log("true for what we are doing")
+              // console.log("true for what we are doing")
             this.setState({ msg: err.response.data.message, error: null, loginSuccess: true, isLoading: false })
           }
-          console.log(err.response.data.message)
+          // console.log(err.response.data.message)
         this.setState({ error: err.response.data.message, msg: null, isLoading: false })
       })
   };
   confirmOTP = () => {
-    // axios.post("https://bbmpcs.herokuapp.com/api/auth/verify-otp", )
-    console.log("confirm otp clicked")
-
+    this.setState({ isLoading: true })
+    axios.post("https://bbmpcs.herokuapp.com/api/auth/verify-otp", this.state.otpData )
+      .then(success => 
+            this.setState({ msg: success.data.message, error: null, isLoading: false, loginSuccess: false }))
+      .catch(err=>{
+         this.setState({ error: err.response.data.message,  loginSuccess: true, isLoading: false })
+        console.log(err.response.data)
+      })
   }
 
   componentDidMount() {
-    this.populateUsermail()
+  //  const {otpData} =this.state
+  //  otpData.email = this.state.data.email
+  //  this.setState({otpData})
     // console.log(this.state.data)
   }
   render() {
     const { isLoading, data, loginSuccess, otpData } = this.state;
+    console.log(otpData)
     let otp = (
       <Row>
         <br />
@@ -95,7 +99,7 @@ const {otpData} = {...this.state}
                   <form onSubmit={this.confirmOtp} id="register-form" className="form-box form-ajax">
                     <div className="form-group" hidden>
                       <label for="otp-code">Email</label>
-                      <input type="email" name="email" id="email" className="form-control form-value" value={data.email} disabled required />
+                      <input type="email" name="email" id="email" className="form-control form-value" onChange={this.handleotpChange} value={data.email} disabled required />
                     </div>
                     <div className="form-group">
                       <label for="otp-code">Otp</label>

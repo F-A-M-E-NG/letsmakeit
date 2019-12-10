@@ -7,7 +7,6 @@ import Input from "./input";
 
 class Form extends Component {
   state = {
-    otpData:{},
     data: {},
     errors: {},
     lga:[],

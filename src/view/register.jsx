@@ -18,7 +18,8 @@ class Tokens extends DynamicForm {
     otpData:{email:"", otp:""},
     errors:{},
     isLoading:false,
-    success: false
+    success: false,
+    toLogin:false,
     
   }
 
@@ -39,6 +40,13 @@ class Tokens extends DynamicForm {
       .label("Password")
   };
 
+handleotpChange = (event) => {
+const {otpData} = {...this.state}
+  otpData.otp = event.target.value
+  otpData.email = this.state.data.email
+ this.setState({otpData});
+  
+}
  doSubmit = async () => {
    this.setState({isLoading:true})
    axios.post("https://bbmpcs.herokuapp.com/api/auth/register", this.state.data)
@@ -55,14 +63,20 @@ class Tokens extends DynamicForm {
         }
         })
   };
-confirmOTP = () =>{
-const { otpData } = {...this.state}
-  otpData.email = this.state.data.email ? this.state.data.email :""
-  this.setState({otpData})
-}
+confirmOTP = () => {
+    this.setState({ isLoading: true })
+    axios.post("https://bbmpcs.herokuapp.com/api/auth/verify-otp", this.state.otpData )
+      .then(success => 
+            this.setState({ msg: success.data.message, error: null, isLoading: false, success: false, toLogin:true }))
+      .catch(err=>{
+         this.setState({ error: err.response.data.message, msg:null,  success: true, isLoading: false })
+        // console.log(err.response.data)
+      })
+  }
   render() {
-    if(auth.getCurrentUser()) return <Redirect to="/user/dashboard" />
-    console.log(this.state.otpData)
+    if(this.state.toLogin) return <Redirect to="/login"  />
+    if(auth.getCurrentUser()) return <Redirect to="/user/dashboard"  />
+    // console.log(this.state.otpData)
     const {isLoading, success, data} = this.state;
 
     let otp = (
@@ -80,6 +94,10 @@ const { otpData } = {...this.state}
         <Col lg={12} md={12} sm={12} >
            <div className="tokens">
               <div className="token-body">
+                { this.state.error && 
+                <div className="alert alert-danger">
+                  {`${this.state.error }`}
+                </div>}
                  {this.state.msg && 
                 <div className="alert alert-success">
                   {`${this.state.msg } please verify your email by entering the OTP sent`}
@@ -88,12 +106,12 @@ const { otpData } = {...this.state}
                   <form onSubmit={this.confirmOtp} id="register-form" className="form-box form-ajax">
                     <div className="form-group" hidden>
                       <label for="otp-code">Email</label>
-                      <input type="email" name="email" id="email" className="form-control form-value" value={data.email} disabled required />
+                      <input type="email" name="email" id="email" className="form-control form-value" value={data.email} disabled required hidden onChange={this.handleotpChange}/>
                     </div>
                     <div className="form-group">
                       <label for="otp-code">Otp</label>
                       <input type="number" name="otp-code" id="otp-code" class="form-control form-value"
-                        placeholder="OTP"/>
+                        placeholder="OTP" onChange={this.handleotpChange}/>
                     </div>
                     
                     <Button disabled={isLoading} type="submit" className="btn1 mt-3" variant="dark">

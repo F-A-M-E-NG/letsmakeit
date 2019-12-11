@@ -1,4 +1,4 @@
-import { lazy } from "react";
+
 import HomePage from "./view/HomePage";
 import Logout from "./components/logout/logout";
 import SavePage from "./view/SavePage";
@@ -7,12 +7,6 @@ import LoginPage from "./view/LoginPage";
 import RegisterPage from "./view/RegisterPage";
 import InvestmentPage from "./view/InvestmentPage";
 import AboutPage from "./view/AboutPage";
-// import "./layout/footer/footer.css";
-
-// const HomePage = lazy(() => import('./view/HomePage'))
-// const About = lazy(() => import('./components/about/about'))
-// const Products = lazy(() => import('./components/roadMap/roadmap'))
-// const ProductDetails = lazy(() => import('./components/projects/projects'))
 import Dashboard from './components/dashboard/dashboard';
 import ProfilePage from './view/profile';
 import Createplan from './components/createplan/createplan';

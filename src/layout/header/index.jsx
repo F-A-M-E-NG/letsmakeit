@@ -35,7 +35,6 @@ class Header extends Component {
     window.addEventListener('scroll', this.handleScroll);
     const user = auth.getCurrentUser();
     this.setState({ user });
-    console.log(user)
 
   }
   componentDidUpdate() {

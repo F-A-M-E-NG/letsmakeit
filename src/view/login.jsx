@@ -44,34 +44,14 @@ const {otpData} = {...this.state}
             window.location = "/user/dashboard";
           }
         catch(ex){
+            if (ex.response && ex.response.data.message === "Account is not confirmed. Please confirm your account.") {
             console.log(ex.response.data.message)
-            if (ex.response.data.message === "Account is not confirmed. Please confirm your account.") {
             this.setState({ msg:null, error: ex.response.data.message, loginSuccess: true, isLoading: false })
           }else{
 
             this.setState({ msg:null, error: ex.response.data.message, loginSuccess: false, isLoading: false })
           }
         }
-
-
-
-
-
-    // axios.post("https://bbmpcs.herokuapp.com/api/auth/login", this.state.data)
-    //   .then(success => {
-    //     // console.log(success) 
-    //       this.setState({ msg: success.data.message, error: null, isLoading: false })
-    //       window.location = "/user/dashboard"
-    //   })
-    //   .catch(err => {
-    //     // console.log(err.response.data)
-    //       if (err.response.data.message === "Account is not confirmed. Please confirm your account.") {
-    //           // console.log("true for what we are doing")
-    //         this.setState({ msg: err.response.data.message, error: null, loginSuccess: true, isLoading: false })
-    //       }
-    //       // console.log(err.response.data.message)
-    //     this.setState({ error: err.response.data.message, msg: null, isLoading: false })
-    //   })
   };
   confirmOTP = () => {
     this.setState({ isLoading: true })
@@ -80,7 +60,7 @@ const {otpData} = {...this.state}
             this.setState({ msgs: success.data.message, error: null, isLoading: false, loginSuccess: false }))
       .catch(err=>{
          this.setState({ error: err.response.data.message,  loginSuccess: true, isLoading: false })
-        console.log(err.response.data)
+        // console.log(err.response.data)
       })
   }
 
@@ -88,7 +68,7 @@ const {otpData} = {...this.state}
   render() {
     const { isLoading, data, loginSuccess, otpData } = this.state;
      if (auth.getCurrentUser()) return <Redirect to="/user/dashboard"/>;
-    console.log(otpData)
+    // console.log(otpData)
     let otp = (
       <Row>
         <br />

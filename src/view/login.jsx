@@ -66,9 +66,9 @@ const {otpData} = {...this.state}
 
 
   render() {
-    const { isLoading, data, loginSuccess, otpData } = this.state;
+    const { isLoading, data, loginSuccess} = this.state;
      if (auth.getCurrentUser()) return <Redirect to="/user/dashboard"/>;
-    // console.log(otpData)
+    
     let otp = (
       <Row>
         <br />

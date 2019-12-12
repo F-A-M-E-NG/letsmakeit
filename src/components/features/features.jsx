@@ -40,7 +40,7 @@ class Features extends Component {
                         for small and medium enterprises to meet liquidityand on-going business
                          demands.
                         </p>
-                      <Link to="/register" className="btn1">Get Started</Link>
+                      <Link to="/details/bondfund" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                   <Col className="pd-0" sm={6}>
@@ -56,7 +56,7 @@ class Features extends Component {
                         for small and medium enterprises to meet liquidityand on-going business
                          demands.
                         </p>
-                      <Link to="/register" className="btn1">Get Started</Link>
+                      <Link to="/details/bondfund" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                 </li>
@@ -72,7 +72,7 @@ class Features extends Component {
                           and yielding sustainable cashflow.
                       </p>
 
-                      <Link to="/register" className="btn1">Get Started</Link>
+                      <Link to="/details/growthfund" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                   <Col className="pd-0" sm={6}>
@@ -90,7 +90,7 @@ class Features extends Component {
                           expert assistance whilst ensuring the funds of the investor is safe 
                           and yielding sustainable cashflow.
                       </p>
-                      <Link to="/register" className="btn1">Get Started</Link>
+                      <Link to="/details/growthfund" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                 </li>
@@ -107,7 +107,7 @@ class Features extends Component {
                           medium sized enterprises via the use of mezzanine debt and 
                           quasi-equity instruments to firms operating across West Africa.
                       </p>
-                      <Link to="/register" className="btn1">Get Started</Link>
+                      <Link to="/details/premiumfund" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                   <Col className="pd-0" sm={6}>
@@ -126,7 +126,7 @@ class Features extends Component {
                           medium sized enterprises via the use of mezzanine debt and 
                           quasi-equity instruments to firms operating across West Africa.
                       </p>
-                      <Link to="/register" className="btn1">Get Started</Link>
+                      <Link to="/details/premiumfund" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                 </li>

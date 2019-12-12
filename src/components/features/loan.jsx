@@ -11,7 +11,7 @@ import invest3 from '../../assets/images/invest3.jpg';
 import invest4 from '../../assets/images/invest4.jpg';
 
 
-class Savings extends Component {
+class Loans extends Component {
   render() {
     let con = (
       <Container>
@@ -296,4 +296,4 @@ class Savings extends Component {
   }
 }
 
-export default Savings;
+export default Loans;

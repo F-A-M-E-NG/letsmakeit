@@ -15,40 +15,44 @@ class Currency extends Component {
         coinName: 'e-Savings',
         price: 'learn more',
         image: coin1,
-        url:''
+        url:'/details/esavings'
       },
       {
         coinName: 'i-Club',
         price: 'Learn more',
-        image: coin2
+        image: coin2,
+        url:'/details/iclub'
       },
       {
         coinName: 'DMI',
         price: 'Learn more',
-        image: coin3
+        image: coin3,
+        url:'/details/dmi'
       },
       {
         coinName: 'Bond Fund',
         price: 'Learn more',
-        image: coin4
+        image: coin4,
+        url:'/details/bondfund'
       },
       {
         coinName: 'Growth Fund',
         price: 'Learn more',
-        
-        image: coin5
+        image: coin5,
+        url:'/details/growthfund'
       }
     ]
 
-    const Items = ({ image, coinName, price, coin, dir }) => {
+    const Items = ({ image, coinName, price, coin, dir, url }) => {
       if (this.props.animate) {
+        console.log(url)
         return (
           <ReactWOW animation={this.props.animate} duration={`${dir + 0.7}s`}>
             <div className="rete-list bt_title">
               <div className="content">
                 <div className="con">
                   <h2><img src={image} alt="" /><span>{coinName}</span></h2>
-                  <Link to="" className="btn3">{price}</Link>
+                  <Link to={url} className="btn3">{price}</Link>
                 </div>
               </div>
             </div>
@@ -61,7 +65,7 @@ class Currency extends Component {
             <div className="content">
               <div className="con">
                 <h2><img src={image} alt="" /><span>{coinName}</span></h2>
-                <button className="btn3">{price} {coin}</button>
+                <Link to={url} className="btn3">{price} {coin}</Link>
               </div>
             </div>
           </div>
@@ -76,7 +80,7 @@ class Currency extends Component {
             <Col lg={12} md={12} sm={12} className="col-xs-12">
               {
                 data.map((obj, i) => (
-                  <Items key={i} dir={(i + 1) * 0.3} image={obj.image} coin={obj.coin} coinName={obj.coinName} price={obj.price} />
+                  <Items key={i} dir={(i + 1) * 0.3} image={obj.image} coin={obj.coin} coinName={obj.coinName} price={obj.price} url={obj.url}/>
                 ))
               }
             </Col>

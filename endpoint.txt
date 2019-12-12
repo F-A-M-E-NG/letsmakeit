@@ -4,7 +4,7 @@ url: /account
 body: accountType
 headers: Authorization: 'Bearer {token}'
 
-
+ Paystack implimentation
 Transaction for New Unverified Account
 type: POST
 url: /transaction

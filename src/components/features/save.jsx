@@ -40,7 +40,7 @@ class Savings extends Component {
                               It is a daily fixed amount contribution with withdrawals only allowed 
                               at the end of the month of the contribution if need be.
                         </p>
-                      <Link to="/register" className="btn1">Get Started</Link>
+                      <Link to="/details/esavings" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                   <Col className="pd-0" sm={6}>
@@ -57,7 +57,7 @@ class Savings extends Component {
                                 with withdrawals only allowed at the end of the month
                                  of the contribution if need be.
                         </p>
-                      <Link to="/register" className="btn1">Get Started</Link>
+                      <Link to="/details/esavings" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                 </li>
@@ -70,7 +70,7 @@ class Savings extends Component {
                            then he/she can have access to loan facility worth twice of 
                            his investment from Brass and Books MPC ltd.</p>
 
-                      <Link to="/register" className="btn1">Get Started</Link>
+                      <Link to="/details/dmi" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                   <Col className="pd-0" sm={6}>
@@ -87,7 +87,7 @@ class Savings extends Component {
                              and Books MPC ltd.
                      </p>
 
-                      <Link to="/register" className="btn1">Get Started</Link>
+                      <Link to="/details/dmi" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                 </li>
@@ -98,7 +98,7 @@ class Savings extends Component {
                 <p>This product offers a convenient, flexible and secure saving option for 
                       the account holder that has bulk money they want to keep aside for a 
                       period usually more than a month at a fairly priced interest rate</p>
-                      <Link to="/register" className="btn1">Get Started</Link>
+                      <Link to="/details/termfund" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                   <Col className="pd-0" sm={6}>
@@ -112,7 +112,7 @@ class Savings extends Component {
                 <p>This product offers a convenient, flexible and secure saving option for 
                       the account holder that has bulk money they want to keep aside for a 
                       period usually more than a month at a fairly priced interest rate</p>
-                      <Link to="/register" className="btn1">Get Started</Link>
+                      <Link to="/details/termfund" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                 </li>
@@ -126,7 +126,7 @@ class Savings extends Component {
                              their investment needs and 
                             objectives through a single investment vehicle.</p>
 
-                      <Link to="/register" className="btn1">Get Started</Link>
+                      <Link to="/details/smartsavings" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                   <Col className="pd-0" sm={6}>
@@ -143,7 +143,7 @@ class Savings extends Component {
                              their investment needs and 
                             objectives through a single investment vehicle.</p>
 
-                      <Link to="/register" className="btn1">Get Started</Link>
+                      <Link to="/details/smartsavings" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                 </li>
@@ -155,7 +155,7 @@ class Savings extends Component {
                              investors who pool together resources to invest in alternative 
                              investments, diversify risks and enjoy great returns and profits 
                              as we pool together ideas and thus become better investors</p>
-                      <Link to="/register" className="btn1">Get Started</Link>
+                      <Link to="/details/iclub" className="btn1">Get Started</Link>
                     </div>
                   </Col>
                   <Col className="pd-0" sm={6}>

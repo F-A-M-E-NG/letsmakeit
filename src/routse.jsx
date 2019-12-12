@@ -11,6 +11,7 @@ import Dashboard from './components/dashboard/dashboard';
 import ProfilePage from './view/profile';
 import Createplan from './components/createplan/createplan';
 import Plan from'./components/plan/plan';
+import Productdetails from'./components/details/productdetails';
 
 
 const RouteList = [
@@ -23,6 +24,7 @@ const RouteList = [
 	{ exact: true, path: "/login", component: LoginPage },
 	{ exact: true, path: "/user/dashboard", component: Dashboard },
 	{ exact: true, path: "/user/profile", component: ProfilePage },
+	{ exact: true, path: "/details/:type", component: Productdetails},
 	{ exact: true, path: "/createplan", component: Createplan },
 	{ exact: true, path: "/plan", component: Plan },
 	{ exact: true, path: "/logout", component: Logout },

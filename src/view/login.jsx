@@ -47,9 +47,12 @@ const {otpData} = {...this.state}
             if (ex.response && ex.response.data.message === "Account is not confirmed. Please confirm your account.") {
             console.log(ex.response.data.message)
             this.setState({ msg:null, error: ex.response.data.message, loginSuccess: true, isLoading: false })
-          }else{
+          }else if(ex.response){
 
             this.setState({ msg:null, error: ex.response.data.message, loginSuccess: false, isLoading: false })
+          }else{
+            this.setState({ msg:null, error: "Something failed please try again later", loginSuccess: false, isLoading: false })
+
           }
         }
   };
@@ -66,7 +69,7 @@ const {otpData} = {...this.state}
 
 
   render() {
-    const { isLoading, data, loginSuccess} = this.state;
+    const { isLoading, data, loginSuccess, otpData } = this.state;
      if (auth.getCurrentUser()) return <Redirect to="/user/dashboard"/>;
     
     let otp = (

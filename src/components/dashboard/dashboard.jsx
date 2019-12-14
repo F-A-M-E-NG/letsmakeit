@@ -14,10 +14,9 @@ class Dashboard extends Component {
 			<div style={{ paddingTop: "10vh",
 					 paddingBottom: "20vh"
 			               }}>
+					<hr/>
 				 
 					<div style={{
-						paddingTop: "10vh",
-						paddingBottom: "20vh",
 						display:"flex",
 					  	flexWrap:"wrap",
 						justifyContent:"space-between"

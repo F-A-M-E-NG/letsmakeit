@@ -1,6 +1,10 @@
 import http  from './httpService';
 import { apiUrl } from '../config.json';
 const apiEndpoint = `${apiUrl}/account`;
+const apiEndpointfundacct = `${apiUrl}/transaction`;
+const userAccounts = `${apiUrl}/account/u`
+const singleAccount = `${apiUrl}/account/n`
+const allTransforAnAccount = `${apiUrl}/transaction/a`
 
 // function getUserUrl(id){
 //  return `${apiEndpoint}/${id}` 
@@ -12,20 +16,33 @@ return http.post(apiEndpoint, {
 })
 }
 
-// export function updatePassword(user){
-// return http.put(apiEndpoint, {
-//       password:user.password,
+export function fundAccount(transaction){
+return http.post(apiEndpointfundacct, {
+            transactionType: "credit",
+            amount:transaction.amount,
+            accountNumber:"2020202020", //default
+            reference: transaction.reference,
+            channel: "Paystack"
       
-// })
-// }
+})
+}
 
+// List All Accounts by User
+export function getAllAccountByActiveUser(userid) {
+      return http.get(`${userAccounts}/${userid}`)
+  }
 
-// export function saveUser(user) {
-//   if(user._id){
-//       const body = {...user};
-//       delete body._id;
-//       return http.put(getUserUrl(user._id), body)
-//   }
+// Return single Account by a User
+export function getSingleAccount(accountNumber){
+      return http.get(`${singleAccount}/${accountNumber}`)
+}    
 
-//       return http.post(apiEndpoint, user)
-// }
+//Get all transactions for an account
+export function GetallTransactionForAnAccount(accountNumber){
+      return http.get(`${allTransforAnAccount}/${accountNumber}`)
+}
+
+//Get single transaction details
+export function SingleTransactionDetails(transactionId){
+      return http.get(`${apiEndpointfundacct}/${transactionId}`)
+}

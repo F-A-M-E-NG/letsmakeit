@@ -1,6 +1,8 @@
 
 import React, { Component } from "react";
-import {Redirect } from 'react-router-dom';
+import  {Row, Col } from 'reactstrap'
+import {Redirect, Link } from 'react-router-dom';
+import { getAllAccountByActiveUser } from '../../services/accountService'
 import auth from '../../services/authService';
 // import Plan from "../plan/plan";
 import { Container } from "reactstrap";
@@ -8,6 +10,24 @@ import { Container } from "reactstrap";
 import Creacteaccount from './createaccount'
 
 class Dashboard extends Component {
+	getUserAccounts = async () => {
+		const user = auth.getCurrentUser()
+		try{
+		const {data} = await getAllAccountByActiveUser(user._id)
+			console.log(data)
+		}
+		catch(ex){
+			if(ex.response && ex.response.data){
+				console.log(ex.response.data)	
+			}else{
+				console.log("Something Failed")
+			}
+		}
+	}
+
+	componentDidMount() {
+		this.getUserAccounts()
+	}
 	render() {
 		 if (!auth.getCurrentUser()) return <Redirect to="/login"/>;
 		let page = (
@@ -26,6 +46,41 @@ class Dashboard extends Component {
 						<Creacteaccount />
 					</div>
 					
+
+					<Row>
+        <br></br>
+        <br></br>
+        <div style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          alignItems: "center"
+        }}>
+          <Col>
+            <Col lg={12} md={12} sm={12}>
+              <div className="tokens">
+                <div className="token-body">
+                  
+                  <div style={{background:"milk",
+			borderBottom:"3px solid gray",
+			borderTop:"0.5px solid gray",
+			borderRight:"3px solid gray",
+			borderLeft:"0.5px solid gray"
+		
+			}}>
+				<h2>2000000</h2>
+				<p>Fund Account</p>	
+			</div>
+                 
+                  {/* <p className="text-center">Don't Have an account? <Link style={{ color: "blue" }} to="/register" className="para">Register</Link></p> */}
+
+                </div>
+              </div>
+
+            </Col>
+          </Col>
+        </div>
+      </Row>
 				
 					
 			</div>

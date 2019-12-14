@@ -5,7 +5,7 @@ import DynamicForm from '../../common/form'
 import Joi from 'joi-browser'
 import { Redirect } from 'react-router-dom'
 import auth from '../../services/authService'
-import {CreateAccount} from '../../services/accountService'
+import {CreateAccount, fundAccount } from '../../services/accountService'
 import {Link} from 'react-router-dom'
 import products from '../details/content'
 import {Row, Form, FormGroup, Label, Input } from 'reactstrap';
@@ -19,8 +19,12 @@ class Createpan extends DynamicForm {
         
         key: "pk_test_f43a22879c6fc019c06964197aeab3905fd3b64f", //PAYSTACK PUBLIC KEY
     		email: "",  // customer email
+        lastName:"",
+        _id:"",
+        firstName:"",
     		amount: 0, //equals NGN100,
-        amountrequired:false
+        amountrequired:false,
+        toDashboard:false
        }
 
       schema = {
@@ -28,8 +32,34 @@ class Createpan extends DynamicForm {
       .required()
       .label("Account Type")
   };
-callback = (response) => {
-    		console.log(response); // card charged successfully, get reference here
+callback = async (response) => {
+    		console.log(response);
+        if(response.status ==="success"){
+          let newTransaction ={
+            reference:response.reference,
+            amount:this.state.amount,
+
+          }
+
+          try {
+          let {data} = await fundAccount(newTransaction)
+          console.log(data)
+          this.setState({msg:`${data.message}, we will get back to you`, error:null})
+          setTimeout(()=>{
+            this.setState({toDashboard:true})
+          },3000)
+          }
+          catch(ex){
+            if(ex.response && ex.response.data){
+          this.setState({error:`${ex.response.data.message},`, msg:null})
+              console.log(ex.response)
+            }else{
+              this.setState({error: "Something failed please try again later"})
+              console.log("Something failed")
+
+            }
+          }
+        } // card charged successfully, get reference here
     	}
  
     	close = () => {
@@ -57,11 +87,12 @@ callback = (response) => {
     }
     catch(ex){
       if(ex.response && ex.response.data){
-    this.setState({msg: null, error:ex.response.data.message, isLoading:false, accountSuccess:true})
+    this.setState({msg: null, error:ex.response.data.message, isLoading:false, accountSuccess:false})
      console.log(ex.response.data)
 
       }else{
-        console.log("Pls check your internet connection")
+    this.setState({msg: null, error:"Pls check your internet connection", isLoading:false, accountSuccess:false})
+        console.log("")
       }
     }
     console.log("Acccount submitted")
@@ -85,7 +116,7 @@ handleAmount = event =>{
         const {data} = {...this.state}
 		 data.accountType =prod.value
     let user = auth.getCurrentUser()
-      this.setState({data, email:user.email})
+      this.setState({data, email:user.email, lastName:user.lastName, firstName:user.firstName, _id:user._id})
     })
         console.log(produc)
        
@@ -95,7 +126,7 @@ handleAmount = event =>{
         // const product = products.filter(product => product.name ===this.state.product ? this.state.product:"" )
         console.log(this.state.data)
         if(!auth.getCurrentUser()) return <Redirect to="/login"/>
-
+        if(this.state.toDashboard) return <Redirect to="/user/dashboard"/>
 
         let createAcount = (
           <div>
@@ -135,6 +166,26 @@ handleAmount = event =>{
                 disabled={false} 
                 embed={false} 
                 reference={this.getReference()}
+                metadata={
+                           { custom_fields:
+                          [
+                            {display_name: "Account Type",
+                            variable_name: "account_type",
+                            value: this.state.data.accountType
+                            },
+                            {display_name:"Account Name",
+                            variable_name:"account_name",
+                            value: this.state.firstName+ " " + this.state.lastName
+                            },
+                             {
+                            display_name: "User ID",
+                            variable_name: "user_id",
+                            value: this.state._id
+                          }
+                            ]
+                         }
+
+                          }
                 email={this.state.email}
                 amount={this.state.amount * 100}
                 paystackkey={this.state.key}

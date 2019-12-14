@@ -63,11 +63,11 @@ class Productdetails extends Component {
 		);
 		
 		return (
-			<div id="about" className="wd_scroll_wrap wd_scroll">
+			// <div id="about" className="wd_scroll_wrap wd_scroll">
 				<div className="about-area pd-t70 pd-b100">
 					<Container>{page}</Container>
 				</div>
-			</div>
+			// </div>
 		);
 	}
 }

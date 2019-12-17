@@ -10,11 +10,15 @@ import { Container } from "reactstrap";
 import Creacteaccount from './createaccount'
 
 class Dashboard extends Component {
+	state={
+	userProducts:{}
+	}
 	getUserAccounts = async () => {
 		const user = auth.getCurrentUser()
 		try{
 		const {data} = await getAllAccountByActiveUser(user._id)
 			console.log(data)
+			this.setState({userProducts:data})
 		}
 		catch(ex){
 			if(ex.response && ex.response.data){
@@ -29,6 +33,9 @@ class Dashboard extends Component {
 		this.getUserAccounts()
 	}
 	render() {
+		const { userProducts } = this.state
+		console.log(userProducts)
+		console.log(this.state.userProducts)
 		 if (!auth.getCurrentUser()) return <Redirect to="/login"/>;
 		let page = (
 			<div style={{ paddingTop: "10vh",
@@ -56,9 +63,9 @@ class Dashboard extends Component {
           justifyContent: "center",
           alignItems: "center"
         }}>
-          <Col>
+          {userProducts.data ? userProducts.data.map( account => <Col>
             <Col lg={12} md={12} sm={12}>
-              <div className="tokens">
+              {<div className="tokens">
                 <div className="token-body">
                   
                   <div style={{background:"milk",
@@ -68,17 +75,18 @@ class Dashboard extends Component {
 			borderLeft:"0.5px solid gray"
 		
 			}}>
-				<h2>2000000</h2>
-				<p>Fund Account</p>	
+				<h4>{account.accountType}</h4>
+				<p>{account.accountNumber}</p>
+				<Link to={`/user/plan/${account.accountNumber}`} className="btn1" >View more</Link>	
 			</div>
                  
                   {/* <p className="text-center">Don't Have an account? <Link style={{ color: "blue" }} to="/register" className="para">Register</Link></p> */}
 
                 </div>
-              </div>
+              </div>}
 
             </Col>
-          </Col>
+          </Col>):null}
         </div>
       </Row>
 				

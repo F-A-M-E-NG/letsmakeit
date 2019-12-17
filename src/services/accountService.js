@@ -38,7 +38,7 @@ export function getSingleAccount(accountNumber){
 }    
 
 //Get all transactions for an account
-export function GetallTransactionForAnAccount(accountNumber){
+export function getAllTransactionForAnAccount(accountNumber){
       return http.get(`${allTransforAnAccount}/${accountNumber}`)
 }
 

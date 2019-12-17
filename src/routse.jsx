@@ -26,7 +26,7 @@ const RouteList = [
 	{ exact: true, path: "/user/profile", component: ProfilePage },
 	{ exact: true, path: "/details/:type", component: Productdetails},
 	{ exact: true, path: "/createplan/:id", component: Createplan },
-	{ exact: true, path: "/plan", component: Plan },
+	{ exact: true, path: "/user/plan/:id", component: Plan },
 	{ exact: true, path: "/logout", component: Logout },
 	
 ];

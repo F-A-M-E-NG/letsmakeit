@@ -45,12 +45,12 @@ class Dashboard extends Component {
 				 
 					<div style={{
 						display:"flex",
-					  	flexWrap:"wrap",
+					  	// flexWrap:"wrap",
 						justifyContent:"space-between"
 					      }}>
-						<h2 className="f-50 fw-400">Your Products</h2>
+					<h2 className="f-22 fw-400">Your Products</h2>
 						
-						<Creacteaccount />
+					<Creacteaccount />
 					</div>
 					
 
@@ -60,7 +60,7 @@ class Dashboard extends Component {
         <div style={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           alignItems: "center"
         }}>
           {userProducts.data ? userProducts.data.map( account => 

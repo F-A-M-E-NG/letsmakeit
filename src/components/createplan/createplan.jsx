@@ -44,7 +44,7 @@ callback = async (response) => {
 
           try {
           let {data} = await fundAccount(newTransaction)
-          console.log(data)
+    
           this.setState({msg:`${data.message}, we will get back to you`, error:null})
           setTimeout(()=>{
             this.setState({toDashboard:true})
@@ -53,7 +53,6 @@ callback = async (response) => {
           catch(ex){
             if(ex.response && ex.response.data){
           this.setState({error:`${ex.response.data.message},`, msg:null})
-              console.log(ex.response)
             }else{
               this.setState({error: "Something failed please try again later"})
               console.log("Something failed")

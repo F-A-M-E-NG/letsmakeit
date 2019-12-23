@@ -26,6 +26,26 @@ return http.post(apiEndpointfundacct, {
       
 })
 }
+export function fundUserCreatedAccount(transaction){
+return http.post(apiEndpointfundacct, {
+            transactionType: "credit",
+            amount:transaction.amount,
+            accountNumber:transaction.accountNumber, //default
+            reference: transaction.reference,
+            channel: "Paystack"
+      
+})
+}
+export function withdrawFromAccount(transaction){
+return http.post(apiEndpointfundacct, {
+            transactionType: "credit",
+            amount:transaction.amount,
+            accountNumber:transaction, //default
+            reference: transaction.reference,
+            channel: "Paystack"
+      
+})
+}
 
 // List All Accounts by User
 export function getAllAccountByActiveUser(userid) {

@@ -14,6 +14,7 @@ class Createpan extends DynamicForm {
         data:{accountType:""}, 
         product:"",
         mgs:null,
+        error:null,
         accountSuccess:false,
         isLoading:false,
         
@@ -64,6 +65,7 @@ callback = async (response) => {
  
     	close = () => {
     		console.log("Payment closed");
+        this.setState({error:"Transaction Cancelled", msg:null})
     	}
  
     	getReference = () => {
@@ -147,6 +149,7 @@ handleAmount = event =>{
         let fundAccount = ( 
           <div>
           {this.state.msg && <div className="alert alert-success" id="account-alert">{this.state.msg}</div>}
+          {this.state.error&& <div className="alert alert-danger" id="account-alert">{this.state.error}</div>}
           <div id="fund-section" >
             <h2 className="mr-t25">Fund Account</h2>
             <Form className="form-box form-ajax" id="fund-form">

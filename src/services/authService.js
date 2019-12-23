@@ -8,7 +8,6 @@ http.setJwt(getJwt())
 export async function login(email, password) {
 
 const { data } = await http.post(apiEndpoint, {email, password})
-      console.log(data.data.token)
       const usertoken = data.data.token
       localStorage.setItem("token", usertoken)
 
@@ -19,6 +18,12 @@ export function loginWithJwt(){
 }
 export function logout() {
 localStorage.removeItem(tokenKey);
+}
+export function expiredLogout(){
+      const user = getCurrentUser()
+      if(Date.now() >= user.exp * 1000) {
+        localStorage.removeItem(tokenKey);
+      }
 }
 export function getJwt(){
       return localStorage.getItem(tokenKey);
@@ -35,6 +40,7 @@ export default {
       login,
       loginWithJwt,
       logout,
+      expiredLogout,
       getCurrentUser,
       getJwt
 }

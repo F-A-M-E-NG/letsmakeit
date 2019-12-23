@@ -54,7 +54,7 @@ class Dashboard extends Component {
 					</div>
 					
 
-					<Row>
+	<Row>
         <br></br>
         <br></br>
         <div style={{
@@ -63,30 +63,19 @@ class Dashboard extends Component {
           justifyContent: "center",
           alignItems: "center"
         }}>
-          {userProducts.data ? userProducts.data.map( account => <Col>
-            <Col lg={12} md={12} sm={12}>
-              {<div className="tokens">
-                <div className="token-body">
+          {userProducts.data ? userProducts.data.map( account => 
+            <Col lg={3} md={3} sm={3}>
+              <div className="tokens">
+                
                   
-                  <div style={{background:"milk",
-			borderBottom:"3px solid gray",
-			borderTop:"0.5px solid gray",
-			borderRight:"3px solid gray",
-			borderLeft:"0.5px solid gray"
-		
-			}}>
-				<h4>{account.accountType}</h4>
-				<p>{account.accountNumber}</p>
-				<Link to={`/user/plan/${account.accountNumber}`} className="btn1" >View more</Link>	
-			</div>
-                 
-                  {/* <p className="text-center">Don't Have an account? <Link style={{ color: "blue" }} to="/register" className="para">Register</Link></p> */}
-
-                </div>
-              </div>}
+			<h4>{account.accountType}</h4>
+			<h5>{account.accountNumber}</h5>
+			<Link to={`/user/plan/${account.accountNumber}`} className="btn1" >View more</Link>
+                
+              </div>
 
             </Col>
-          </Col>):null}
+          ):null}
         </div>
       </Row>
 				

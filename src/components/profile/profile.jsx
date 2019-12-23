@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import auth from '../../services/authService';
+import { getAllPaystackBanks }from '../../services/accountService';
 import { Col, Row, Button, Form, FormGroup, Label, Input, Container, Card, CardBody} from 'reactstrap';
 class Profile extends Component {
       state = { 
         isOpen:false,
-        user:{}
+        user:{}, 
+        banks:[]
        }
        handleOpenform =() => {
         this.setState({isOpen:true})
@@ -16,12 +18,15 @@ class Profile extends Component {
 
 
 
-       componentDidMount() {
+      async componentDidMount() {
          const user = auth.getCurrentUser()
-         this.setState({ user })
+         const {data} = await getAllPaystackBanks()
+         console.log(data.data)
+         this.setState({ user, banks:data.data })
        }
       render() {
          const {user} = this.state
+         auth.expiredLogout()
          if (!auth.getCurrentUser()) return <Redirect to="/login"/>;
         const {isOpen } = this.state;
             return (
@@ -31,14 +36,14 @@ class Profile extends Component {
         <br></br>
         <br></br>
         <br></br>
+        <br></br>
+
  <div className="section-empty">
     <div className="container content">
       <div className="d-flex">
         <h2>My Profile</h2>
       </div>
       <hr className="space m" />
-      <div className="alert" id="profile-alert"></div>
-      <hr className="space m"/>
       <div className="advs-box advs-box-multiple shadow-1"/>
         <Card body>
             <CardBody>
@@ -129,8 +134,8 @@ class Profile extends Component {
                   <Label for="exampleSelect">Bank</Label>
                   <Input type="select"  name="bank" id="bank">
                     <option value="" disabled selected hidden>Bank</option>
-                    <option>1</option>
-                    <option>2</option>
+                    {this.state.banks ? this.state.banks.map(bank=><option value={bank.code}>{bank.name}</option>
+                    ):""}
                   </Input>
                 </FormGroup>
 
@@ -151,7 +156,7 @@ class Profile extends Component {
               </Col>
             </Row>
             <Button className="btn1" size="md">Save Bank Account</Button>
-            <Button onClick={this.handleCloseform} color="danger" size="md">Cancel</Button>
+            <Button onClick={this.handleCloseform} color="danger" size="md" className="mr-l20">Cancel</Button>
           </Form>}
         </div>
       </div>

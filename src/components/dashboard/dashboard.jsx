@@ -34,8 +34,7 @@ class Dashboard extends Component {
 	}
 	render() {
 		const { userProducts } = this.state
-		console.log(userProducts)
-		console.log(this.state.userProducts)
+		auth.expiredLogout()
 		 if (!auth.getCurrentUser()) return <Redirect to="/login"/>;
 		let page = (
 			<div style={{ paddingTop: "10vh",

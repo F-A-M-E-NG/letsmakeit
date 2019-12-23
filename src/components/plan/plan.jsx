@@ -134,7 +134,7 @@ class Plan extends Component {
       }
       
       closefundAccForm =()=>{
-        this.setState({toggleFundAccount:false})
+        this.setState({toggleFundAccount:false, amount:""})
       }
 
       handleAmount = event =>{

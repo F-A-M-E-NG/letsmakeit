@@ -1,14 +1,40 @@
 import http  from './httpService';
+import axios from 'axios';
+import logger from "./logService";
 import { apiUrl } from '../config.json';
 const apiEndpoint = `${apiUrl}/account`;
 const apiEndpointfundacct = `${apiUrl}/transaction`;
 const userAccounts = `${apiUrl}/account/u`
 const singleAccount = `${apiUrl}/account/n`
 const allTransforAnAccount = `${apiUrl}/transaction/a`
+const allbanksPaystack = "https://api.paystack.co/bank"
+const accountNumResolve = `https://api.paystack.co/bank/resolve?account_number=`
+const paystackKey = "sk_test_2304a0f9fe06f61b7f9314f6c0dcd4296b76a06a"
 
-// function getUserUrl(id){
-//  return `${apiEndpoint}/${id}` 
-// }
+
+axios.interceptors.response.use(null, error => {
+  const expectedError =
+    error.response &&
+    error.response.status >= 400 &&
+    error.response.status < 500;
+
+  if (!expectedError) {
+    logger.log(error);
+    // toast.error("Please ensure you are offline.");
+    console.error("Please ensure you are not offline.");
+  }
+
+  return Promise.reject(error);
+});
+function setJwt(){
+axios.defaults.headers.common["authorization"] =`Bearer ${paystackKey}`;
+
+}
+export function getAllPaystackBanks (){
+   setJwt()   
+ return  axios.get(`${allbanksPaystack}`)
+  
+}
 
 export function CreateAccount(account){
 return http.post(apiEndpoint, {
@@ -26,6 +52,8 @@ return http.post(apiEndpointfundacct, {
       
 })
 }
+
+// Credit the User Account
 export function fundUserCreatedAccount(transaction){
 return http.post(apiEndpointfundacct, {
             transactionType: "credit",
@@ -36,6 +64,7 @@ return http.post(apiEndpointfundacct, {
       
 })
 }
+// Withdraw from an Account
 export function withdrawFromAccount(transaction){
 return http.post(apiEndpointfundacct, {
             transactionType: "credit",
@@ -65,4 +94,10 @@ export function getAllTransactionForAnAccount(accountNumber){
 //Get single transaction details
 export function SingleTransactionDetails(transactionId){
       return http.get(`${apiEndpointfundacct}/${transactionId}`)
+}
+
+// Get All banks from Paystack
+export function resovlePaystackBankAccountNum(accountNumber, bankCode){
+  setJwt()
+  return axios.get(`${accountNumResolve}${accountNumber}&bank_code=${bankCode}`)
 }

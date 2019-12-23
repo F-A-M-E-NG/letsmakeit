@@ -124,8 +124,7 @@ handleAmount = event =>{
       }
       
       render() { 
-        // const product = products.filter(product => product.name ===this.state.product ? this.state.product:"" )
-        console.log(this.state.data)
+        auth.expiredLogout()
         if(!auth.getCurrentUser()) return <Redirect to="/login"/>
         if(this.state.toDashboard) return <Redirect to="/user/dashboard"/>
 

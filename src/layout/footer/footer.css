@@ -34,3 +34,26 @@
 .number {
 	margin-left: 5%;
 }
+.footer_logo {
+ width:100px;
+ height: 100px;
+ margin-top: 45px;
+}
+.socials {
+margin-top:70px;
+}
+.circle{
+border-radius: 50%;
+margin: 0.15em;
+font-size: 2em;
+}
+.fa-twitter{
+background: #4099FF;
+color: #FFFFFF;
+padding: 0.05em 0.07em;
+}
+.fa-facebook{
+background: #3B5998;
+color: #FFFFFF;
+padding: 0.05em 0.3em;
+}

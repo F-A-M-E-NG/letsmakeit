@@ -2,9 +2,9 @@ import http  from './httpService';
 import { apiUrl } from '../config.json';
 const apiEndpoint = `${apiUrl}/auth/register`;
 
-function getUserUrl(id){
- return `${apiEndpoint}/${id}` 
-}
+// function getUserUrl(id){
+//  return `${apiEndpoint}/${id}` 
+// }
 
 export function register(user){
 return http.post(apiEndpoint, {
@@ -22,13 +22,7 @@ return http.put(apiEndpoint, {
 })
 }
 
-
-export function saveUser(user) {
-  if(user._id){
-      const body = {...user};
-      delete body._id;
-      return http.put(getUserUrl(user._id), body)
-  }
-
-      return http.post(apiEndpoint, user)
+// Update User Contact Information
+export function updateContactInfo(contactInfo) {
+      return http.put(`${apiUrl}/profile/contact`, contactInfo)
 }

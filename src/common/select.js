@@ -1,33 +1,22 @@
 import React from "react";
-import Form from 'react-bootstrap/Form'
+import {FormGroup, Label, Input} from 'reactstrap'
 
 const Select = ({ name, label, options, error, ...rest }) => {
   return (
+    <FormGroup>
+        <Label for={label}>{label}</Label>
+        <Input type="select" name={name} id={name} {...rest}>
+           <option selected value="">{label}</option>
+         {options.map(option => (
 
-    <Form.Group controlId="exampleForm.ControlSelect2">
-    <Form.Control name={name} id={name} {...rest} as="select" type="text">
-      <option selected value="">{label}</option>
-      {options.map(option => (
-
-      <option key={option._id} value={option._id}>
+      <option key={option.capital} value={option.name}>
       {option.name}
       </option>
       ))}
-    </Form.Control>
-     {error && <div className="alert alert-danger">{error}</div>}
-  </Form.Group>
-    // <div className="form-group">
-    //   <label htmlFor={name}>{label}</label>
-    //   <select name={name} id={name} {...rest} className="form-control">
-    //     <option value="" />
-    //     {options.map(option => (
-    //       <option key={option._id} value={option._id}>
-    //         {option.name}
-    //       </option>
-    //     ))}
-    //   </select>
-    //   {error && <div className="alert alert-danger">{error}</div>}
-    // </div>
+          >
+        </Input>
+         {error && <div className="alert alert-danger">{error}</div>}
+      </FormGroup>
   );
 };
 

@@ -1,13 +1,12 @@
 import React from 'react';
-import Form from 'react-bootstrap/Form'
+import {FormGroup, Label, Input }from 'reactstrap'
 const Textarea = ({ name, label, error, ...rest }) => {
       return ( 
-            <Form.Group>
-                  <Form.Label htmlFor={name}>{label}</Form.Label>
-                  <Form.Control {...rest} name={name} id={name} as="textarea" rows="3" />
-                  {error && <div className="alert alert-danger">{error}</div>}
-            </Form.Group>
-
+      <FormGroup>
+        <Label for={name}>{label}</Label>
+        <Input {...rest} name={name} id={name} type="textarea" placeholder={label}/>
+      {error && <div className="alert alert-danger">{error}</div>}
+      </FormGroup>
        );
 }
  

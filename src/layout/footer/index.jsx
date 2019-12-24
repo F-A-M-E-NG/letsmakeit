@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
+import logo from '../../assets/images/logo/logo.png';
 import { Container, Row, Col } from "reactstrap";
 import "./footer.css";
 
@@ -16,7 +16,7 @@ class Footer extends Component {
 					<div className="mt-3 p-3">
 						<Container className="p-5 mt-5" style={{ paddingTop: "" }}>
 							<Row>
-								<Col md={3}></Col>
+								<Col md={3}><img className="footer_logo" src={logo} alt="Logo" /></Col>
 
 								<Col md={6}>
 									<h6 className="mt-5">
@@ -30,7 +30,14 @@ class Footer extends Component {
 									</div>
 								</Col>
 
-								<Col md={3}></Col>
+								<Col className="socials" md={3}>
+									<Row style={{
+										marginTop:"45"
+									}}>
+										<i class="fa fa-facebook circle"></i>
+										<i class="fa fa-twitter circle"></i>
+									</Row>
+								</Col>
 							</Row>
 						</Container>
 						<div className="footer-bottom-text">

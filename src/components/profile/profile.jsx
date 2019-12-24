@@ -1,31 +1,103 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Redirect } from 'react-router-dom';
+import Joi from 'joi-browser'
+
+import DynamicForm from '../../common/form';
 import auth from '../../services/authService';
-import { getAllPaystackBanks }from '../../services/accountService';
+import Contactinfo from './contactinfo';
+import { getAllPaystackBanks, resovlePaystackBankAccountNum }from '../../services/accountService';
 import { Col, Row, Button, Form, FormGroup, Label, Input, Container, Card, CardBody} from 'reactstrap';
-class Profile extends Component {
+class Profile extends DynamicForm {
       state = { 
-        isOpen:false,
-        user:{}, 
-        banks:[]
-       }
-       handleOpenform =() => {
-        this.setState({isOpen:true})
-       }
-       handleCloseform =() => {
-        this.setState({isOpen:false})
+        data:{
+          firstName:"",
+          lastName:"",
+          email:"",
+          phoneNumber:""
+        },
+        errors:{},
+        isOpen:false, 
+        banks:[],
+        checkAccount:{account_Number:"", bank_code:""},
+        accountHolder:""
        }
 
+     schema = {
+    firstName: Joi.string()
+      .required()
+      .max(50)
+      .label("First Name"),
+    lastName: Joi.string()
+      .required().max(50)
+      .label("Last Name"),
+    email: Joi.string()
+      .required()
+      .email()
+      .label("Email"),
+     phoneNumber: Joi.string()
+      .required()
+      .min(11)
+      .max(14)
+      .label("Phone Number")
+  };
 
 
+    handleOpenform =() => {
+            this.setState({isOpen:true})
+          }
+    handleCloseform =() => {
+            const {checkAccount} =this.state
+            checkAccount.account_Number=""
+            checkAccount.bank_code =""
+            this.setState({isOpen:false, checkAccount, accountHolder:""})
+          }
+    checkBankName = async() => {
+      
+        try {
+            const {data} = await resovlePaystackBankAccountNum(this.state.checkAccount.account_Number, this.state.checkAccount.bank_code)
+            this.setState({accountHolder:data.data.account_name})
+      }
+      catch(ex){
+        if(ex.response && ex.response.data){
+          console.log(ex.response.data.message)
+          this.setState({accountHolder:""})
+        }
+        else{
+          console.log("Something went wrong")
+        }
+      }
+      }
+      
+
+    handleAccountNumResolve = event =>{
+      const {checkAccount }= this.state
+      checkAccount[event.target.name] = event.target.value;
+     this.setState({checkAccount})
+    }
+
+    doSubmit = () => {
+      console.log("Profile Data updated")
+    }
       async componentDidMount() {
+        const {data:userProfile} = this.state
+          
          const user = auth.getCurrentUser()
+         userProfile.firstName = user.firstName
+         userProfile.lastName = user.lastName
+         userProfile.email = user.email
+         userProfile.phoneNumber=user.phoneNumber
          const {data} = await getAllPaystackBanks()
          console.log(data.data)
-         this.setState({ user, banks:data.data })
+         this.setState({data:userProfile, banks:data.data })
+        
        }
+       
       render() {
-         const {user} = this.state
+         if(this.state.checkAccount.account_Number.length ===9 && this.state.accountHolder==="" || this.state.checkAccount.account_Number.length ===10 && this.state.accountHolder==="" ){
+           this.checkBankName()
+         }
+         
+         console.log(this.state.checkAccount)
          auth.expiredLogout()
          if (!auth.getCurrentUser()) return <Redirect to="/login"/>;
         const {isOpen } = this.state;
@@ -50,36 +122,24 @@ class Profile extends Component {
 
         <div className="tokens">
           <h4>Basic Profile</h4>
-          <Form className="form-box form-ajax token-body" id="basic-form">
+          <Form onSubmit={this.handleSubmit} className="form-box form-ajax token-body" id="basic-form">
           <Row>  
               <Col md={6}>
-              <FormGroup>
-                <Label for="firstName">First Name</Label>
-                <Input type="text" name="firstName" id="firstName" placeholder="First Name" value={user.firstName} />
-              </FormGroup>
+                {this.renderInput("firstName", "First Name")}
               </Col>
                 <Col md={6}>
-                <FormGroup>
-                  <Label for="lastNmae">Last Name</Label>
-                  <Input type="text" name="lastName" id="lastName" placeholder="Last Name" value={user.lastName} />
-                </FormGroup>
+                  {this.renderInput("lastName", "Last Name")}
               </Col> 
             </Row>
             <Row>  
                 <Col md={6}>
-                <FormGroup>
-                  <Label for="email">Email</Label>
-                  <Input type="email" name="email" id="email" placeholder="Email" value={user.email} />
-                </FormGroup>
+                 {this.renderInput("email", "Email", "email")}
                 </Col>
                   <Col md={6}>
-                  <FormGroup>
-                    <Label for="phoneNumber">Phone Number</Label>
-                    <Input type="tel" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" value={user.phoneNumber ? user.phoneNumber:""} />
-                  </FormGroup>
+                    {this.renderInput("phoneNumber", "Phone Number", "number")}
                 </Col> 
               </Row>
-            <Button className="btn1" size="md">Update Profile</Button>
+            <Button className="btn1" size="md" type="submit">Update Profile</Button>
           </Form>
         </div>
             </CardBody>
@@ -88,34 +148,7 @@ class Profile extends Component {
 
         <hr className="space" />
       <div className="advs-box advs-box-multiple shadow-1">
-        <div className="advs-box-content">
-          <h4>Contact Information</h4>
-          <Form>
-            <Row>
-              <Col md={12}>
-                <FormGroup>
-                <Label for="address">Home Address</Label>
-                <Input type="text" name="address" id="address" placeholder="Home Address" />
-              </FormGroup>
-              </Col>
-            </Row>
-            <Row>
-              <Col md={6}>
-                <FormGroup>
-                <Label for="city">City</Label>
-                <Input type="text" name="city" id="city"  placeholder="City" />
-              </FormGroup>
-              </Col>
-              <Col md={6}>
-                <FormGroup>
-                <Label for="state">State</Label>
-                <Input type="text" name="state" id="state" placeholder="State" />
-              </FormGroup>
-              </Col>
-            </Row>
-            <Button className="btn1" size="md">Update Contact Information</Button>
-          </Form>
-        </div>
+        <Contactinfo />
          <hr className="space"/>
       <div className="advs-box advs-box-multiple shadow-1">
         <div className="advs-box-content">
@@ -131,8 +164,8 @@ class Profile extends Component {
             <Row>
               <Col md={6}>
                 <FormGroup>
-                  <Label for="exampleSelect">Bank</Label>
-                  <Input type="select"  name="bank" id="bank">
+                  <Label for="bank_code">Bank</Label>
+                  <Input onChange={this.handleAccountNumResolve} type="select"  name="bank_code" id="bank_code">
                     <option value="" disabled selected hidden>Bank</option>
                     {this.state.banks ? this.state.banks.map(bank=><option value={bank.code}>{bank.name}</option>
                     ):""}
@@ -142,8 +175,8 @@ class Profile extends Component {
               </Col>
               <Col md={6}>
                  <FormGroup>
-                    <Label for="accountNumber">Account Number</Label>
-                    <Input  type="number" name="accountNumber" id="accountNumber" placeholder="Account Number" />
+                    <Label for="account_Number">Account Number</Label>
+                    <Input onChange={this.handleAccountNumResolve}  type="number" name="account_Number" id="account_Number" placeholder="Account Number" />
                   </FormGroup>
               </Col>
             </Row>
@@ -151,7 +184,7 @@ class Profile extends Component {
               <Col  md={12}>
                   <FormGroup>
                     <Label for="accountName">Account Name</Label>
-                    <Input  type="text" name="accountName" id="accountName" placeholder="Account Name" disabled required/>
+                    <Input  type="text" name="accountName" id="accountName" value={this.state.accountHolder} placeholder="Account Name" disabled required/>
                   </FormGroup>
               </Col>
             </Row>
@@ -171,61 +204,3 @@ class Profile extends Component {
 }
  
 export default Profile;
-// import React from 'react';
-// import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
-
-// const Example = (props) => {
-//   return (
-//     <Form>
-//       <Row form>
-//         <Col md={6}>
-//           <FormGroup>
-//             <Label for="exampleEmail">Email</Label>
-//             <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
-//           </FormGroup>
-//         </Col>
-//         <Col md={6}>
-//           <FormGroup>
-//             <Label for="examplePassword">Password</Label>
-//             <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
-//           </FormGroup>
-//         </Col>
-//       </Row>
-//       <FormGroup>
-//         <Label for="exampleAddress">Address</Label>
-//         <Input type="text" name="address" id="exampleAddress" placeholder="1234 Main St"/>
-//       </FormGroup>
-//       <FormGroup>
-//         <Label for="exampleAddress2">Address 2</Label>
-//         <Input type="text" name="address2" id="exampleAddress2" placeholder="Apartment, studio, or floor"/>
-//       </FormGroup>
-//       <Row form>
-//         <Col md={6}>
-//           <FormGroup>
-//             <Label for="exampleCity">City</Label>
-//             <Input type="text" name="city" id="exampleCity"/>
-//           </FormGroup>
-//         </Col>
-//         <Col md={4}>
-//           <FormGroup>
-//             <Label for="exampleState">State</Label>
-//             <Input type="text" name="state" id="exampleState"/>
-//           </FormGroup>
-//         </Col>
-//         <Col md={2}>
-//           <FormGroup>
-//             <Label for="exampleZip">Zip</Label>
-//             <Input type="text" name="zip" id="exampleZip"/>
-//           </FormGroup>  
-//         </Col>
-//       </Row>
-//       <FormGroup check>
-//         <Input type="checkbox" name="check" id="exampleCheck"/>
-//         <Label for="exampleCheck" check>Check me out</Label>
-//       </FormGroup>
-//       <Button>Sign in</Button>
-//     </Form>
-//   );
-// }
-
-// export default Example;

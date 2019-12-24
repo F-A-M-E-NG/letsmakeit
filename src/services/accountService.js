@@ -7,6 +7,9 @@ const apiEndpointfundacct = `${apiUrl}/transaction`;
 const userAccounts = `${apiUrl}/account/u`
 const singleAccount = `${apiUrl}/account/n`
 const allTransforAnAccount = `${apiUrl}/transaction/a`
+
+
+// Paystack AccountNumber resolve Config
 const allbanksPaystack = "https://api.paystack.co/bank"
 const accountNumResolve = `https://api.paystack.co/bank/resolve?account_number=`
 const paystackKey = "sk_test_2304a0f9fe06f61b7f9314f6c0dcd4296b76a06a"
@@ -27,15 +30,22 @@ axios.interceptors.response.use(null, error => {
   return Promise.reject(error);
 });
 function setJwt(){
-axios.defaults.headers.common["authorization"] =`Bearer ${paystackKey}`;
+axios.defaults.headers.common["Authorization"] =`Bearer ${paystackKey}`;
 
 }
+// Get All banks from Paystack
 export function getAllPaystackBanks (){
    setJwt()   
  return  axios.get(`${allbanksPaystack}`)
   
 }
 
+// Resolve user Account Number from Paystack
+export function resovlePaystackBankAccountNum(accountNumber, bankCode){
+  setJwt()
+  return axios.get(`${accountNumResolve}${accountNumber}&bank_code=${bankCode}`)
+}
+// End of Paystack accountNumber Resolve Config
 export function CreateAccount(account){
 return http.post(apiEndpoint, {
       accountType:account.accountType
@@ -53,7 +63,7 @@ return http.post(apiEndpointfundacct, {
 })
 }
 
-// Credit the User Account
+// Credit the User Created Account
 export function fundUserCreatedAccount(transaction){
 return http.post(apiEndpointfundacct, {
             transactionType: "credit",
@@ -64,7 +74,7 @@ return http.post(apiEndpointfundacct, {
       
 })
 }
-// Withdraw from an Account
+// Withdraw from User existing Account, No endpoint for now
 export function withdrawFromAccount(transaction){
 return http.post(apiEndpointfundacct, {
             transactionType: "credit",
@@ -96,8 +106,7 @@ export function SingleTransactionDetails(transactionId){
       return http.get(`${apiEndpointfundacct}/${transactionId}`)
 }
 
-// Get All banks from Paystack
-export function resovlePaystackBankAccountNum(accountNumber, bankCode){
-  setJwt()
-  return axios.get(`${accountNumResolve}${accountNumber}&bank_code=${bankCode}`)
+// Update or Save User Account Number from Profile Page
+export function SaveUserAccountInfo(account){
+  return http.put(`${apiUrl}/profile/bank`, account)
 }

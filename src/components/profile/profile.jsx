@@ -127,7 +127,7 @@ saveAcc = async()=>{
          const {data} = await getAllPaystackBanks()
          this.setState({data:userProfile, banks:data.data })
          }
-          auth.expiredLogout()
+         auth.expiredLogout()
         
        }
        

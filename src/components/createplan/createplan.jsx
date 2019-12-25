@@ -1,5 +1,6 @@
 import React from 'react';
 import PaystackButton from 'react-paystack';
+import { RotateSpinner } from 'react-spinners-kit'
 
 import DynamicForm from '../../common/form'
 import Joi from 'joi-browser'
@@ -138,7 +139,7 @@ handleAmount = event =>{
                 <Label for="accountType">Account Type</Label>
                 <Input type="text" name="accountType" id="accountType"  value={this.state.data.accountType} disabled />
               </FormGroup>
-              <Input  type="submit" value="Create Account" className="btn1"/>
+              <Input  type="submit" value="Create Account"className="btn1" disabled={this.state.isLoading}/>
             </Form>
           </div>
           </div>
@@ -160,7 +161,7 @@ handleAmount = event =>{
                <div>
             <p>
               <PaystackButton
-                text={<p className="btn1">Fund Account</p>}
+                text={<input type="button" value="Fund Account" className="btn1" disabled={this.state.amount < 500}/>}
                 class="payButton"
                 callback={this.callback}
                 close={this.close}
@@ -194,7 +195,6 @@ handleAmount = event =>{
               />
             </p>
           </div>
-              {/* <Input type="submit" className="btn1" value="Fund Account" id="fund-button"/> */}
               <center><Link style={{color:"blue"}} to="/user/dashboard"><small>SKIP</small></Link></center>
           </div>
           </div>

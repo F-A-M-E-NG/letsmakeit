@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { RotateSpinner } from 'react-spinners-kit'
 import PaystackButton from 'react-paystack';
 import { default as NumberFormat } from 'react-number-format';
 import { Button } from 'reactstrap'
@@ -15,6 +16,7 @@ class Plan extends Component {
         accountInfo:{},
         transactions:{},
         toggleFundAccount:false,
+        loading:true,
 
         // Paystack details
         key: "pk_test_f43a22879c6fc019c06964197aeab3905fd3b64f", //PAYSTACK PUBLIC KEY
@@ -106,13 +108,15 @@ class Plan extends Component {
           const allcreditTransactions = creditTrans.map(credit => credit.amount)
           const totalCreditTrans = allcreditTransactions.reduce((allcredit, last )=> allcredit + last)
           const accountBalance = totalCreditTrans - totalDebitTrans;
-        this.setState({transactions:data, accountBalance})
+        this.setState({transactions:data, accountBalance, loading:false})
        }
        catch(ex){
         if(ex.response && ex.response.data){
           console.log(ex.response.data)
+        this.setState({loading:false})
         }else{
           console.log("Something failed, try again later")
+        this.setState({loading:false})
         }
        }
 
@@ -126,7 +130,10 @@ class Plan extends Component {
         this.getAccountDetails()
         this.getTransactionDetails()
         let user = auth.getCurrentUser()
+        if(user){
         this.setState({email:user.email, lastName:user.lastName, firstName:user.firstName, _id:user._id})
+        }
+        auth.expiredLogout()
          
       }
       openfundAccForm =()=>{
@@ -141,13 +148,14 @@ class Plan extends Component {
         let das = event.target.value
         this.setState({amount:das})
         console.log(das)
+         
 }
       
       render() { 
        
         const {data:accountInfo} = this.state.accountInfo
         const {toggleFundAccount} = this.state;
-        auth.expiredLogout()
+       
         if(this.state.accountNumber.length > 10) return <Redirect to="/user/dashboard"/>;
         if (!auth.getCurrentUser()) return <Redirect to="/login"/>;
         let contents=(
@@ -245,7 +253,12 @@ class Plan extends Component {
                         <td>{transaction.transactionType}</td>
                         <td><NumberFormat value={transaction.amount} displayType={'text'} thousandSeparator={true} prefix={'₦'} /></td>
                         <td>{transaction.channel}</td>
-                      </tr>): null}
+                      </tr>):<div style={{marginLeft:"150px", marginTop:"20px"}}>
+                        <RotateSpinner
+                            size={50}
+                            color="blue"
+                            loading={this.state.loading}
+                        /></div>}
                     </tbody>
                   </table>
                 </div>

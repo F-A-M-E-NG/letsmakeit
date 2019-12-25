@@ -117,14 +117,14 @@ handleAmount = event =>{
         const {data} = {...this.state}
 		 data.accountType =prod.value
     let user = auth.getCurrentUser()
+    if(user){
       this.setState({data, email:user.email, lastName:user.lastName, firstName:user.firstName, _id:user._id})
-    })
+    }})
         console.log(produc)
-       
+       auth.expiredLogout()
       }
       
       render() { 
-        auth.expiredLogout()
         if(!auth.getCurrentUser()) return <Redirect to="/login"/>
         if(this.state.toDashboard) return <Redirect to="/user/dashboard"/>
 

@@ -13,8 +13,9 @@ const Userdropdown = ({user}) => {
      
         
         <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
-          <DropdownToggle nav caret>
+          <DropdownToggle caret>
            {user.lastName} {user.firstName}
+           <i className="fa fa-caret-down"></i>
           </DropdownToggle>
           <DropdownMenu>
             <DropdownItem divider />

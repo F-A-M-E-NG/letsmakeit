@@ -21,8 +21,10 @@ localStorage.removeItem(tokenKey);
 }
 export function expiredLogout(){
       const user = getCurrentUser()
+      if(user && user.exp){
       if(Date.now() >= user.exp * 1000) {
         localStorage.removeItem(tokenKey);
+      }
       }
 }
 export function getJwt(){

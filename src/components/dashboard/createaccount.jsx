@@ -12,7 +12,7 @@ const Createaccount = (props) => {
       <div>
     <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
       <DropdownToggle className="btn1" nav caret>
-        Create Account <i className="fa fa-caret"></i>
+        Create Account <i className="fa fa-caret-down"></i>
       </DropdownToggle>
       <DropdownMenu className="dropdownitem">
         <DropdownItem divider />

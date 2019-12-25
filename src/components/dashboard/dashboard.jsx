@@ -1,6 +1,7 @@
 
 import React, { Component } from "react";
 import  {Row, Col } from 'reactstrap'
+import { RotateSpinner } from 'react-spinners-kit'
 import {Redirect, Link } from 'react-router-dom';
 import { getAllAccountByActiveUser } from '../../services/accountService'
 import auth from '../../services/authService';
@@ -74,7 +75,11 @@ class Dashboard extends Component {
               </div>
 
             </Col>
-          ):null}
+          ):<div style={{marginLeft:"150px"}}><RotateSpinner
+                size={50}
+                color="blue"
+                loading={true}
+            /></div>}
         </div>
       </Row>
 				

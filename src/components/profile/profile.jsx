@@ -1,11 +1,12 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import { RotateSpinner } from 'react-spinners-kit'
 import Joi from 'joi-browser'
 
 import DynamicForm from '../../common/form';
 import auth from '../../services/authService';
 import Contactinfo from './contactinfo';
-import { getAllPaystackBanks, resovlePaystackBankAccountNum }from '../../services/accountService';
+import { getAllPaystackBanks, resovlePaystackBankAccountNum, SaveUserAccountInfo }from '../../services/accountService';
 import { Col, Row, Button, Form, FormGroup, Label, Input, Container, Card, CardBody} from 'reactstrap';
 class Profile extends DynamicForm {
       state = { 
@@ -15,11 +16,14 @@ class Profile extends DynamicForm {
           email:"",
           phoneNumber:""
         },
+        savebankAccount:{accountName:"", accountNumber:""},
         errors:{},
         isOpen:false, 
         banks:[],
         checkAccount:{account_Number:"", bank_code:""},
-        accountHolder:""
+        accountHolder:"",
+        loading:false,
+        isLoading:false
        }
 
      schema = {
@@ -55,7 +59,10 @@ class Profile extends DynamicForm {
       
         try {
             const {data} = await resovlePaystackBankAccountNum(this.state.checkAccount.account_Number, this.state.checkAccount.bank_code)
-            this.setState({accountHolder:data.data.account_name})
+            const {savebankAccount} = this.state
+                savebankAccount.accountName= data.data.account_name
+                savebankAccount.accountNumber = this.state.checkAccount.account_Number
+            this.setState({accountHolder:data.data.account_name, savebankAccount})
       }
       catch(ex){
         if(ex.response && ex.response.data){
@@ -63,7 +70,7 @@ class Profile extends DynamicForm {
           this.setState({accountHolder:""})
         }
         else{
-          console.log("Something went wrong")
+          console.log("Something went wrong try again")
         }
       }
       }
@@ -74,21 +81,53 @@ class Profile extends DynamicForm {
       checkAccount[event.target.name] = event.target.value;
      this.setState({checkAccount})
     }
+addAccountNumber = () => {
+  
+ this.saveAcc()
+}
 
-    doSubmit = () => {
-      console.log("Profile Data updated")
+saveAcc = async()=>{
+  if(this.state.accountHolder.length > 5){ 
+   this.setState({isLoading:true})
+  try{
+    const {data} = await SaveUserAccountInfo(this.state.savebankAccount)
+    this.setState({msg:data.message, error:null, isLoading:false})
+    console.log(data)
+  }catch(ex){
+     if(ex.response && ex.response.data){
+          this.setState({msg:null, error:ex.response.data, isloading:false})
+          console.log(ex.response.data.message)
+        }else{
+          this.setState({error:"Something went wrong, try again later",isLoading:false, msg:null})
+        }
+
+  }
+ }
+}
+    doSubmit = async () => {
+      // try {
+      //   const {data} = await u
+      // }
+      // catch(ex){
+      //   if(ex.response && ex.response.data){
+      //     console.log(ex.response.data)
+      //   }
+      // }
+      // console.log("Profile Data updated")
     }
       async componentDidMount() {
         const {data:userProfile} = this.state
           
          const user = auth.getCurrentUser()
+         if(user){
          userProfile.firstName = user.firstName
          userProfile.lastName = user.lastName
          userProfile.email = user.email
          userProfile.phoneNumber=user.phoneNumber
          const {data} = await getAllPaystackBanks()
-         console.log(data.data)
          this.setState({data:userProfile, banks:data.data })
+         }
+          auth.expiredLogout()
         
        }
        
@@ -97,10 +136,10 @@ class Profile extends DynamicForm {
            this.checkBankName()
          }
          
-         console.log(this.state.checkAccount)
-         auth.expiredLogout()
+         console.log(this.state.savebankAccount)
+        
          if (!auth.getCurrentUser()) return <Redirect to="/login"/>;
-        const {isOpen } = this.state;
+        const {isOpen, loading, isLoading } = this.state;
             return (
               <Container>
         <br></br>
@@ -139,7 +178,17 @@ class Profile extends DynamicForm {
                     {this.renderInput("phoneNumber", "Phone Number", "number")}
                 </Col> 
               </Row>
-            <Button className="btn1" size="md" type="submit">Update Profile</Button>
+            <Button className="btn1" size="md" type="submit" style={{width:"200px"}} disabled={loading}>
+              {loading &&  <div><RotateSpinner
+                size={20}
+                color="#ffffff"
+                loading={loading}
+            />
+            </div>
+            }
+
+              {!loading && "Update Profile"}
+              </Button>
           </Form>
         </div>
             </CardBody>
@@ -160,7 +209,8 @@ class Profile extends DynamicForm {
             <h4>Bank Details</h4>
              <Button onClick={this.handleOpenform} disabled={isOpen} className="btn1 top-right" size="md">Add New</Button>
           </div>
-          {isOpen && <Form className="form-box form-ajax" id="bank-form">
+          {isOpen && 
+          <Form onSubmit={this.addAccountNumber} className="form-box form-ajax">
             <Row>
               <Col md={6}>
                 <FormGroup>
@@ -188,10 +238,21 @@ class Profile extends DynamicForm {
                   </FormGroup>
               </Col>
             </Row>
-            <Button className="btn1" size="md">Save Bank Account</Button>
+            <Button className="btn1" size="md" type="submit" disabled={isLoading}>
+             
+              {isLoading && <RotateSpinner
+                size={20}
+                color="#ffffff"
+                loading={isLoading}
+            />}
+            {!isLoading && <p>Save Account Number</p>}
+            
+              </Button>
             <Button onClick={this.handleCloseform} color="danger" size="md" className="mr-l20">Cancel</Button>
           </Form>}
         </div>
+       
+        
       </div>
       </div>
       </div>

@@ -1,6 +1,8 @@
 import React from 'react'
 import Joi from 'joi-browser'
+import { RotateSpinner } from 'react-spinners-kit'
 
+import { updateContactInfo } from '../../services/userService'
 import States from '../../utility/states';
 import DynamicForm from '../../common/form';
 import { Col, Row, Button, Form} from 'reactstrap';
@@ -13,7 +15,10 @@ class Contactinfo extends DynamicForm {
                   state:""
                   },
             errors:{},
-            nigerianStates:[{name:"hell", _id:1}]
+            loading:false,
+            msg:null,
+            error:null,
+            nigerianStates:[]
       }
 
       schema = {
@@ -29,15 +34,31 @@ class Contactinfo extends DynamicForm {
       .required()
       .label("State"),
   };
-      doSubmit = () =>{
-      console.log("Update info click")
+      doSubmit = async () =>{
+        this.setState({loading:true})
+        try {
+        const {data} = await updateContactInfo(this.state.data)
+        this.setState({msg:data.message, error:null, loading:false})
+      }
+      catch(ex){
+        if(ex.response && ex.response.data){
+          this.setState({msg:null, error:ex.response.data, loading:false})
+        }else{
+          this.setState({error:"Something went wrong, try again later",loading:false, msg:null})
+        }
+      }
+      
       }
       componentDidMount() {
            this.setState({nigerianStates:States})
       }
       render() { 
+        const { loading, msg, error, data } = this.state
+        console.log(data)
             return ( 
                   <div className="advs-box-content">
+                    {msg && <div className="alert alert-success">{msg}</div>}
+                    {error && <div className="alert alert-danger">{error}</div>}
           <h4>Contact Information</h4>
           <Form onSubmit={this.handleSubmit}>
             <Row>
@@ -53,7 +74,17 @@ class Contactinfo extends DynamicForm {
                     {this.renderSelect("state", "State", this.state.nigerianStates )}
               </Col>
             </Row>
-            <Button className="btn1" size="md" type="submit">Update Contact Information</Button>
+            <Button className="btn1" size="md" type="submit" disabled={loading}>
+               {loading &&  <div><RotateSpinner
+                size={20}
+                color="#ffffff"
+                loading={loading}
+            />
+            </div>
+            }
+
+              {!loading && "Update Contact Information"}
+              </Button>
           </Form>
         </div>
              );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { RotateSpinner } from 'react-spinners-kit'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom';
 import Joi from 'joi-browser'
@@ -69,7 +70,7 @@ const {otpData} = {...this.state}
 
 
   render() {
-    const { isLoading, data, loginSuccess, otpData } = this.state;
+    const { isLoading, data, loginSuccess } = this.state;
      if (auth.getCurrentUser()) return <Redirect to="/user/dashboard"/>;
     
     let otp = (
@@ -108,7 +109,11 @@ const {otpData} = {...this.state}
                     </div>
 
                     <Button disabled={isLoading} type="submit" className="btn1 mt-3" variant="dark">
-                      {isLoading && <i className="fa fa-refresh fa-spin mr-l0"></i>}
+                      {isLoading && <div><RotateSpinner
+                size={20}
+                color="#ffffff"
+                loading={isLoading}
+            /></div>}
                       {!isLoading && "Confirm"}
                       {isLoading && "Confirming otp..."}
                     </Button>
@@ -151,9 +156,14 @@ const {otpData} = {...this.state}
                     {this.renderInput("password", "Password", "password")}
 
                     <Button disabled={isLoading} type="submit" className="btn1 mt-3" variant="dark">
-                      {isLoading && <i className="fa fa-refresh fa-spin mr-l0"></i>}
+                      {isLoading && <div style={{marginLeft:"10px"}}>
+                        <RotateSpinner
+                          size={20}
+                          color="#ffffff"
+                          loading={isLoading}
+                      /></div>}
                       {!isLoading && "Login"}
-                      {isLoading && "Logging in..."}
+                      {/* {isLoading && "Logging in..."} */}
                     </Button>
                   </form>
                   <p className="text-center mr-t15"><Link style={{ color: "blue" }} to="/password-reset">Forgot password?</Link></p>

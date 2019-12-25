@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios'
+import { RotateSpinner } from 'react-spinners-kit'
 import { Redirect } from 'react-router-dom';
 import auth from '../services/authService';
 import Joi from 'joi-browser'
@@ -163,9 +164,14 @@ confirmOTP = () => {
                     {this.renderInput("email","Email", "email")}
                     {this.renderInput("password","Password","password")}
                     <Button disabled={isLoading} type="submit" className="btn1 mt-3" variant="dark">
-                      {isLoading &&<i className="fa fa-refresh fa-spin mr-l0"></i>}
+                      {isLoading &&<div style={{marginLeft:"10px"}}>
+                        <RotateSpinner
+                          size={20}
+                          color="#ffffff"
+                          loading={isLoading}
+                      /></div>}
                       {!isLoading && "Register"}
-                      {isLoading && "Register.... wait"}
+                      
                     </Button>
                   </form>
                   <p className="text-center">Already have an account? <Link style={{color:"blue"}} to="/login" className="para">Login</Link></p>

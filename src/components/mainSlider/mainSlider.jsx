@@ -75,7 +75,7 @@ class MainSlider extends Component {
 		const data = [
 			{
 				title:
-					"Brass and books multipurpose co-operative society ",
+					"Brass & Books Multipurpose Co-operative Society ",
 				btn1: "Invest",
 				btn2: "Loans"
 			},

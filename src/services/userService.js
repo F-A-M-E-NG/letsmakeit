@@ -23,6 +23,10 @@ return http.put(apiEndpoint, {
 }
 
 // Update User Contact Information
-export function updateContactInfo(contactInfo) {
-      return http.put(`${apiUrl}/profile/contact`, contactInfo)
+export function updateContactInfo(contact) {
+      return http.put(`${apiUrl}/profile/contact`, contact)
+}
+// Get User Contact Information
+export function userContactInfo() {
+      return http.get(`${apiUrl}/profile/contact`)
 }

@@ -16,6 +16,7 @@ class Plan extends Component {
         accountInfo:{},
         transactions:{},
         toggleFundAccount:false,
+        toggleWithdrawAccount:false,
         loading:true,
 
         // Paystack details
@@ -30,7 +31,7 @@ class Plan extends Component {
        // Paystack methods
 
         callback = async (response) => {
-    		console.log(response);
+    		
         if(response.status ==="success"){
           let newTransaction ={
             accountNumber:this.state.accountNumber,
@@ -38,7 +39,7 @@ class Plan extends Component {
             amount:this.state.amount,
 
           }
-        console.log(newTransaction)
+        
           try {
           let {data} = await fundUserCreatedAccount(newTransaction)
     
@@ -137,11 +138,18 @@ class Plan extends Component {
          
       }
       openfundAccForm =()=>{
-        this.setState({toggleFundAccount:true})
+        this.setState({toggleFundAccount:true, toggleWithdrawAccount:false})
       }
       
       closefundAccForm =()=>{
-        this.setState({toggleFundAccount:false, amount:""})
+        this.setState({toggleFundAccount:false, toggleWithdrawAccount:false, amount:""})
+      }
+      openwithdrawForm =()=>{
+        this.setState({toggleFundAccount:false, toggleWithdrawAccount:false})
+      }
+      
+      closewithdrawAccForm =()=>{
+        this.setState({toggleFundAccount:false,toggleWithdrawAccount:false, amount:""})
       }
 
       handleAmount = event =>{
@@ -154,7 +162,7 @@ class Plan extends Component {
       render() { 
        
         const {data:accountInfo} = this.state.accountInfo
-        const {toggleFundAccount} = this.state;
+        const {toggleFundAccount, toggleWithdrawAccount} = this.state;
        
         if(this.state.accountNumber.length > 10) return <Redirect to="/user/dashboard"/>;
         if (!auth.getCurrentUser()) return <Redirect to="/login"/>;
@@ -180,7 +188,7 @@ class Plan extends Component {
                           <h2 id="accountBalance"><NumberFormat value={this.state.accountBalance} displayType={'text'} isNumericString={true} thousandSeparator={true} prefix={'₦'} /></h2>
                           <div className="row">
                           <button type="button" id="fundAccount"  className="btn1" onClick={this.openfundAccForm} disabled={toggleFundAccount}>Fund Account</button>
-                          <button className="btn1 mr-l20" disabled>Withdraw</button>
+                          <button className="btn1 mr-l20" onClick={this.openwithdrawForm} disabled={toggleWithdrawAccount}>Withdraw</button>
                           </div>
                           {toggleFundAccount && <div>
                             <form id="fundForm" className="form-box form-ajax">
@@ -227,6 +235,23 @@ class Plan extends Component {
       
                                
                               <Button color="danger" size="md" className="btn mr-l20" id="cancel-button" onClick={this.closefundAccForm}>Cancel</Button>
+                            
+                          </div>}
+                          {toggleWithdrawAccount && <div>
+                            <form id="fundForm" className="form-box form-ajax">
+                              <div className="form-group">
+                                <label for="accountType">Amount</label>
+                                <input type="number" name="amount" id="amount" className="form-control form-value" placeholder="Amount"
+                                onChange={this.handleAmount} value={this.state.amount}  required />
+                              </div>
+              
+                         <input type="button" value="Proceed" className="btn1" disabled={this.state.amount < 500}/>
+                          </form>
+               
+           
+      
+                               
+                              <Button color="danger" size="md" className="btn mr-l20" id="cancel-button" onClick={this.closewithdrawForm}>Cancel</Button>
                             
                           </div>}
                         </div>

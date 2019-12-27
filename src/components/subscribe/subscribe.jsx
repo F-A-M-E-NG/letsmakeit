@@ -10,9 +10,7 @@ class Subscribe extends Component {
         <h2>Subscribe to us!</h2>
         <ul>
           <li><Link to="#"><i className="fa fa-facebook"></i></Link></li>
-          <li><Link to="#"><i className="fa fa-twitter"></i></Link></li>
-          <li><Link to="#"><i className="fa fa-send-o"></i></Link></li>
-          <li><Link to="#"><i className="fa fa-bitcoin"></i></Link></li>
+          <li><Link to="#"><i className="fa fa-instagram"></i></Link></li>
           <li><Link to="#"><i className="fa fa-envelope"></i></Link></li>
         </ul>
         <Row>

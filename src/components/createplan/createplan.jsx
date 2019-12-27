@@ -1,6 +1,6 @@
 import React from 'react';
 import PaystackButton from 'react-paystack';
-import { RotateSpinner } from 'react-spinners-kit'
+// import { RotateSpinner } from 'react-spinners-kit'
 
 import DynamicForm from '../../common/form'
 import Joi from 'joi-browser'
@@ -35,7 +35,6 @@ class Createpan extends DynamicForm {
       .label("Account Type")
   };
 callback = async (response) => {
-    		console.log(response);
         if(response.status ==="success"){
           let newTransaction ={
             reference:response.reference,
@@ -56,7 +55,7 @@ callback = async (response) => {
           this.setState({error:`${ex.response.data.message},`, msg:null})
             }else{
               this.setState({error: "Something failed please try again later"})
-              console.log("Something failed")
+           
 
             }
           }
@@ -64,7 +63,7 @@ callback = async (response) => {
     	}
  
     	close = () => {
-    		console.log("Payment closed");
+    		
         this.setState({error:"Transaction Cancelled", msg:null})
     	}
  
@@ -85,19 +84,18 @@ callback = async (response) => {
     try {
     let {data} = await CreateAccount(this.state.data)
     this.setState({msg: data.message, isLoading:false, accountSuccess:true})
-    //  console.log(data)
+   
     }
     catch(ex){
       if(ex.response && ex.response.data){
     this.setState({msg: null, error:ex.response.data.message, isLoading:false, accountSuccess:false})
-     console.log(ex.response.data)
-
+    
       }else{
     this.setState({msg: null, error:"Pls check your internet connection", isLoading:false, accountSuccess:false})
-        console.log("")
+        
       }
     }
-    console.log("Acccount submitted")
+   
   }
 handleAmount = event =>{
  let das = event.target.value
@@ -107,11 +105,11 @@ handleAmount = event =>{
  }else{
    this.setState({amount:das, amountrequired:false})
  }
- console.log(das)
+ 
 }
       componentDidMount() {
     const AccountType = window.location.href.split("/")
-    console.log(products)
+ 
        let produc = products.filter(product => product.name === AccountType[4] )
 		this.setState({ product:AccountType[4]})
     produc.map(prod => {
@@ -121,7 +119,7 @@ handleAmount = event =>{
     if(user){
       this.setState({data, email:user.email, lastName:user.lastName, firstName:user.firstName, _id:user._id})
     }})
-        console.log(produc)
+        
        auth.expiredLogout()
       }
       

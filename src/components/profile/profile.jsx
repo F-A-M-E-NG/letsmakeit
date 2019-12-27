@@ -16,7 +16,7 @@ class Profile extends DynamicForm {
           email:"",
           phoneNumber:""
         },
-        savebankAccount:{accountName:"", accountNumber:""},
+        savebankAccount:{accountName:"", accountNumber:"", bank:""},
         errors:{},
         isOpen:false, 
         banks:[],
@@ -53,7 +53,7 @@ class Profile extends DynamicForm {
             const {checkAccount} =this.state
             checkAccount.account_Number=""
             checkAccount.bank_code =""
-            this.setState({isOpen:false, checkAccount, accountHolder:""})
+            this.setState({isOpen:false, checkAccount, accountHolder:"", isLoading:false})
           }
     checkBankName = async() => {
       
@@ -62,6 +62,7 @@ class Profile extends DynamicForm {
             const {savebankAccount} = this.state
                 savebankAccount.accountName= data.data.account_name
                 savebankAccount.accountNumber = this.state.checkAccount.account_Number
+                // savebankAccount.bank = this.state.checkAccount.
             this.setState({accountHolder:data.data.account_name, savebankAccount})
       }
       catch(ex){
@@ -75,18 +76,38 @@ class Profile extends DynamicForm {
       }
       }
       
-
+  filterBank = () => {
+    const { savebankAccount } = this.state
+    if(this.state.banks.length > 0){
+     const selectedBank = this.state.banks.filter(bank=>{
+        return bank.code ===this.state.checkAccount.bank_code
+      })
+     selectedBank.forEach(bank => {
+      savebankAccount.bank = bank.name
+      this.setState({savebankAccount})
+       })
+     
+    }
+  }
     handleAccountNumResolve = event =>{
       const {checkAccount }= this.state
       checkAccount[event.target.name] = event.target.value;
      this.setState({checkAccount})
+     this.filterBank()
+      if(this.state.checkAccount.account_Number.length === 10 && this.state.accountHolder ==="" ){
+           this.checkBankName()
+           
+         }else{
+           this.setState({accountHolder:""})
+         }
     }
-addAccountNumber = () => {
-  
+addAccountNumber = (e) => {
+  e.preventDefault()
  this.saveAcc()
 }
 
 saveAcc = async()=>{
+  
   if(this.state.accountHolder.length > 5){ 
    this.setState({isLoading:true})
   try{
@@ -96,7 +117,7 @@ saveAcc = async()=>{
   }catch(ex){
      if(ex.response && ex.response.data){
           this.setState({msg:null, error:ex.response.data, isloading:false})
-          console.log(ex.response.data.message)
+          console.log(ex.response.data)
         }else{
           this.setState({error:"Something went wrong, try again later",isLoading:false, msg:null})
         }
@@ -132,11 +153,10 @@ saveAcc = async()=>{
        }
        
       render() {
-         if(this.state.checkAccount.account_Number.length ===9 && this.state.accountHolder==="" || this.state.checkAccount.account_Number.length ===10 && this.state.accountHolder==="" ){
-           this.checkBankName()
-         }
+        
          
          console.log(this.state.savebankAccount)
+         console.log(this.state.banks)
         
          if (!auth.getCurrentUser()) return <Redirect to="/login"/>;
         const {isOpen, loading, isLoading } = this.state;

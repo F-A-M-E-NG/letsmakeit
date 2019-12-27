@@ -18,12 +18,12 @@ class Dashboard extends Component {
 		const user = auth.getCurrentUser()
 		try{
 		const {data} = await getAllAccountByActiveUser(user._id)
-			console.log(data)
+			
 			this.setState({userProducts:data})
 		}
 		catch(ex){
 			if(ex.response && ex.response.data){
-				console.log(ex.response.data)	
+				
 			}else{
 				console.log("Something Failed")
 			}

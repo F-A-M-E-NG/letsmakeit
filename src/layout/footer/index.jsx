@@ -34,8 +34,8 @@ class Footer extends Component {
 									<Row style={{
 										marginTop:"45"
 									}}>
-										<i class="fa fa-facebook circle"></i>
-										<i class="fa fa-twitter circle"></i>
+										<i class="fa fa-facebook circle fa-facebk"></i>
+										<i class="fa fa-instagram circle fa-instag"></i>
 									</Row>
 								</Col>
 							</Row>
@@ -53,12 +53,12 @@ class Footer extends Component {
 										<span>© 2019 BBMPCS</span>
 									</Col>
 									<Col>
-										<span>
+										{/* <span>
 											Developed by{" "}
 											<a class="para" href="http://safescrow.com.ng/">
 												SafeScrow
 											</a>
-										</span>
+										</span> */}
 									</Col>
 								</Row>
 							</Container>

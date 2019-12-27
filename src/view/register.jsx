@@ -71,13 +71,12 @@ confirmOTP = () => {
             this.setState({ msg: success.data.message, error: null, isLoading: false, success: false, toLogin:true }))
       .catch(err=>{
          this.setState({ error: err.response.data.message, msg:null,  success: true, isLoading: false })
-        // console.log(err.response.data)
+       
       })
   }
   render() {
     if(this.state.toLogin) return <Redirect to="/login"  />
     if(auth.getCurrentUser()) return <Redirect to="/user/dashboard"  />
-    // console.log(this.state.otpData)
     const {isLoading, success, data} = this.state;
 
     let otp = (

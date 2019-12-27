@@ -46,7 +46,6 @@ const {otpData} = {...this.state}
           }
         catch(ex){
             if (ex.response && ex.response.data.message === "Account is not confirmed. Please confirm your account.") {
-            console.log(ex.response.data.message)
             this.setState({ msg:null, error: ex.response.data.message, loginSuccess: true, isLoading: false })
           }else if(ex.response){
 
@@ -64,7 +63,6 @@ const {otpData} = {...this.state}
             this.setState({ msgs: success.data.message, error: null, isLoading: false, loginSuccess: false }))
       .catch(err=>{
          this.setState({ error: err.response.data.message,  loginSuccess: true, isLoading: false })
-        // console.log(err.response.data)
       })
   }
 
@@ -109,11 +107,12 @@ const {otpData} = {...this.state}
                     </div>
 
                     <Button disabled={isLoading} type="submit" className="btn1 mt-3" variant="dark">
-                      {isLoading && <div><RotateSpinner
-                size={20}
-                color="#ffffff"
-                loading={isLoading}
-            /></div>}
+                      {isLoading && <div>
+                        <RotateSpinner
+                            size={20}
+                            color="#ffffff"
+                            loading={isLoading}
+                        /></div>}
                       {!isLoading && "Confirm"}
                       {isLoading && "Confirming otp..."}
                     </Button>

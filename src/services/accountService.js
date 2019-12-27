@@ -110,3 +110,7 @@ export function SingleTransactionDetails(transactionId){
 export function SaveUserAccountInfo(account){
   return http.put(`${apiUrl}/profile/bank`, account)
 }
+// update user contact info
+export function updateContactInfo(contactInfo) {
+      return http.put(`${apiUrl}/profile/contact`, contactInfo)
+}

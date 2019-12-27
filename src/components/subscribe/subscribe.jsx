@@ -9,8 +9,8 @@ class Subscribe extends Component {
       <div className="con">
         <h2>Subscribe to us!</h2>
         <ul>
-          <li><Link to="#"><i className="fa fa-facebook"></i></Link></li>
-          <li><Link to="#"><i className="fa fa-instagram"></i></Link></li>
+          <li><a rel="noopener noreferrer" href="http://facebook.com/brassandbooks" target="_blank"><i className="fa fa-facebook"></i></a></li>
+          <li><a rel="noopener noreferrer" href="http://instagram.com/brassandbooks" target="_blank"><i className="fa fa-instagram"></i></a></li>
           <li><Link to="#"><i className="fa fa-envelope"></i></Link></li>
         </ul>
         <Row>

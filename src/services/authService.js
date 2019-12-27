@@ -24,6 +24,7 @@ export function expiredLogout(){
       if(user && user.exp){
       if(Date.now() >= user.exp * 1000) {
         localStorage.removeItem(tokenKey);
+        window.location ="/"
       }
       }
 }

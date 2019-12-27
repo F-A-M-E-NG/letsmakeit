@@ -96,7 +96,6 @@ class Profile extends DynamicForm {
      this.filterBank()
       if(this.state.checkAccount.account_Number.length === 10 && this.state.accountHolder ==="" ){
            this.checkBankName()
-           
          }else{
            this.setState({accountHolder:""})
          }

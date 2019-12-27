@@ -145,7 +145,7 @@ class Plan extends Component {
         this.setState({toggleFundAccount:false, toggleWithdrawAccount:false, amount:""})
       }
       openwithdrawForm =()=>{
-        this.setState({toggleFundAccount:false, toggleWithdrawAccount:false})
+        this.setState({toggleFundAccount:false, toggleWithdrawAccount:true})
       }
       
       closewithdrawAccForm =()=>{
@@ -192,6 +192,7 @@ class Plan extends Component {
                           </div>
                           {toggleFundAccount && <div>
                             <form id="fundForm" className="form-box form-ajax">
+                              <h3 className="mr-t20">Fund your Account</h3>
                               <div className="form-group">
                                 <label for="accountType">Amount</label>
                                 <input type="number" name="amount" id="amount" className="form-control form-value" placeholder="Amount"
@@ -239,19 +240,20 @@ class Plan extends Component {
                           </div>}
                           {toggleWithdrawAccount && <div>
                             <form id="fundForm" className="form-box form-ajax">
+                              <h3 className="mr-t20">Withdraw from your Account</h3>
                               <div className="form-group">
                                 <label for="accountType">Amount</label>
                                 <input type="number" name="amount" id="amount" className="form-control form-value" placeholder="Amount"
                                 onChange={this.handleAmount} value={this.state.amount}  required />
                               </div>
               
-                         <input type="button" value="Proceed" className="btn1" disabled={this.state.amount < 500}/>
                           </form>
+                         <input type="button" value="Proceed" className="btn1" disabled={this.state.amount < 500}/>
                
            
       
                                
-                              <Button color="danger" size="md" className="btn mr-l20" id="cancel-button" onClick={this.closewithdrawForm}>Cancel</Button>
+                              <Button color="danger" size="md" className="btn mr-l20" id="cancel-button" onClick={this.closewithdrawAccForm}>Cancel</Button>
                             
                           </div>}
                         </div>

@@ -47,19 +47,17 @@ class Plan extends Component {
           }
           catch(ex){
             if(ex.response && ex.response.data){
-              console.log(ex.response.data)
+              // console.log(ex.response.data)
           this.setState({error:`${ex.response.data.message},`, msg:null})
             }else{
               this.setState({error: "Something failed please try again later"})
-              console.log("Something failed")
-
             }
           }
         } // card charged successfully, get reference here
     	}
  
     	close = () => {
-    		console.log("Payment closed");
+    		// console.log("Payment closed");
         this.setState({error:"Transaction Cancelled", msg:null, amount:""})
     	}
  
@@ -83,13 +81,13 @@ class Plan extends Component {
        {
         const {data} = await getSingleAccount(accountNumber[5])
         this.setState({accountInfo:data})
-        console.log(data)
+      
        }
        catch(ex){
         if(ex.response && ex.response.data){
-          console.log(ex.response.data)
+          // console.log(ex.response.data)
         }else{
-          console.log("Something failed, try again later")
+          // console.log("Something failed, try again later")
         }
        }
      }
@@ -113,10 +111,10 @@ class Plan extends Component {
        }
        catch(ex){
         if(ex.response && ex.response.data){
-          console.log(ex.response.data)
+          
         this.setState({loading:false})
         }else{
-          console.log("Something failed, try again later")
+          // console.log("Something failed, try again later")
         this.setState({loading:false})
         }
        }
@@ -154,9 +152,7 @@ class Plan extends Component {
 
       handleAmount = event =>{
         let das = event.target.value
-        this.setState({amount:das})
-        console.log(das)
-         
+        this.setState({amount:das})      
 }
       
       render() { 

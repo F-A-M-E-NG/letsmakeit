@@ -23,7 +23,9 @@ class Profile extends DynamicForm {
         checkAccount:{account_Number:"", bank_code:""},
         accountHolder:"",
         loading:false,
-        isLoading:false
+        isLoading:false,
+        msg:"",
+        error:""
        }
 
      schema = {
@@ -62,20 +64,18 @@ class Profile extends DynamicForm {
             const {savebankAccount} = this.state
                 savebankAccount.accountName= data.data.account_name
                 savebankAccount.accountNumber = this.state.checkAccount.account_Number
-                // savebankAccount.bank = this.state.checkAccount.
             this.setState({accountHolder:data.data.account_name, savebankAccount})
       }
       catch(ex){
         if(ex.response && ex.response.data){
-          console.log(ex.response.data.message)
           this.setState({accountHolder:""})
         }
         else{
-          console.log("Something went wrong try again")
+          
         }
       }
       }
-      
+    // Get the User Selected Bank Name  
   filterBank = () => {
     const { savebankAccount } = this.state
     if(this.state.banks.length > 0){
@@ -86,9 +86,9 @@ class Profile extends DynamicForm {
       savebankAccount.bank = bank.name
       this.setState({savebankAccount})
        })
-     
     }
   }
+  // Resolve the User Account Number from Paystack
     handleAccountNumResolve = event =>{
       const {checkAccount }= this.state
       checkAccount[event.target.name] = event.target.value;
@@ -106,17 +106,14 @@ addAccountNumber = (e) => {
 }
 
 saveAcc = async()=>{
-  
   if(this.state.accountHolder.length > 5){ 
    this.setState({isLoading:true})
   try{
     const {data} = await SaveUserAccountInfo(this.state.savebankAccount)
     this.setState({msg:data.message, error:null, isLoading:false})
-    console.log(data)
   }catch(ex){
      if(ex.response && ex.response.data){
           this.setState({msg:null, error:ex.response.data, isloading:false})
-          console.log(ex.response.data)
         }else{
           this.setState({error:"Something went wrong, try again later",isLoading:false, msg:null})
         }
@@ -153,12 +150,8 @@ saveAcc = async()=>{
        
       render() {
         
-         
-         console.log(this.state.savebankAccount)
-         console.log(this.state.banks)
-        
          if (!auth.getCurrentUser()) return <Redirect to="/login"/>;
-        const {isOpen, loading, isLoading } = this.state;
+        const {isOpen, loading, isLoading, msg, error } = this.state;
             return (
               <Container>
         <br></br>
@@ -220,6 +213,8 @@ saveAcc = async()=>{
          <hr className="space"/>
       <div className="advs-box advs-box-multiple shadow-1">
         <div className="advs-box-content">
+          {msg && <div className="alert alert-success">{msg}</div>}
+          {error && <div className="alert alert-danger">{error}</div>}
           <div style={{
             display:"flex",
             flexWrap:"wrap",

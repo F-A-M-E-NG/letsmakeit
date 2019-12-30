@@ -2,7 +2,8 @@ import React from 'react'
 import Joi from 'joi-browser'
 import { RotateSpinner } from 'react-spinners-kit'
 
-import { updateContactInfo, userContactInfo } from '../../services/userService'
+// import { userContactInfo, updateContactInfo } from '../../services/accountService'
+import { userContactInfo, updateContactInfo } from '../../services/userService'
 import States from '../../utility/states';
 import DynamicForm from '../../common/form';
 import { Col, Row, Button, Form} from 'reactstrap';
@@ -12,7 +13,8 @@ class Contactinfo extends DynamicForm {
             data:{
                   homeAddress:"",
                   city:"",
-                  state:""
+                  state:"",
+                  // phoneNumber:""
                   },
             errors:{},
             loading:false,
@@ -22,6 +24,7 @@ class Contactinfo extends DynamicForm {
       }
 
       schema = {
+        _id: Joi.string(),
     homeAddress: Joi.string()
       .required()
       .min(30)
@@ -33,24 +36,40 @@ class Contactinfo extends DynamicForm {
     state: Joi.string()
       .required()
       .label("State"),
+    // phoneNumber: Joi.string()
+    //   .required()
+    //   .label("Phone Number"),
   };
-  getContactInfo = async () => {
-    try{
-      const {data} = await userContactInfo()
-      console.log(data)
-  }catch(ex){
-    if(ex.response && ex.response.data){
-      console.log(ex.response.data)
-    }else{
-      console.log("something failed")
+
+
+populateContact = async () => {
+    try {
+   
+    const {data:ContactDetails} = await userContactInfo();
+    this.setState({ data: this.mapToViewModel(ContactDetails) });
+      
+    } catch (ex) {
+    if (ex.response && ex.response.data){ 
+     const error = ex.response.data.message
     }
+    }
+ }
+
+mapToViewModel(ContactDetails) {
+    return {
+      _id: ContactDetails.data._id,
+      homeAddress: ContactDetails.data.homeAddress,
+      city: ContactDetails.data.city,
+      state: ContactDetails.data.state
+    };
   }
-  }
+
+
+
       doSubmit = async () =>{
         this.setState({loading:true})
         try {
         const {data} = await updateContactInfo(this.state.data)
-        console.log(data)
         this.setState({msg:data.message, error:null, loading:false})
       }
       catch(ex){
@@ -62,14 +81,13 @@ class Contactinfo extends DynamicForm {
       }
       
       }
-      componentDidMount() {
+    async  componentDidMount() {
            this.setState({nigerianStates:States})
-           this.getContactInfo()     
+          await this.populateContact()     
             }
 
       render() { 
         const { loading, msg, error } = this.state
-        console.log(this.state.data)
             return ( 
                   <div className="advs-box-content">
                     {msg && <div className="alert alert-success">{msg}</div>}
@@ -78,6 +96,7 @@ class Contactinfo extends DynamicForm {
           <Form onSubmit={this.handleSubmit}>
             <Row>
               <Col md={12}>
+                    {/* {this.renderInput("phoneNumber", "Phone Number", "tel")} */}
                     {this.renderTextarea("homeAddress", "Home Address")}
               </Col>
             </Row>

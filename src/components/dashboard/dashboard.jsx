@@ -25,7 +25,7 @@ class Dashboard extends Component {
 			if(ex.response && ex.response.data){
 				
 			}else{
-				console.log("Something Failed")
+				
 			}
 		}
 	}

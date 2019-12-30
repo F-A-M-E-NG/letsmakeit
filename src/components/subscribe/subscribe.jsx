@@ -11,7 +11,7 @@ class Subscribe extends Component {
         <ul>
           <li><a rel="noopener noreferrer" href="http://facebook.com/brassandbooks" target="_blank"><i className="fa fa-facebook"></i></a></li>
           <li><a rel="noopener noreferrer" href="http://instagram.com/brassandbooks" target="_blank"><i className="fa fa-instagram"></i></a></li>
-          <li><Link to="#"><i className="fa fa-envelope"></i></Link></li>
+          <li><a href="mailto:hello@bbmpcs.ng"><i className="fa fa-envelope"></i></a></li>
         </ul>
         <Row>
           <Col lg={12} md={12} sm={12} className="col-xs-12">

@@ -3,7 +3,10 @@ import { RotateSpinner } from 'react-spinners-kit'
 import PaystackButton from 'react-paystack';
 import { default as NumberFormat } from 'react-number-format';
 import { Button } from 'reactstrap'
-import { getSingleAccount, getAllTransactionForAnAccount, fundUserCreatedAccount } from '../../services/accountService'
+import { getSingleAccount,
+         getAllTransactionForAnAccount, 
+         fundUserCreatedAccount,
+         withdrawFromAccount } from '../../services/accountService'
 import { Redirect } from 'react-router-dom';
 import moment from 'moment'
 import auth from '../../services/authService';
@@ -18,6 +21,8 @@ class Plan extends Component {
         toggleFundAccount:false,
         toggleWithdrawAccount:false,
         loading:true,
+        isLoading:false,
+        error:null,
 
         // Paystack details
         key: "pk_test_f43a22879c6fc019c06964197aeab3905fd3b64f", //PAYSTACK PUBLIC KEY
@@ -47,8 +52,7 @@ class Plan extends Component {
           }
           catch(ex){
             if(ex.response && ex.response.data){
-              // console.log(ex.response.data)
-          this.setState({error:`${ex.response.data.message},`, msg:null})
+            this.setState({error:`${ex.response.data.message},`, msg:null})
             }else{
               this.setState({error: "Something failed please try again later"})
             }
@@ -57,7 +61,6 @@ class Plan extends Component {
     	}
  
     	close = () => {
-    		// console.log("Payment closed");
         this.setState({error:"Transaction Cancelled", msg:null, amount:""})
     	}
  
@@ -111,18 +114,41 @@ class Plan extends Component {
        }
        catch(ex){
         if(ex.response && ex.response.data){
-          
         this.setState({loading:false})
         }else{
           // console.log("Something failed, try again later")
         this.setState({loading:false})
         }
        }
-
      }
        getAccountNumber = () => {
         const accountNumber = window.location.href.split("/")
         this.setState({accountNumber:accountNumber[5]})
+       }
+
+
+       withDrawAccount = (e) => {
+         e.preventDefault()
+         this.handleWithdrawal()
+         
+       }
+
+       handleWithdrawal = async () => {
+         this.setState({isLoading: true})
+         const {accountBalance,amount, accountNumber} = this.state
+         if(accountBalance < amount ) return this.setState({error: "Insufficient balance", isLoading:false}) 
+         
+         try {
+              const { data } = await withdrawFromAccount(accountNumber, amount)
+              this.setState({isLoading: false, error:null, msg:data.message})
+         }catch (ex){
+           if(ex.response && ex.response.data){
+              this.setState({isLoading: false, error:ex.response.data.message, msg:null})
+            
+           }else{
+             this.setState({isLoading:false, error:"Something went wrong", msg:null})
+           }
+         }
        }
       componentDidMount() {
         this.getAccountNumber()
@@ -156,7 +182,6 @@ class Plan extends Component {
 }
       
       render() { 
-       
         const {data:accountInfo} = this.state.accountInfo
         const {toggleFundAccount, toggleWithdrawAccount} = this.state;
        
@@ -235,7 +260,7 @@ class Plan extends Component {
                             
                           </div>}
                           {toggleWithdrawAccount && <div>
-                            <form id="fundForm" className="form-box form-ajax">
+                            <form onSubmit={this.withDrawAccount} id="fundForm" className="form-box form-ajax">
                               <h3 className="mr-t20">Withdraw from your Account</h3>
                               <div className="form-group">
                                 <label for="accountType">Amount</label>
@@ -243,14 +268,18 @@ class Plan extends Component {
                                 onChange={this.handleAmount} value={this.state.amount}  required />
                               </div>
               
-                          </form>
-                         <input type="button" value="Proceed" className="btn1" disabled={this.state.amount < 500}/>
-               
-           
-      
-                               
-                              <Button color="danger" size="md" className="btn mr-l20" id="cancel-button" onClick={this.closewithdrawAccForm}>Cancel</Button>
+                         <Button type="submit" className="btn1" disabled={this.state.amount < 500}>
+                           {!this.state.isLoading && "Proceed"}
+                           <div>
+                        <RotateSpinner
+                            size={25}
+                            color="#ffffff"
+                            loading={this.state.isLoading}
+                        /></div>
+                         </Button>
+                         <Button color="danger" size="md" className="btn mr-l20" id="cancel-button" onClick={this.closewithdrawAccForm}>Cancel</Button>
                             
+                          </form>
                           </div>}
                         </div>
                       </div>

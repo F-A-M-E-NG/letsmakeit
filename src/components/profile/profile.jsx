@@ -40,11 +40,6 @@ class Profile extends DynamicForm {
       .required()
       .email()
       .label("Email"),
-     phoneNumber: Joi.string()
-      .required()
-      .min(11)
-      .max(14)
-      .label("Phone Number")
   };
 
 
@@ -121,6 +116,7 @@ saveAcc = async()=>{
   }
  }
 }
+    // Method to Update basic profile Details, Endpoint not available
     doSubmit = async () => {
       // try {
       //   const {data} = await u
@@ -186,9 +182,6 @@ saveAcc = async()=>{
                 <Col md={6}>
                  {this.renderInput("email", "Email", "email")}
                 </Col>
-                  <Col md={6}>
-                    {this.renderInput("phoneNumber", "Phone Number", "number")}
-                </Col> 
               </Row>
             <Button className="btn1" size="md" type="submit" style={{width:"200px"}} disabled={loading}>
               {loading &&  <div><RotateSpinner

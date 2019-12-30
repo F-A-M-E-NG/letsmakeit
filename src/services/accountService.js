@@ -1,12 +1,12 @@
 import http  from './httpService';
 import axios from 'axios';
-import logger from "./logService";
 import { apiUrl } from '../config.json';
 const apiEndpoint = `${apiUrl}/account`;
 const apiEndpointfundacct = `${apiUrl}/transaction`;
 const userAccounts = `${apiUrl}/account/u`
 const singleAccount = `${apiUrl}/account/n`
 const allTransforAnAccount = `${apiUrl}/transaction/a`
+const transforWithdraw = `${apiUrl}/transaction/withdraw`
 
 
 // Paystack AccountNumber resolve Config
@@ -63,14 +63,10 @@ return http.post(apiEndpointfundacct, {
 })
 }
 // Withdraw from User existing Account, No endpoint for now
-export function withdrawFromAccount(transaction){
-return http.post(apiEndpointfundacct, {
-            transactionType: "credit",
-            amount:transaction.amount,
-            accountNumber:transaction, //default
-            reference: transaction.reference,
-            channel: "Paystack"
-      
+export function withdrawFromAccount(accountNumber, amount){
+return http.post(transforWithdraw, {
+            accountNumber: accountNumber,
+            amount:amount
 })
 }
 

@@ -11,13 +11,12 @@ class Productdetails extends Component {
 	}
 	componentDidMount() {
 		const AccountType = window.location.href.split("/")
-		console.log(AccountType[4])
 		this.setState({product:AccountType[4]})
 	}
 	render() {
 		
 		const product = products.filter(product => product.name ===this.state.product ? this.state.product:"" )
-		console.log(product)
+
 		
 		let page = (
 			<div>

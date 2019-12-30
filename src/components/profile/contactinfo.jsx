@@ -14,7 +14,7 @@ class Contactinfo extends DynamicForm {
                   homeAddress:"",
                   city:"",
                   state:"",
-                  // phoneNumber:""
+                  phoneNumber:""
                   },
             errors:{},
             loading:false,
@@ -36,21 +36,21 @@ class Contactinfo extends DynamicForm {
     state: Joi.string()
       .required()
       .label("State"),
-    // phoneNumber: Joi.string()
-    //   .required()
-    //   .label("Phone Number"),
+    phoneNumber: Joi.string()
+      .required()
+      .label("Phone Number"),
   };
 
 
 populateContact = async () => {
     try {
-   
     const {data:ContactDetails} = await userContactInfo();
     this.setState({ data: this.mapToViewModel(ContactDetails) });
       
     } catch (ex) {
     if (ex.response && ex.response.data){ 
      const error = ex.response.data.message
+     this.setState({error})
     }
     }
  }
@@ -60,7 +60,8 @@ mapToViewModel(ContactDetails) {
       _id: ContactDetails.data._id,
       homeAddress: ContactDetails.data.homeAddress,
       city: ContactDetails.data.city,
-      state: ContactDetails.data.state
+      state: ContactDetails.data.state,
+      phoneNumber: ContactDetails.data.phoneNumber
     };
   }
 
@@ -96,7 +97,7 @@ mapToViewModel(ContactDetails) {
           <Form onSubmit={this.handleSubmit}>
             <Row>
               <Col md={12}>
-                    {/* {this.renderInput("phoneNumber", "Phone Number", "tel")} */}
+                    {this.renderInput("phoneNumber", "Phone Number", "tel")}
                     {this.renderTextarea("homeAddress", "Home Address")}
               </Col>
             </Row>

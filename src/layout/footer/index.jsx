@@ -20,13 +20,12 @@ class Footer extends Component {
 
 								<Col md={6}>
 									<h6 className="mt-5">
-										No 62, Erepa Road, Yenizuegene, Yenagoa, Bayelsa State,
-										Nigeria
+									Federal University Otuoke, Adjacent SUG building, Bayelsa State
 									</h6>
 									<div class="tag-row">
-										<span>hello@bbmpcs.ng</span>
+										<span>info@fuosmcos.com</span>
 										<div className="line" />
-										<span className="number">+2349030487810</span>
+										<span className="number">+2348065831658</span>
 									</div>
 								</Col>
 
@@ -51,7 +50,7 @@ class Footer extends Component {
 									}}
 								>
 									<Col md={10}>
-										<span>© 2019 BBMPCS</span>
+										<span>© {new Date().getFullYear()} FUOSMCOS</span>
 									</Col>
 									<Col>
 										{/* <span>

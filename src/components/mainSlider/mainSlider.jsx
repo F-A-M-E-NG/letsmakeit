@@ -75,13 +75,13 @@ class MainSlider extends Component {
 		const data = [
 			{
 				title:
-					"Brass & Books Multipurpose Co-operative Society ",
+					"Federal University otuoke staff multipurpose cooperative society (FUOSMCOS)",
 				btn1: "Invest",
 				btn2: "Loans"
 			},
 			{
 				title:
-					"Making you wealthy every day!",
+					"Making you prosperous and independent everyday!",
 				btn1: "Invest",
 				btn2: "Loans"
 			}

@@ -79,7 +79,7 @@ class Steps extends Component {
 										</li>
 										<li className="l-con">
 											<div className="cont">
-												<h2>Small Business Loans</h2>
+												<h2>siness Loans</h2>
 												<p>
 													BBMPCS, as a foremost Credit Union provides
 													intervention working capital funds for small and

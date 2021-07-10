@@ -33,8 +33,8 @@ class Footer extends Component {
 									<Row style={{
 										marginTop:"45"
 									}}>
-										<a rel="noopener noreferrer" href="http://facebook.com/brassandbooks" target="_blank"><i class="fa fa-facebook circle fa-facebk"></i></a>
-										<a rel="noopener noreferrer" href="http://instagram.com/brassandbooks" target="_blank"><i class="fa fa-instagram circle fa-instag"></i></a>
+										<a rel="noopener noreferrer" href="http://facebook.com/" target="_blank"><i class="fa fa-facebook circle fa-facebk"></i></a>
+										<a rel="noopener noreferrer" href="http://instagram.com/" target="_blank"><i class="fa fa-instagram circle fa-instag"></i></a>
 										
 									</Row>
 								</Col>

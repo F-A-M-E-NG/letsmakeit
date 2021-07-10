@@ -131,7 +131,7 @@ class Loans extends Component {
                     <div className="contents-l mr-b30">
                       <h2>Soft Loan</h2>
                       <p>
-                        this is a intervention business loan for small and
+                        This is a intervention business loan for small and
                         medium enterprises in different sector of the economy
                         and it's take the duration of three months before
                         deduction is made from such member salary per month
@@ -155,7 +155,7 @@ class Loans extends Component {
                     <div className="contents-l mr-b30">
                       <h2>Soft Loan</h2>
                       <p>
-                        this is a intervention business loan for small and
+                        This is a intervention business loan for small and
                         medium enterprises in different sector of the economy
                         and it's take the duration of three months before
                         deduction is made from such member salary per month
@@ -174,7 +174,7 @@ class Loans extends Component {
                     <div className="contents-r">
                       <h2>Material Loan</h2>
                       <p>
-                        These is a type of loan available to members who
+                        This is a type of loan available to members who
                         membership is over six months and it's also called land
                         package. It give members opportunity to acquire landed
                         properties purchase, survey and documented in the name
@@ -200,7 +200,7 @@ class Loans extends Component {
                     <div className="contents-r">
                       <h2>Material Loan</h2>
                       <p>
-                        These is a type of loan available to members who
+                        This is a type of loan available to members who
                         membership is over six months and it's also called land
                         package. It give members opportunity to acquire landed
                         properties purchase, survey and documented in the name

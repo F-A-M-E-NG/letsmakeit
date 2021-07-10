@@ -83,7 +83,7 @@ class Steps extends Component {
 													</h2>
 												
 												<p>
-													BBMPCS, as a foremost Credit Union provides
+													FUOSMCOS, as a foremost Credit Union provides
 													intervention working capital funds for small and
 													medium enterprises in different sectors of the
 													economy. These loans give businesses the opportunity

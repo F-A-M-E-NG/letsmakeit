@@ -175,7 +175,7 @@ class Header extends Component {
                     }}
                   >
                     <h1>
-                      <Link to={Config.defaultPath}>BBMPCS</Link>
+                      <Link to={Config.defaultPath}>FUOSMCOS</Link>
                     </h1>
                     <div onClick={this.toggleNavMenu} id="toggle_close">
                       &times;

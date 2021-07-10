@@ -5,6 +5,9 @@ import Subscribe from "../components/sub/subscribe";
 
 
 class SavePage extends Component {
+	componentDidMount() {
+		window.scrollTo(0, 0);
+	}
 	render() {
 		return (
 			<Fragment>

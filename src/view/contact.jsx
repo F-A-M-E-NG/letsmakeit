@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Container, Row, Col, Button } from 'reactstrap';
 
 class Tokens extends Component {
+  componentDidMount() {
+		window.scrollTo(0, 0);
+	}
   render() {
     let contents = (
       <Row>

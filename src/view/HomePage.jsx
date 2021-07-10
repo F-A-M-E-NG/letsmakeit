@@ -9,6 +9,9 @@ import Contact from "../view/contact";
 
 
 class HomePage extends Component {
+	componentDidMount() {
+		window.scrollTo(0, 0);
+	}
 	render() {
 		return (
 			<Fragment>

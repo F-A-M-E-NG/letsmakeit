@@ -4,6 +4,9 @@ import Subscribe from "../components/sub/subscribe";
 
 
 class InvestmentPage extends Component {
+	componentDidMount() {
+		window.scrollTo(0, 0);
+	}
 	render() {
 		return (
 			<Fragment>

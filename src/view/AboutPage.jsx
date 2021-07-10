@@ -3,6 +3,9 @@ import About from "../components/about/about";
 
 
 class AboutPage extends Component {
+	componentDidMount() {
+		window.scrollTo(0, 0);
+	}
 	render() {
 		return (
 			<Fragment>
